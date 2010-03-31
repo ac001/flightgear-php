@@ -1,0 +1,29 @@
+{% extends "MAIN.html" %}
+
+{% block side_box %}
+
+
+<h4>Links</h4>
+<p>Somehing ere</p>
+{% endblock side_box %}
+
+
+{% block content %}
+
+<table>
+<tr>
+
+	<th>cvs</th>
+	<th>Name</th>
+
+</tr>
+{% for dev in devs %}
+	<tr>
+
+		<td>{{ dev.cvs }}</td>
+		<td>{{ dev.name }}</td>
+    </tr>
+{% endfor %}
+</table>
+
+{% endblock %}

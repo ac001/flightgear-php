@@ -1,0 +1,48 @@
+{% extends "MAIN.html" %}
+
+{% block right_box %}
+
+	<div class="panel_box">
+		<h3>Coming Soon</h3>
+		<p>Upload your own images, and a rankings system.</P>
+	</div>
+
+	<div class="panel_box">
+		<h3>New</h3>
+		<p>Heave a future features section</P>
+	</div>
+{% endblock right_box %}
+
+{% block content %}
+
+
+
+<table class="video_table">
+
+<tr>
+	<th>Tutorials</th>
+	<th>How To's</th>
+</tr>
+<tr>
+<!--## Tutorials -->
+<td>
+	{% for vid in app.video_tutorials %}
+		<div class="video_box"><a href="#">
+			<img src="{{ vid.thumbnail }}"><p>{{ vid.title }}</p></a>
+		</div>
+	{% endfor %}
+
+</td>
+
+<!--## How To's -->
+<td>
+	{% for vid in app.video_howtos %}
+		<div class="video_box"><a href="#">
+			<img src="{{ vid.thumbnail }}"><p>{{ vid.title }}</p></a>
+		</div>
+	{% endfor %}
+</td>
+
+</tr></table>
+
+{% endblock content %}

@@ -1,0 +1,20 @@
+{% extends "MAIN.html" %}
+
+
+{% block right_box %}
+
+
+
+
+{% endblock %}
+
+{% block content %}
+
+
+{% for ver in app.versions %}
+	<h3>{{ ver.version}}</h3>
+	<p>{{ ver.info }}</p>
+
+{% endfor %}
+
+{% endblock content %}
