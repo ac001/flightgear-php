@@ -19,11 +19,10 @@
 <script type="text/javascript" src="/js/front.js"></script>
 
 </head> 
-<body> 
 
+<body>
 
-
-
+<!--## Main Container to center and padd -->
 <div id="main_container">
 
 <!--####################################################################################-->
@@ -32,7 +31,9 @@
 <div id="left_container">
 
 	<!--## Logo ##-->
-	<div id="flightgear_logo"><img src="images/flightgear.png"></div>
+	<div id="flightgear_logo_box">
+		<div id="flightgear_logo"><img src="images/flightgear.png" alt="flightgear"></div>
+	</div>
 
 	<!--## Page Navigation  ##-->
 	<div id="page_nav">
@@ -50,14 +51,16 @@
 		</ul>
 	</div>
 
-	<p style="text-align: right; margin-top: 5px;"><a href="#"><img src="images/missc/feed_atom.gif"></a></p>
+	<!--## Atom Link  ##-->
+	<p style="text-align: right; margin-top: 5px;"><a href="#"><img src="images/missc/feed_atom.gif" alt="atom"></a></p>
 
-</div><!-- left_box -->
+</div><!-- left_container -->
 
-<!--####################################################################################-->
-<!--### Right Container =  MAIN content ###-->
-<!--###################################################################################-->
-<div id="right_container">
+
+
+<div id="header_container">
+
+
 
 	<!--######################################################-->
 	<!-- ### Inter Site Nav ###-->
@@ -69,52 +72,33 @@
 		</ul>
 	</div>
 
+	<h1>Flight Simulator Project</h1>
+	<h2>The World's Leading Open Source Flight Simulator</h2>
 
-
-	<!--######################################################-->
-	<!-- ### Top Banner ###-->
-	<div id="top_box">
-
-		<h1>{$Config->site_title}</h1>
-		<table class="top_bar">
-			<tr>
-			<th><i>The World's Leading Open Source Flight Simulator<i>  </th>
-			<td><a href="/idea/multiplayer/pilots/">Pilots: --</a></td>
-			<td><a href="/idea/multiplayer/atc/">ATC: --</a></td>
-			<td><a href="http://fg-online.appspot.com/servers/">Servers: 
-				X Nodes / <span style="color: green">0 Up</span> / <span style="color: red">0 down</span></a></td>
-			</tr>
-		</table>
-
-		<table id="toolbar_box">
+	<table class="sstop_table">
 		<tr>
-
-			<td><!-- TODO Google Search -->
-				<form action="http://www.google.com/cse" ssid="cse-search-box" class="toolbar_form">
-				<div>
-					<input type="hidden" name="cx" value="014455812952330413319:i-xxrdkrna4" />
-					<input type="hidden" name="ie" value="UTF-8" />
-					<input type="text" name="q" size="21" />
-					<input type="submit" name="sa" value="Search" />
-				</div>
-				</form>
-				<script type="text/javascript" src="http://www.google.com/cse/brand?form=cse-search-box&lang=en"></script>
-			</td>
-
-			<td style="text-align:right;"><!-- Profile +  Login/Out -->
-				
-			</td>
+		<td class="mp_label"><a href="#">Pilots</a></td>
+		<td class="mp_value">--</td>
+		<td class="mp_label"><a href="/idea/multiplayer/atc/">Atc</a></td>
+		<td class="mp_value">--</td>
+		<td><a href="http://fg-online.appspot.com/servers/">Servers: 
+			X Nodes / <span style="color: green">0 Up</span> / <span style="color: red">0 down</span></a></td>
 		</tr>
-		</table>
+	</table>
+</div>
 
-	</div><!-- top box -->
+
+<!--####################################################################################-->
+<!--### Content Container =  MAIN content ###-->
+<!--###################################################################################-->
+<div id="content_container">
 
 
 	<!--######################################################-->
 	<!-- ### main Cnntent ###-->
 		{include file=$Site->mainPage()}
 
-</div><!-- right_container -->
+</div><!-- content_container -->
 
 
 <div id="footer_box">

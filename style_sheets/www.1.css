@@ -9,15 +9,6 @@
 	font-family: serif;
 }
 
-#flightgear_logo img{
-	border: 1px outset #dddddd;
-	margin: 0px;
-	padding: 10px;
-	background-color: white;
-	border-radius: 7px;
-	-moz-border-radius: 7px; 
-	-webkit-border-radius: 7px;
-}
 
 
 /* Multiplayer server status */
@@ -99,20 +90,58 @@ body{
 	bsackground-color: pink;
 }
 
+/***************************************/
 /** Left Container **/
 #left_container{
 	float: left;
 	width: 180px;
-	sborder-right: 1px solid #efefef;
-	ssbackground-color: green;
+}
+ /** THis height needs to be same as header_container **/
+#left_container #flightgear_logo_box{
+	height: 200px;
+} 
+#left_container #flightgear_logo img{
+	border: 1px outset #dddddd;
+	margin: 0px;
+	padding: 10px;
+	background-color: white;
+	border-radius: 7px;
+	-moz-border-radius: 7px; 
+	-webkit-border-radius: 7px;
+}
+/***************************************/
+/** Header Container **/
+#header_container{
+	margin-left: 200px;
+	height: 200px;
+	font-family: sans-serif;
+	ssbackground-color: red;
+}
+
+#header_container h1{
+	ssbackground-color: red;
+	margin-bottom: 5px;
+	font-size: 13pt;
+	color: #888888;
+}
+#header_container h2{
+	margin-bottom: 10px;
+	font-size: 8pt;
+	color: #888888;
+	margin-bottom: 20px;
 }
 
 /** Right Container **/
-#right_container{
+#content_container{
 	margin-left: 200px;
 	border-right: 1px solid #efefef;
 	padding-right: 5px;
 	background-color: blue;
+}
+
+#content_container h1#site_title{
+	background-color: red;
+	float: left;
 }
 
 /***************************************************/
@@ -121,7 +150,6 @@ body{
 #sites_nav {
 	float: right;
 	height: 50px;
-	background-color: red;
 }
 #sites_nav ul
 {
@@ -173,6 +201,7 @@ body{
 	float: right;
 	width: 200px;
 	min-height: 500px;
+	sssbackground-color: pink;
 }
 
 
@@ -241,6 +270,32 @@ body{
 	font-family: sans-serif;
 	line-height: 130%;
 }
+
+/******************************************/
+/** Top Table **/
+/******************************************/
+table.top_table{
+	clear: right;
+	ssbackground-color: green;
+	width: 100%;
+	margin-bottom: 50px;
+	font-family: sans-serif;
+}
+table.top_table h2{
+	font-size: 12pt;
+	font-weight: normal;
+	font-style: italic;
+}
+
+table.top_table td.mp_label{
+	background-color: #dddddd;
+	font-size: 9pt;
+}
+table.top_table td.mp_value{
+	background-color: black;
+	border: 1px inset blue;
+}
+
 
 
 /******************************************/
@@ -379,13 +434,12 @@ body{
 /******************************************/
 #content_box{
 	margin-right: 240px;
-	ssbackground-color: #44ffee;
+	background-color: #44ffee;
 }
 #content_box h1{
 	background-color: #efefef;
 	padding: 5px 0px 5px 10px;
 	margin-bottom: 10px;
-	margin-top: 5px;
 	border: 1px solid #aaaaaa;
 	border-left: 4px solid #aaaaaa;
 	font-family: sans-serif;
