@@ -4,7 +4,7 @@
 <head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1;">
-<title>{$Site->page_title} | {$Site->site_title}</title>
+<title>{$Site->pageTitle()} | {$Site->site_title}</title>
 
 {*
 <script type="text/javascript" src="http://fg-cache.appspot.com/js/jquery-1.4.2.min.js"></script>
@@ -38,12 +38,13 @@
 	<!--## Page Navigation  ##-->
 	<div id="page_nav">
 		<ul>
-		{foreach item=Nitem key=sec from=$Site->pageNav()}
-			<li><a {if $sec == $Site->section}class="selected"{/if} href="{$Nitem}" >{$Nitem.label}</a>
+		{foreach item=Nitem from=$Site->pageNav()}
+			<li><a {if $Nitem.section == $Site->section and !$Site->page}class="selected"{/if} href="?section={$Nitem.section}" >{$Nitem.label}</a>
 			{if $Nitem.subnav}
 			<ul>
 			{foreach item=Nsub key=sub_sec from=$Nitem.subnav}
-				<li><a {if $Nsub.page == $Site->page}class="selected"{/if} href="{$Nitem.page}">{$Nsub.label}</a></li>
+				<li><a {if $Nsub.page == $Site->page}class="selected"{/if} 
+						href="?section={$Nitem.section}&page={$Nsub.page}">{$Nsub.label}</a></li>
 			{/foreach}
 			</ul>
 			{/if}
@@ -75,16 +76,29 @@
 	<h1>Flight Simulator Project</h1>
 	<h2>The World's Leading Open Source Flight Simulator</h2>
 
-	<table class="sstop_table">
+	<div id="mp_header">
+	<table>
 		<tr>
-		<td class="mp_label"><a href="#">Pilots</a></td>
+		<th>{* Google Search **}
+			<form action="http://www.google.com/cse" ssid="cse-search-box" class="toolbar_form">
+			<div>
+				<input type="hidden" name="cx" value="" />
+				<input type="hidden" name="ie" value="UTF-8" />
+				<input type="text" name="q" size="21" />
+				<input type="submit" name="sa" value="Search" />
+			</div>
+			</form>
+			<script type="text/javascript" src="http://www.google.com/cse/brand?form=cse-search-box&lang=en"></script></th>
+		<td class="mp_label"><a href="#">Pilots &gt;</a></td>
 		<td class="mp_value">--</td>
-		<td class="mp_label"><a href="/idea/multiplayer/atc/">Atc</a></td>
+		<td class="mp_label"><a href="/idea/multiplayer/atc/">Atc &gt;</a></td>
 		<td class="mp_value">--</td>
-		<td><a href="http://fg-online.appspot.com/servers/">Servers: 
-			X Nodes / <span style="color: green">0 Up</span> / <span style="color: red">0 down</span></a></td>
+		<td class="mp_label"><a href="/idea/multiplayer/atc/">Servers &gt;</a></td>
+		<td class="mp_value"><span class="status_up">0 Up</span></td>
+		<td class="mp_value"><span class="status_down">0 down</span></td>
 		</tr>
 	</table>
+	</div>
 </div>
 
 
@@ -92,20 +106,22 @@
 <!--### Content Container =  MAIN content ###-->
 <!--###################################################################################-->
 <div id="content_container">
+	{include file=$Site->mainPage()}
+</div>
 
 
-	<!--######################################################-->
-	<!-- ### main Cnntent ###-->
-		{include file=$Site->mainPage()}
-
-</div><!-- content_container -->
-
-
+<!--####################################################################################-->
+<!--### Footer =   content ###-->
+<!--###################################################################################-->
 <div id="footer_box">
 	<p>&copy; 1996 - {$smarty.now|date_format:'Y'}+ FlightGear posse - all right reserved etc</p>
 </div><!-- end footer-->
 
 </div><!-- end main_container -->
+
+
+
+
 
 <!-- Brandano: chow, did you spot any bugs ?? visit #flightgear and complain to ac001 with a patch ;-) -->
 

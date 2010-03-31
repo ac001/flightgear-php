@@ -1,8 +1,4 @@
-{% extends "MAIN.html" %}
-
-
-{% block right_box %}
-
+<div id="right_box">
 	<div class="panel_box">
 		<h3>GPL Licence</h3>
 		<p>View the <b><a href="http://www.gnu.org/copyleft/gpl.html">GPL licence</a></b></P>
@@ -18,11 +14,14 @@
 		<p>If you have a conyright question then <a href="http://wiki.flightgear.org/index.php/Copyright_Inquiry">check here</a></P>
 	</div>
 
+</div>
 
-{% endblock %}
 
 
-{% block content %}
+<div id="content_box">
+	<h1>{$Site->pageTitle()}</h1>
+
+
 
 
 <h2>GNU General Public Licence</h2>
@@ -35,7 +34,6 @@
 
 <p>The Affero General Public Licence (GNU AGPL) is a similar licence with a focus on networking server software. The GNU AGPL is similar to the GNU General Public Licence, except that it additionally covers the use of the software over a computer network, requiring that the complete source code be made available to any network user of the AGPLed work, for example a web application. The Free Software Foundation recommends that this licence is considered for any software that will commonly be run over the network.</p>
 
-
-{% endblock content %}
-
 http://wiki.flightgear.org/index.php/Copyright_Inquiry
+</div>
+

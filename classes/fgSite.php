@@ -14,6 +14,7 @@ class fgSite
 	private $nav_items;
 	private $site_items;
 
+	public $tm = '<span class="tm">FlightGear</span>';
 	public $site_id;
 	public $site_title;
 	public $section;
@@ -38,12 +39,17 @@ class fgSite
 
 
 	public function addPageNav($section, $label, $page_title=null, $subs=null){
-		$this->nav_items[$section] = array('label' => $label, 'title' => $page_title);
+		$this->nav_items[$section] = array(	'section' => $section, 
+											'label' => $label, 
+											'title' => is_null($page_title) ? $label : $page_title
+										);
 		if($subs){
 			$this->nav_items[$section]['subnav'] = array();
 			foreach($subs as $ki => $sub){
-				$this->nav_items[$section]['subnav'][]  = array(	'label' => $sub[1], 
-																	'title' => isset($sub[2]) ? $sub[2] : null
+				$this->nav_items[$section]['subnav'][$sub[0]]  = array(	'section' => $section,
+																		'page' => $sub[0],
+																		'label' => $sub[1], 
+																		'title' => isset($sub[2]) ? $sub[2] : $sub[1]
 																);
 			}
 		}
@@ -54,7 +60,17 @@ class fgSite
 	}
 
 	public function mainPage(){
-		return "web_site/index.html";
+		if(is_null($this->page)){
+			return 'web_site/'.$this->section.'.html';
+		}
+		return 'web_site/'.$this->section.'.'.$this->page.'.html';
+	}
+	public function pageTitle(){
+		if(is_null($this->page)){
+			return $this->nav_items[$this->section]['title'];
+		}else{
+			return $this->nav_items[$this->section]['subnav'][$this->page]['title'];
+		}
 	}
 
 

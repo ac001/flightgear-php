@@ -1,6 +1,23 @@
 <?php
 
 //*************************************************************************
+//** Error Handling
+//*************************************************************************
+error_reporting(E_ALL | E_STRICT); 
+ini_set('display_errors', 1);
+
+
+function my_error_handler($errno, $errstr, $errfile, $errline){
+   // echo "@Error:".$errstr."<br>";   
+    throw new ErrorException($errstr, 0, $errno, $errfile, $errline);
+}
+function my_exception_handler($exception)
+{
+    echo "@Exception:".$exception->getMessage();
+    dResponse::send_exception($exception);
+}
+
+//*************************************************************************
 //** General Definition and settings
 //*************************************************************************
 define('SITE_KEY', 'flight-simpits-v0.1');
@@ -13,20 +30,7 @@ if(CLI){
 }
 date_default_timezone_set('Europe/London');
 
-//*************************************************************************
-//** Error Handling
-//*************************************************************************
-error_reporting(E_ALL | E_STRICT); 
 
-function my_error_handler($errno, $errstr, $errfile, $errline){
-   // echo "@Error:".$errstr."<br>";   
-    throw new ErrorException($errstr, 0, $errno, $errfile, $errline);
-}
-function my_exception_handler($exception)
-{
-    echo "@Exception:".$exception->getMessage();
-    dResponse::send_exception($exception);
-}
 
 
 //*************************************************************************

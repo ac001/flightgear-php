@@ -9,20 +9,16 @@
 	font-family: serif;
 }
 
-
-
 /* Multiplayer server status */
 .status_down{
 	color: #990000;
 	background-color: #FFE1DB;
-	text-align: center;
 	display: block;
 }
 .status_up{
 	color: #009900;
-	display: block;
 	background-color: #E7FAE2;
-	text-align: center;
+	display: block;
 }
 
 
@@ -87,7 +83,6 @@ body{
 #main_container{
 	max-width: 1100px;
 	margin: 20px auto;
-	bsackground-color: pink;
 }
 
 /***************************************/
@@ -99,30 +94,33 @@ body{
  /** THis height needs to be same as header_container **/
 #left_container #flightgear_logo_box{
 	height: 200px;
+	border-right: 1px outset #efefef;
+	border-radius: 10px;
+	-moz-border-radius: 10px; 
+	-webkit-border-radius: 10px;
 } 
 #left_container #flightgear_logo img{
-	border: 1px outset #dddddd;
+	ssborder: 1px outset #dddddd;
 	margin: 0px;
 	padding: 10px;
 	background-color: white;
-	border-radius: 7px;
-	-moz-border-radius: 7px; 
-	-webkit-border-radius: 7px;
+
 }
 /***************************************/
 /** Header Container **/
 #header_container{
 	margin-left: 200px;
+	margin-bottom: 5px;
 	height: 200px;
 	font-family: sans-serif;
 	ssbackground-color: red;
 }
 
 #header_container h1{
-	ssbackground-color: red;
 	margin-bottom: 5px;
 	font-size: 13pt;
 	color: #888888;
+	width: 33%;
 }
 #header_container h2{
 	margin-bottom: 10px;
@@ -131,18 +129,77 @@ body{
 	margin-bottom: 20px;
 }
 
-/** Right Container **/
-#content_container{
-	margin-left: 200px;
-	border-right: 1px solid #efefef;
-	padding-right: 5px;
-	background-color: blue;
+/******************************************/
+/** Top MP Table **/
+/******************************************/
+#mp_header{
+	border: 1px solid #789ABC;	
+	padding: 10px 20px 10px 20px;
+	background-color: #efefef;
+	border-radius: 10px;
+	-moz-border-radius: 10px; 
+	-webkit-border-radius: 10px;
+}
+#mp_header table{
+	width: 100%;
+	font-family: sans-serif;
+}
+#mp_header table th{
+	text-align:left;
 }
 
-#content_container h1#site_title{
-	background-color: red;
-	float: left;
+#mp_header table td{
+	padding: 0px;
 }
+
+/* label */
+#mp_header table td.mp_label{
+	ssbackground-color: #dddddd;
+	font-size: 9pt;
+	text-align: right;
+	width: 100px;
+	padding-left: 10px;
+	border-bottom: 1px solid #aaaaaa;
+}
+#mp_header table td.mp_label a{
+	text-decoration: none;
+	color: #444444;
+	ssbackground-color: red;
+	display: block;
+	padding: 5px;
+	border-top: 1px solid white;
+	border-left: 1px solid white;
+}
+
+#mp_header table td.mp_label a:hover{
+	text-decoration: none;
+	color: blue;
+	background-color: #A9D4F7;
+	border-top: 1px solid #cccccc;
+	border-left: 1px solid #cccccc;
+	
+}
+/* value */
+#mp_header table td.mp_value{
+	font-size: 9pt;
+	background-color: white;
+	border: 1px solid #aaaaaa;
+	text-align: center;
+
+	width: 50px;
+}
+
+
+
+/***************************************/
+/** Content Container **/
+#content_container{
+	margin-left: 200px;
+	ssborder-right: 1px solid #efefef;
+	sspadding-right: 5px;
+	ssbackground-color: blue;
+}
+
 
 /***************************************************/
 /* Inter Site Navigation */
@@ -271,137 +328,9 @@ body{
 	line-height: 130%;
 }
 
-/******************************************/
-/** Top Table **/
-/******************************************/
-table.top_table{
-	clear: right;
-	ssbackground-color: green;
-	width: 100%;
-	margin-bottom: 50px;
-	font-family: sans-serif;
-}
-table.top_table h2{
-	font-size: 12pt;
-	font-weight: normal;
-	font-style: italic;
-}
-
-table.top_table td.mp_label{
-	background-color: #dddddd;
-	font-size: 9pt;
-}
-table.top_table td.mp_value{
-	background-color: black;
-	border: 1px inset blue;
-}
 
 
 
-/******************************************/
-/** Top Box **/
-/******************************************/
-
-#top_box{
-	background-color: green;
-}
-
-#top_box #lang_box{
-	float: right;
-	margin: 10px 10px 0px 0px;
-}
-#top_box #lang_box a{
-	text-decoration: none;
-	margin-left: 10px;
-}
-
-#top_box h1{
-	font-size: 20pt;
-	line-height: 180%;
-	color: #214074;
-	font-family: sans-serif;
-	background-color: white;
-	margin-right: 200px;
-}
-
-
-#top_box table{
-	width: 100%;
-	background-color: #99aacc;
-}
-#top_box table th{
-	text-align: left;
-	font-size: 10pt;
-	font-weight: normal;
-	font-family: sans-serif;
-	padding: 5px;
-	color: #222222;
-}
-#top_box table td{
-	text-align: right;
-	padding-right: 5px;
-}
-#top_box table td a{
-	padding: 2px 10px 2px 10px;
-	text-align: right;
-	text-decoration: none;
-	background-color: white;
-	display: block;
-	font-size: 10pt;
-	font-family: sans-serif;
-	color: #333333;
-	border: 1px solid #efefef;
-}
-
-#top_box table td a:hover{
-	background-color: #dddddd;
-	color: blue;
-	border: 1px solid #aaaaaa;
-}
-
-
-
-/******************************************/
-/** Toolbar Box **/
-/******************************************/
-#toolbar_box{
-	margin-top: 0px;
-	background-color: #efefef;
-	margin-bottom: 10px;
-	padding: 10px;
-	border-left: 2px solid #99aacc;
-	border-right: 2px solid #99aacc;
-	border-bottom: 2px solid #99aacc;
-	margin-bottom: 50px;
-}
-#toolbar_box table{
-	width: 100%;
-}
-
-#toolbar_box .toolbar_form label{
-	font-size: 9pt;
-	color: #555555;
-	font-family: sans-serif;
-}
-
-
-#toolbar_box .account a{
-	font-size: 10pt;
-	color: #000033;
-	font-family: sans-serif;
-	text-decoration: none;
-	margin-left: 5px;
-	border: 1px solid #dddddd;
-	background-color: #dddddd;
-	border-radius: 7px;
-	-moz-border-radius: 7px; 
-	-webkit-border-radius: 7px;
-	padding: 1px 10px;
-}
-#toolbar_box .account a:hover{
-	color: blue;	
-	background-color: #efefef;
-}
 /******************************************/
 /** Important Box **/
 /******************************************/
@@ -434,7 +363,7 @@ table.top_table td.mp_value{
 /******************************************/
 #content_box{
 	margin-right: 240px;
-	background-color: #44ffee;
+	ssbackground-color: #44ffee;
 }
 #content_box h1{
 	background-color: #efefef;
