@@ -12,15 +12,22 @@ Required: Apache and php5 are installed.
 
 example below is in the user "user_name"'s public_html 
 
-Take a snapshot
+; Take a snapshot
 cd ~user_name/public_html/
 git checkout git@github.com:ac001/flightgear.simpits.git 
 
-you need to make the smarty templates directory writable by www server
+; you need to make the smarty templates directory writable by www server
 cd flightgear.simpits
 chmod +w templates_c/
 
-How goto
+
+; The gallery not included. So to get then run the checkout gallery script
+; this will create a gallery/ directory and then checkout version from google svn
+cd etc/
+./checkout_gallery.sh
+
+
+;; Run it - now navigate to
 http://localhost/~user_name/flightgear-simpits/
 
 

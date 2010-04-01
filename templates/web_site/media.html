@@ -1,6 +1,5 @@
-{% extends "MAIN.html" %}
 
-{% block right_box %}
+<div id="right_box">
 
 	<div class="panel_box">
 		<h3>Coming Soon</h3>
@@ -11,14 +10,15 @@
 		<h3>New</h3>
 		<p>TODO</P>
 	</div>
+</div>
 
 
 
+<div id="content_box">
+	<h1>{$Site->pageTitle()}</h1>
 
 
-{% endblock right_box %}
 
-{% block content %}
 
 
 <p>This is a new area for FlightGear were working on maybe. TODO is surveys, ranking and user uploads</p>
@@ -30,5 +30,3 @@
 
 
 </div>
-
-{% endblock content %}

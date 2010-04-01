@@ -1,6 +1,7 @@
-{% extends "MAIN.html" %}
+<div id="right_box">
 
-{% block right_box %}
+
+
 
 	<div class="panel_box">
 		<h3>Coming Soon</h3>
@@ -11,21 +12,26 @@
 		<h3>Image Hosting</h3>
 		<p>This gallery is stored as a Google project<br><a href="http://code.google.com/p/flightgear-gallery/">flightgear-gallery</a></P>
 	</div>
-{% endblock right_box %}
+</div>
 
-{% block content %}
 
-{% for img in app.gallery %}
+
+<div id="content_box">
+	<h1>{$Site->pageTitle()}</h1>
+
+
+{foreach item=Img from=$Site->gallery->index()}
 	<div class="gallery_thumb_box" id="gallery">
-	<a href="{{ img.image }}" 
-		rel="lightbox"><img src="{{ img.thumb }}"></a>
+	<a href="gallery/images/{$Img}" 
+		rel="lightbox"><img src="gallery/thumbs/{$Img}"></a>
 	</div>
-{% endfor %}
+{/foreach}
 
-    <script type="text/javascript">
-    $(function() {
-        $('#gallery a').lightBox();
-    });
-    </script>
-
-{% endblock content %}
+{literal}
+<script type="text/javascript">
+$(function() {
+	$('#gallery a').lightBox();
+});
+</script>
+{/literal}
+</div>

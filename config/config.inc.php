@@ -68,14 +68,18 @@ function __autoload($class_name){
 //*************************************************************************
 //** Site 
 //*************************************************************************
-$section = isset($_REQUEST['section']) ? $_REQUEST['section'] : 'index';
-$page = isset($_REQUEST['page']) ? $_REQUEST['page'] : null;
 
-$Site = new fgSite('fg-www', 'FlightGear', $section, $page);
+
+$Site = new fgSite();
+$Site->site_id = 'fg-www';
+$Site->site_title = 'FlightGear';
+//** set up page and section
+$Site->section = isset($_REQUEST['section']) ? $_REQUEST['section'] : 'index';
+$Site->page = isset($_REQUEST['page']) ? $_REQUEST['page'] : null;
 
 //** Intersite Navigation
 // addSiteNav ($url, $label, $optional_ki (ued upon cloud later with remote "nav"
-$Site->addSiteNav('index.html',  'Portal', 'fg-master');
+$Site->addSiteNav('index.php',  'Portal', '_portal_');
 $Site->addSiteNav('web.php',  'Website', 'fg-www');
 $Site->addSiteNav('http://fg-aircraft.appspot.com',  'Aircraft', 'fg-aircraft');
 $Site->addSiteNav('http://fg-online.appspot.com',  'Online', 'fg-online');
@@ -102,65 +106,40 @@ $Site->addPageNav(	'media', 'Media', null,
 						array('gallery', 'Image Gallery')
 					)
 );
-/*
-
-		self.nav_append( {'path':'/about/', 'label': 'About', 'title': 'About FlightGear',
-						'subnav': [	
-							{'path':'/about/features/', 'label': 'Features' },
-							{'path':'/about/license/', 'label': 'License'}
-						]
-		})
-		self.nav_append( {'path':'/media/', 'label': 'Media', 
-						'subnav': [	
-							{'path':'/media/videos/', 'label': 'Videos', 'title': 'Videos'},
-							{'path':'/media/gallery/', 'label': 'Image Gallery'}
-						]
-		})
-		self.nav_append( {'path':'/support/', 'label': 'Support', 
-						'subnav': [	
-							{'path':'/support/docs/', 'label': 'Documentation'},
-							{'path':'/support/faq/', 'label': 'FAQ', 'title': 'Frequently Answered Questions'}
-						]
-		})
-		self.nav_append( {'path':'/download/', 'label': 'Download', 'title': 'Download Central',
-					'subnav': [	
-						{'path':'/download/requirements/', 'label': 'Requirements', 'title': 'Hardware Requirements'}, 	
-						{'path':'/download/flightgear/', 'label': 'FlightGear', 'title': 'Download FlightGear'}, 	
-						#{'path':'/download/aircraft/', 'label': 'Aircraft'},
-						{'path':'/download/scenery/', 'label': 'Scenery'},
-						{'path':'/download/versions/', 'label': 'Versions', 'title': 'Version Summary'},
-					]
-		})
-		#nav.append( {'path':'/features/', 'label': 'Features'} )
-		#self.nav_append( {'path':'/aircraft/', 'label': 'Aircraft'} )
-		#self.nav_append( {'path':'/multiplayer/', 'label': 'Online Multi Player' })
-		"""
-		, 			'subnav': [	
-							{'path':'/multiplayer/servers/', 'label': 'Servers'},
-							{'path':'/multiplayer/pilots/', 'label': 'Pilots'},
-							{'path':'/multiplayer/atc/', 'label': 'ATC'},
-							{'path':'/multiplayer/map/', 'label': 'Online Map'}
-					]
-		})
-		"""
-		#self.nav_append( {'path':'/mpservers/', 'label': 'Aircraft'} )
-		#nav.append( {'path':'/mapservers/', 'label': 'Map Servers'} )
-		#nav.append( {'path':'/developers/', 'label': 'Developers'} )
+$Site->addPageNav(	'support', 'Support', null,
+					array(	
+						array('docs', 'Documentation'),
+						array('faq', 'FAQ', 'Frequently Answered Questions')
+					)
+);
+$Site->addPageNav(	'download', 'Download', 'Download Central',
+					array(	
+						array('requirements', 'Requirements', 'Hardware Requirements'), 	
+						array('flightgear', 'FlightGear', 'Download FlightGear'), 	
+						array('scenery', 'Scenery'),
+						array('versions', 'Versions', 'Version Summary'),
+					)
+);
+		#nav.append( 'features', 'Features' )
+		#$Site->addPageNav('aircraft', 'Aircraft' )
+		#$Site->addPageNav('multiplayer', 'Online Multi Player' );
+		#$Site->addPageNav('mpservers', 'Aircraft' )
+		#nav.append( 'mapservers', 'Map Servers' )
+		#nav.append( 'developers', 'Developers' )
 
 
-		self.nav_append( {'path':'/developers/', 'label': 'Developers',
-					'subnav': [	
-							{'path':'/developers/src/', 'label': 'Source Code'},
-							{'path':'/developers/credits/', 'label': 'Credits'}
-					]
-		})
-		self.nav_append( {'path':'/links/', 'label': 'Links',
-					'subnav': [	
-							{'path':'/links/sites/', 'label': 'Related Sites'},
-							{'path':'/links/projects/', 'label': 'Projects'}
-					]
-		})
-*/
+$Site->addPageNav(	'developers', 'Developers', null,
+					array(	
+							array('src', 'Source Code'),
+							array('credits', 'Credits')
+					)
+);
+$Site->addPageNav(	'links', 'Links', null,
+					array(	
+							array('sites', 'Related Sites'),
+							array('projects', 'Projects')
+					)
+);
 
 //*********************************************************
 //** Memcached
@@ -176,7 +155,7 @@ $smarty->force_compile  = isset($_GET['FORCE']) ? true : false;
 $smarty->compile_check  = true;
 $smarty->compile_id     = SITE_KEY;
 $smarty->use_sub_dirs   = true;
-//$smarty->compile_dir = SMARTY_COMPILE_DIR;
+$smarty->compile_dir 	= fgSite::SMARTY_COMPILE_DIR;
 //$smarty->plugins_dir[]  = SITE_ROOT.'/libs/smarty_custom_plugins/';
 $smarty->template_dir  = SITE_ROOT.'/templates/';
 

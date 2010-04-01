@@ -130,7 +130,7 @@ body{
 }
 
 /******************************************/
-/** Top MP Table **/
+/**  MUltiPlayer Table **/
 /******************************************/
 #mp_header{
 	border: 1px solid #789ABC;	
@@ -185,7 +185,6 @@ body{
 	background-color: white;
 	border: 1px solid #aaaaaa;
 	text-align: center;
-
 	width: 50px;
 }
 
@@ -195,9 +194,6 @@ body{
 /** Content Container **/
 #content_container{
 	margin-left: 200px;
-	ssborder-right: 1px solid #efefef;
-	sspadding-right: 5px;
-	ssbackground-color: blue;
 }
 
 
@@ -257,8 +253,9 @@ body{
 #right_box{
 	float: right;
 	width: 200px;
+	padding-left: 10px;
 	min-height: 500px;
-	sssbackground-color: pink;
+	border-left: 1px solid #eeeeee;
 }
 
 
@@ -276,17 +273,22 @@ body{
 /*****************************************/
 #right_box .panel_box{
 	margin-bottom: 30px;
-	border: 1px solid #dddddd;
-	background-color: #efefef;
+	border-right: 1px solid #dddddd;
 }
 
 #right_box .panel_box h3{
 	color: #444444;
 	background-color: #ABB5C9;
-	border-bottom: 1px solid #dddddd;
-	padding: 4px;
+	border: 1px solid #dddddd;
+	padding: 4px 4px 4px 10px;
 	font-size: 10pt;
 	font-family: sans-serif;
+	border-top-left-radius: 10px;
+	-moz-border-top-left-radius: 10px; 
+	-webkit-border-top-left-radius: 10px;
+	border-bottom-left-radius: 10px;
+	-moz-border-bottom-left-radius: 10px; 
+	-webkit-border-bottom-left-radius: 10px;
 }
 
 #right_box .panel_box p{
@@ -303,22 +305,25 @@ body{
 	line-height: 130%;
 	list-style-type: circle;
 }
+
+
 /******************************************/
 /** Notam Box **/
 /**********************************/
-.notam_box{
-	margin-bottom: 30px;
-	border: 1px solid #dddddd;
-	background-color: #FFFFA7;
-}
 
 .notam_box h3{
-	color: black;
-	background-color: #FFD778;
-	border-bottom: 1px solid #dddddd;
-	padding: 4px;
-	font-size: 11pt;
+	color: #444444;
+	background-color: #FFFFA7;
+	border: 1px solid yellow;
+	padding: 4px 4px 4px 10px;
+	font-size: 10pt;
 	font-family: sans-serif;
+	border-top-left-radius: 10px;
+	-moz-border-top-left-radius: 10px; 
+	-webkit-border-top-left-radius: 10px;
+	border-bottom-left-radius: 10px;
+	-moz-border-bottom-left-radius: 10px; 
+	-webkit-border-bottom-left-radius: 10px;
 }
 
 .notam_box p{
@@ -641,20 +646,10 @@ llfloat: left;
 
 
 
-#footer_box{
-	clear: both;
-	border-top: 1px solid #98A9CB;
-	margin-top: 40px;
-	font-family: sans-serif;
-}
 
-#footer_box p{
-	font-size: 9pt;
-	margin: 10px;
-}
 
 /********************************************************************/
-/** Navigation ***/
+/** Page Navigation ***/
 /********************************************************************/
 #page_nav { 
 }
@@ -722,15 +717,6 @@ llfloat: left;
 
 
 
-
-
-
-
-
-
-
-
-
 #content_box table.aircraft_list{
 
 }
@@ -782,41 +768,63 @@ llfloat: left;
 
 
 
-
-
-
-#top_nav
-{
-padding: 0px 1px 1px;
-margin-left: 0px;
-margin-top: 10px;
-font: normal 9pt  sans-serif;
+/********************************************************************/
+/** Footer ***/
+/********************************************************************/
+#footer_box{
+	clear: both;
+	border-top: 1px solid #98A9CB;
+	margin-top: 40px;
+	font-family: sans-serif;
 }
 
-#top_nav li
-{
-list-style: none;
-margin: 0px;
-
-display: inline;
-}
-
-#top_nav li a
-{
-padding: 2px 10px 2px 10px;
-color: black;
-background: #dddddd;
-text-decoration: none;
-border: 1px solid #dddddd;
-border-radius: 7px;
--moz-border-radius: 7px; 
--webkit-border-radius: 7px;
+#footer_box p{
+	font-size: 9pt;
+	margin: 10px;
 }
 
 
-#top_nav li a:hover
-{
-border-color: #ccccbb;
-color: black;
-background: #D6E7EB;
+
+/********************************************************************/
+/** Portal Box ***/
+/********************************************************************/
+.portal_box{
+	background-color: #efefef;
+	float: left;
+	margin: 10px;
+	padding: 5px;
+	border: 1px outset #fefefe;
+	width: 250px;
+	border-radius: 7px;
+	-moz-border-radius: 7px; 
+	-webkit-border-radius: 7px;
+}
+.portal_box h2{
+	border-bottom: 1px solid #3887CE;
+	font-family: sans-serif;
+	font-size: 10pt;
+	padding: 5px;
+	margin: 0px;
+	color: #444444;
+}
+.portal_box ul{
+	list-style-type: none;
+	margin: 10px;
+}
+
+.portal_box li a{
+	display: block;
+	font-family: sans-serif;
+	font-size: 10pt;
+	padding: 4px;
+	text-decoration: none;
+	border-left: 3px solid #efefef;
+	border-right: 3px solid #efefef;
+}
+.portal_box li a:hover{
+	background-color: white;
+	color: blue;
+	text-decoration: none;
+	border-left: 3px solid #7195CC;
+	border-right: 3px solid #7195CC;
 }

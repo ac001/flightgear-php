@@ -1,0 +1,227 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1;">
+<title>{$Site->pageTitle()} | {$Site->site_title}</title>
+
+{*
+<script type="text/javascript" src="http://fg-cache.appspot.com/js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="http://fg-cache.appspot.com/js/jquery-lightbox-0.5/js/jquery.lightbox-0.5.js"></script>
+<link rel="stylesheet" type="text/css" href="http://fg-cache.appspot.com/js/jquery-lightbox-0.5/css/jquery.lightbox-0.5.css" media="screen">
+*}
+
+<link rel="stylesheet" type="text/css" href="style_sheets/reset.css">
+<link rel="stylesheet" type="text/css" href="style_sheets/www.1.css">
+
+
+<script type="text/javascript" src="/js/front.js"></script>
+
+</head> 
+
+<body>
+
+<!--## Main Container to center and padd -->
+<div id="main_container">
+
+<!--####################################################################################-->
+<!--### Left Container = logo and page nav ###-->
+<!--###################################################################################-->
+<div id="left_container">
+
+	<!--## Logo ##-->
+	<div id="flightgear_logo_box">
+		<div id="flightgear_logo"><img src="images/flightgear.png" alt="flightgear"></div>
+	</div>
+
+	<!--## Strap  ##-->
+		<p style="text-align: right;  padding: 50px 10px 50px 0px; line-height: 140%; font-size: 12pt;">The
+		FlightGear flight simulator project is an open-source, multi-platform,
+		cooperative flight simulator development project. Source code for the
+		entire project is available and licensed under the GNU General Public
+		License.</p>
+
+	<!--## Atom Link  ##-->
+	<p ><a href="#"><img src="images/missc/feed_atom.gif" alt="atom"></a></p>
+
+</div><!-- left_container -->
+
+
+
+<div id="header_container">
+
+
+
+	<!--######################################################-->
+	<!-- ### Inter Site Nav ###-->
+	<div id="sites_nav">
+		<ul>
+			{foreach item=Snav from=$Site->sitesNav()}
+			<li><a href="{$Snav.url}" {if $Snav.site_id == $Site->site_id}class="selected"{/if}>{$Snav.label}</a></li>
+			{/foreach}
+		</ul>
+	</div>
+
+	<h1>Flight Simulator Project</h1>
+	<h2>The World's Leading Open Source Flight Simulator</h2>
+
+	<div id="mp_header">
+	<table>
+		<tr>
+		<th>{* Google Search **}
+			<form action="http://www.google.com/cse" ssid="cse-search-box" class="toolbar_form">
+			<div>
+				<input type="hidden" name="cx" value="" />
+				<input type="hidden" name="ie" value="UTF-8" />
+				<input type="text" name="q" size="21" />
+				<input type="submit" name="sa" value="Search" />
+			</div>
+			</form>
+			<script type="text/javascript" src="http://www.google.com/cse/brand?form=cse-search-box&lang=en"></script></th>
+		<td class="mp_label"><a href="#">Pilots &gt;</a></td>
+		<td class="mp_value">--</td>
+		<td class="mp_label"><a href="/idea/multiplayer/atc/">Atc &gt;</a></td>
+		<td class="mp_value">--</td>
+		<td class="mp_label"><a href="/idea/multiplayer/atc/">Servers &gt;</a></td>
+		<td class="mp_value"><span class="status_up">0 Up</span></td>
+		<td class="mp_value"><span class="status_down">0 down</span></td>
+		</tr>
+	</table>
+	</div>
+</div>
+
+
+<!--####################################################################################-->
+<!--### Content Container =  MAIN content ###-->
+<!--###################################################################################-->
+<div id="content_container">
+
+	</p><div class="portal_box">
+		<h2>Download &amp; Install</h2>
+		<ul>
+			<li><a href="http://fg-www.appspot.com/download/">Download Flightgear</a></li>
+			<li><a href="http://fg-aircraft.appspot.com/">Download Aircraft</a></li>
+			<li><a href="http://fg-www.appspot.com/download/scenery/">Download Scenery</a></li>
+			<li><a href="http://fg-www.appspot.com/download/scenery/">Supporting software and plugins</a></li>
+		</ul>
+	</div>
+
+	<div class="portal_box">
+		<h2>Aircraft</h2>
+		<ul>
+			<li><a href="http://fg-aircraft.appspot.com/">Aircraft Database</a></li>
+			<li><a href="http://wiki.flightgear.org/index.php/Aircraft">Wiki Aircraft</a></li>
+			<li><a href="http://liveries.flightgear.org/">Liveries</a></li>
+			<li><a href="#">Aircraft Design</a></li>
+		</ul>
+	</div>
+
+
+	<div class="portal_box">
+		<h2>Media</h2>
+		<ul>
+			<li><a href="http://fg-www.appspot.com/media/videos/">Videos</a></li>
+			<li><a href="http://fg-www.appspot.com/media/gallery/">Gallery</a></li>
+			<li><a href="#">Latest Dev Features</a></li>
+			<li><a href="#">Training Videos</a></li>
+		</ul>
+	</div>
+
+
+
+
+	<div class="portal_box">
+		<h2>Scenery</h2>
+		<ul>
+		<li><a href="http://wiki.flightgear.org/index.php/Terrasync">Terra Sync</a></li>
+		<li><a href="http://fg-www.appspot.com/download/scenery/">Download Scenery</a></li>
+		<li><a href="http://wiki.flightgear.org/index.php/World_Scenery">World Scenery</a></li>
+		<li><a href="http://wiki.flightgear.org/index.php/Howto:_Create_custom_scenery">How to create Scenery</a></li>
+		<li><a href="http://mapserver.flightgear.org/">Map Server</a></li>
+		<li><a href="http://scenemodels.flightgear.org/">Scene Models</a></li>
+		</ul>
+	</div>
+
+	<div class="portal_box">
+		<h2>Online &amp; Multi Player</h2>
+		<ul>
+			<li><a href="http://fg-online.appspot.com/pilots/">Pilots</a></li>
+			<li><a href="http://fg-online.appspot.com/atc/">ATC</a></li>
+			<li><a href="http://mpmap01.flightgear.org/mpstatus/">MP Status</a></li>
+			<li><a href="http://mpmap01.flightgear.org/">Map Server #01</a></li>
+			<li><a href="http://mpmap02.flightgear.org/">Map Server #02</a></li>
+			<li><a href="http://flightgear.daffodil.uk.com/">MP Map WebSocket Xperimental</a></li>
+
+
+		</ul>
+	</div>
+
+	<div class="portal_box">
+		<h2>Featured Hangars</h2>
+		<ul>
+			<li><a href="http://sydhangar.daffodil.uk.com/">Syd Hangar</a></li>
+			<li><a href="#">Helijah FGFS Hangar</a></li>
+			<li><a href="#">David Culp Hangar</a></li>
+			<li><a href="#">DFaber Hangar</a></li>
+			
+			<li><a href="#">Hoerbird Hangar</a></li>
+			<li><a href="#">A-10 and A-6 stuff</a></li>
+		</ul>
+	</div>
+
+
+	<div class="portal_box">
+		<h2>Docs</h2>
+		<ul>
+			<li><a href="http://www.flightgear.org/Docs/FGShortRef.html">Quick Ref</a></li>
+			<li><a href="http://www.4p8.com/eric.brasseur/flight_simulator_tutorial.html">Tutorial</a></li>
+			<li><a href="http://www.flightgear.org/Docs/FAQ.shtml">FAQ with answers</a></li>
+
+			
+			<li><a href="http://wiki.flightgear.org/index.php/FlightGear_CVS">CVS</a></li>
+
+		</ul>
+	</div>
+
+	<div class="portal_box">
+		<h2>Developers</h2>
+		<ul>
+			<li><a href="http://fg-www.appspot.com/developers/src/">Source Code</a></li>
+			<li><a href="http://code.google.com/p/flightgear-bugs/issues/list">Issues List</a></li>
+			<li><a href="http://gitorious.org/fg">Gitorious</a></li>
+			<li><a href="http://wiki.flightgear.org/index.php/FlightGear_CVS">CVS</a></li>
+		</ul>
+	</div>
+
+	<div class="portal_box">
+		<h2>Merchandise &amp; Contact</h2>
+		<ul>
+			<li><a href="#">Buy DVD pack</a></li>
+			<li><a href="#">Mugs, shades, tshirts, etc</a></li>
+			<li><a href="#">About</a></li>
+			<li><a href="#">Contact</a></li>
+		</ul>
+	</div>
+
+
+</div>
+
+
+<!--####################################################################################-->
+<!--### Footer =   content ###-->
+<!--###################################################################################-->
+<div id="footer_box">
+	<p>&copy; 1996 - {$smarty.now|date_format:'Y'}+ FlightGear posse - all right reserved etc</p>
+</div><!-- end footer-->
+
+</div><!-- end main_container -->
+
+
+
+
+
+<!-- Brandano: chow, did you spot any bugs ?? visit #flightgear and complain to ac001 with a patch ;-) -->
+
+</body> 
+</html>
