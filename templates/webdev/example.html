@@ -13,47 +13,56 @@
 <div id="content_box">
 	<h1>{$Site->pageTitle()}</h1>
 
-<p>Here is a step by step example of creating a sit/zone "foo"</p>
+<p>Here is a step by step example of creating a site/zone named "foo"</p>
 
 <h3>Create top level script</h3>
 <p>Create a file inder the webroot <b>foo.php</p>
-<pre class="php">
+{source lang=php}
+<?php
 //** This is foo.php script
 
 //** load the configuration
 $REQUIRE_SMARTY = 1;
+// $REQUIRE_DB = 1; - dont need database on this site
 require_once('config/config.inc.php');
 
+//** Create the $Site object
+$Site = new fgSite();
+$Site.id = 'foo';
+$Site.title = 'Foo Fun';
+
+//** Add  to Sites Navigation
+$Site->addSiteNav('foo.php', 'FooFun', $Site.id);
+
+//** Page Navigation
+$Site->addPageNav('index', 'Welcome');
+$Site->addPageNav('gallery', 'Gallery', 'My Fav Pics');
+
+//** Render to browser
 $smarty->assign('Site', $Site);
-$smarty->display('foo_container/html');
-</pre>
+$smarty->display('web_container/html');
+?>
+{/source}
 
-<p>Classes are autoloaded on demand, within tempaltes
-
-for example to create a plugin called fgFoo()
-
-First add to navigation in main page eg web.php
-$Site->addPageNav('foo', 'Nav label','Foo title');
-
-Create the "section" file eg
-web_site/foo.html
-
-Create the left_box and content_box , and drop in our foo
+<h3>Create Templates</h3>
+<p>Create the "section" files in <b>index.html</b> and <b>gallery.htl</b> in <b>templates/foo/</b></p>
+{source lang=html4strict}{literal}
 <div id="right_box">
 	<h3>Random Foo</h3>
-	<p>{$Site->fgFoo->random();
+	<p>{$Site->fgFoo->random()}</p>
 </div>
 
 <div id="content_box">
 	<h1>{$Site->pageTitle()}</h1>
-	{foreeach from=$Site->fgFoo->mesages() item=Mess}
+	{foreach from=$Site->fgFoo->mesages() item=Mess}
 		<li>{$Mess.label}</li>
 	{/foreach}
 </div>
+{/literal}{/source}
 
-create the classes/fgFoo.php files
-
-<pre class="code">
+<h3>Create the fgFoo plugin</h3>
+<p>Create the plugin class as classes/fgFoo.php</p>
+{source lang='php'}{literal}
 class fgFoo
 {
 	private = $_cache = null;
@@ -78,7 +87,5 @@ class fgFoo
 		return $messages[array_rand($messages];
 	}
 }
-</pre>
-
-
+{/literal}{/source}
 </div>

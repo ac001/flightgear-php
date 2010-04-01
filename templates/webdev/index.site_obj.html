@@ -1,11 +1,5 @@
 <div id="right_box">
 	
-	<div class="panel_box">
-		<h3>Random Foo</h3>
-		<p>Word of the moment is <b>'{$Site->fgFoo->random()}'</b></p>
-		<p>{literal}{$Site->fgFoo->random()}{/literal}
-		</p>
-	</div>
 
 </div>
 
@@ -14,15 +8,14 @@
 	<h1>{$Site->pageTitle()}</h1>
 
 
-	<p>The <b>$Site</b> object is the main controller class that is accessible in php and tempaltes.</p>
+	<p>The <b>$Site</b> object is the main controller class that is accessible in php and within templates.</p>
 
 	<p>Creating a new site area is a simple case of some simple configuration and scripts</p>
 
 	<p>A <b>$Site</b> object needs to be declared and properties set.</p>
-<pre class="php">{literal}
-$Site = new fgSite();
+{source lang='php'}{literal}$Site = new fgSite();
 $Site->id = 'foo';
-$Site->title = 'Foo Fun';{/literal}</pre>
+$Site->title = 'Foo Fun';{/literal}{/source}
 
 <h3>$Site->id</h3>
 <p>The <b>$Site->id</b> property is used as</p>
@@ -39,9 +32,9 @@ $Site->title = 'Foo Fun';{/literal}</pre>
 <h3>$Site->section</h3>
 <h3>$Site->page</h3>
 <p>The current section and page, these are currently set in the top level script eg</p>
-<pre class="php">//* $page can be null, $section defaults to "index"
+{source lang='php'}{literal}//* $page can be null, $section defaults to "index"
 $Site->section = isset($_REQUEST['section']) ? $_REQUEST['section'] : 'index';
-$Site->page = isset($_REQUEST['page']) ? $_REQUEST['page'] : null;</pre>
+$Site->page = isset($_REQUEST['page']) ? $_REQUEST['page'] : null;{/literal}{/source}
 
 
 <h3>$Site->addPageNav()</h3>
@@ -55,6 +48,13 @@ $Site->page = isset($_REQUEST['page']) ? $_REQUEST['page'] : null;</pre>
 	<li><b>array($pages)</b> - sub_pages in the form $page, $nav_label, $optional_title</li>
 	<li>Potentially later a multi-tier system and css might be interesting.</li>
 </ul>
+{source lang='php'}{literal}$Site->addPageNav('index', 'Web Dev Index', 'Welcome to Dev',
+            array(
+              array('install', 'Install', 'Installation'),
+              array('overview', 'Overview', 'Site and Code Overview')
+            )
+);
+$Site->addPageNav('example', 'Example', 'Site creation example');{/literal}{/source}
 
 <h3>$Site->pageTitle()</h3>
 <p>This function outputs the current page's title.<br>

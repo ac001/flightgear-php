@@ -1,11 +1,5 @@
 <div id="right_box">
 	
-	<div class="panel_box">
-		<h3>Random Foo</h3>
-		<p>Word of the moment is <b>'{$Site->fgFoo->random()}'</b></p>
-		<p>{literal}{$Site->fgFoo->random()}{/literal}
-		</p>
-	</div>
 
 </div>
 
@@ -27,8 +21,7 @@
 <h3>Adding and Extending Functionality</h3>
 <p>Lets consider adding some new functionatily with an fgWidget() class to the site<p>
 <p>Simply create the class is classes/fgWidget.php, encapsulated with its code, eg</p>
-<pre class="php">{literal}
-class fgWidget
+{source lang='php'}{literal}class fgWidget
 {
     const FOO = 'my_constant';
     private $_data = null;
@@ -47,16 +40,16 @@ class fgWidget
     function data(){
         return $_data;
     }
-}{/literal}</pre>
+}{/literal}{/source}
 <p>This can now be called from anywhere with</p>
-<pre class="php">$widget = new fgWidget();</pre>
+{source lang='php'}{literal}$widget = new fgWidget();{/literal}{/source}
 
 
 <h2>Useful Classes</h2>
 
 <h3>fgObject()</h3>
 <p>This is a basic setter/getter eg</p>
-<pre class="php">{literal}
+{source lang='php'}{literal}
 $myOb = new fgObject();
 
 $myOb->foo = 'bar';
@@ -66,7 +59,7 @@ $myOb->my_array = array('foo', 'bar');
 foreach($myOb->my_array as $value){
      echo $value;
 }
-{/literal}</pre>
+{/literal}{/source}
 
 
 

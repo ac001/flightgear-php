@@ -1,11 +1,5 @@
 <div id="right_box">
 	
-	<div class="panel_box">
-		<h3>Random Foo</h3>
-		<p>Word of the moment is <b>'{$Site->fgFoo->random()}'</b></p>
-		<p>{literal}{$Site->fgFoo->random()}{/literal}
-		</p>
-	</div>
 
 </div>
 
@@ -19,13 +13,12 @@
 
 <p>This means that "classes" are loaded on demand and when called, and had two "scenaios"</p>
 <ul>
-	<li>A regonised lib eg $smarty</li>
+	<li>A recognised lib eg $smarty</li>
 	<li>Or a class from classes/</li>
 	<li>Otherwise it fails</li>
 </ul>
 <p>Below is a brief example snippet of __autoload() usage</p>
-<pre class="php">{literal}
-//* snippet from config.inc.php
+{source lang='php'}{literal}//* snippet from config.inc.php
 function __autoload($class_name){
 
   switch($class_name){
@@ -46,23 +39,22 @@ function __autoload($class_name){
 $foo = new fooLib();
 
 //* will load classes/fgFoo.php
-$myClass = new fgFoo();{/literal}
-</pre>
+$myClass = new fgFoo();{/literal}{/source}
+
 
 <h3>$Site object autoloading()</h3>
 <p>One of the cool things about autoloading is that a class can be called from a template, removing the need to $smarty->assign() variable's. This makes creating "plugins" and adding functionallity easy.</p>
 <p>The <b>$Site</b> object through its <b><a href="http://www.php.net/manual/en/language.oop5.overloading.php">__get()</a></b> overload, automatically looks for a class in classes/, autoloads and creates and instance eg</p>
-<pre class="php">{literal}
+{source lang='php'}{literal}{** within a html template **}
+
 {* First call autoloads fgFoo.php class *}
 {$Site->fgFoo->bar()}
 
 {* Subsuquent calls reference existing object *}
 {$Site->fgFoo->funk()}
 
-{* There's no errors handlers for non existant classes; yet *}
-{$Site->fgNotExist->bar()}
-
-{/literal}</pre>
+{* There is no errors handlers for non existant classes; yet *}
+{$Site->fgNotExist->bar()}{/literal}{/source}
 
 
 

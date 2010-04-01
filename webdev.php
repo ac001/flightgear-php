@@ -22,12 +22,14 @@ $Site->addPageNav('index', 'Web Dev Index', 'Welcome To the FlightGear Web Dev',
 					array('config', 'Config', 'Configuration'),
 					array('site_obj', '$Site Object'),
 					array('autoload', '__autoload()', 'function __autoload()'),
-					array('classes', 'Classes', 'Classes'),
-					array('plugin', 'Plugin Demo', 'Autoload Plugin Demo')
-					
+					array('classes', 'Classes', 'Classes')
 			)
 );
-$Site->addPageNav('example', 'Example', 'Site creation example');
+$Site->addPageNav('example', 'Example Site', 'Site creation example',
+			array(
+					array('plugin', 'Plugin Demo', 'Autoload Plugin Demo')
+			)
+);
 
 
 //** Setup the default $section and $page

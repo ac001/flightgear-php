@@ -1,11 +1,5 @@
 <div id="right_box">
 	
-	<div class="panel_box">
-		<h3>Random Foo</h3>
-		<p>Word of the moment is <b>'{$Site->fgFoo->random()}'</b></p>
-		<p>{literal}{$Site->fgFoo->random()}{/literal}
-		</p>
-	</div>
 
 </div>
 
@@ -14,9 +8,7 @@
 	<h1>{$Site->pageTitle()}</h1>
 
 
-	<p>The "design" of this site is intended to be flexible, including more development twoaard internationallisation and automation.</p>
-
-<h3>A Zone/Site</h3>
+<h3>Zone/Site</h3>
 <p>A zone/site is considered to be a top level script, such as this "site", <b>webdev.php</b></p>
 <p>The <b>$Site</b> object is used to "control" a site, including navigation, loading classes etc. This is
 used globally throughout the application.</p>
@@ -35,18 +27,18 @@ webdev.php?section=download&page=linux
 
 
 <h3>Templating</h3>
-<p>The site user <b>$smarty</b> templating <a href="http://smarty.net">http://smarty.net</a></p>
+<p>The site uses <b>$smarty</b> templating <a href="http://smarty.net">http://smarty.net</a></p>
 <p>The smarty templates are in directory <b>templates/*</b></p>
 
-<p>The <b>web_container.html</b> tempaltes is the "main" template, with the head, body, navigation, images, layout, js, css etc. This is displayed by smarty.</p>
-<pre class="php">$smarty->display('web_container.html);</pre>
+<p>The <b>web_container.html</b> tempalte is the "main" template, with the head, body, navigation, images, layout, js, css etc. This is displayed by smarty.</p>
+{source lang='php'}$smarty->display('web_container.html);{/source}
 
 <p>The container "includes" the <b>site/section.page.html</b> file ie</p>
 <pre class="php">{literal}
-{* line below includes the content page ie  "templates/site/section.page.html" *}
+{* Includes the content page ie "templates/site/section.page.html" *}
 {include file=$Site->mainPage()};{/literal}</pre>
 
-<p>web site "section/pages"  html files are in the directory <b>templates/site_id/*</b> in the form</p>
+<p>Web site "section/pages"  html files are in the directory <b>templates/site_id/*</b> in the form</p>
 <pre class="php">section.html
 section.page.html</pre>
 
