@@ -4,6 +4,8 @@
 define('SITE_KEY', 'flight-simpits-v0.1');
 define('VERSION', '0.1');
 
+$smaarty = null;
+$db = null;
 
 //*************************************************************************
 //** Error Handling
@@ -18,7 +20,7 @@ function my_error_handler($errno, $errstr, $errfile, $errline){
 function my_exception_handler($exception)
 {
     echo "@Exception:".$exception->getMessage();
-    dResponse::send_exception($exception);
+    fgResponse::send_exception($exception);
 }
 
 //*************************************************************************
@@ -68,11 +70,28 @@ function __autoload($class_name){
     }
 }
 
+//*********************************************************
+//** Load Database
+//*********************************************************
+function load_db(){
+	global $db, $DB;
+	require_once(SITE_ROOT.'libs/adodb5/adodb.inc.php');
+	require_once(SITE_ROOT.'config/DB.php');
+	$db = ADONewConnection($DB['driver']); # eg 'mysql' or 'postgres'
+	$db->debug = true;
+	$db->Connect($DB['server'], $DB['user'], $DB['pass'], $DB['db']);
+	unset($DB);
+}
+if(isset($LOAD_DB) && $LOAD_DB){
+	load_db();
+}
+
 
 //*********************************************************
 //** Load Smarty
 //*********************************************************
-if(isset($REQUIRE_SMARTY) && $REQUIRE_SMARTY){
+function load_smarty(){
+	global $smarty;
 	$smarty = new Smarty();
 
 	//* compile setup
@@ -91,6 +110,9 @@ if(isset($REQUIRE_SMARTY) && $REQUIRE_SMARTY){
 	//** Assign general variables
 	$smarty->assign('nice_date_format', '%d-%m-%Y');
 	$smarty->assign('nice_date_time_format', '%d-%m-%Y : %I %p');
+}
+if(isset($LOAD_SMARTY) && $LOAD_SMARTY){
+	load_smarty();
 }
 
 ?>

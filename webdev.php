@@ -1,7 +1,7 @@
 <?php
 
-$REQUIRE_SMARTY = true;
-// $REQUIRE_DB = false; .. not needed
+$LOAD_SMARTY = true;
+$LOAD_DB = true;
 require_once('config/config.inc.php');
 
 //* Create site object and setup

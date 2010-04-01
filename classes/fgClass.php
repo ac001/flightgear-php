@@ -14,9 +14,8 @@ class fgClass
 	private $_feeds = array();
 	private $_handlers = array();
 
-
-	public static function methodExists($class_name, $method_name){
-		return method_exists($class_name, $method_name);
+	public static function path($class_name){
+		return SITE_ROOT.'classes/';
 	}
 
 	public static function filePath($class_name){
@@ -25,6 +24,10 @@ class fgClass
 
 	public static function fileExists($class_name){
 		return file_exists(self::filePath($class_name));
+	}
+
+	public static function methodExists($class_name, $method_name){
+		return method_exists($class_name, $method_name);
 	}
 }
 ?>
