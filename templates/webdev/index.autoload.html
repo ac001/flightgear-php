@@ -8,14 +8,14 @@
 	<h1>{$Site->pageTitle()}</h1>
 
 
-<p>The application makes extensive use of and somewhat relies on the php5's ) function
- <a href="http://php.net/manual/en/language.oop5.autoload.php">__auto_load</a> function, which is setup on the config.</p>
+<p>The application makes extensive use of and somewhat relies on the php5's 
+ <a href="http://php.net/manual/en/language.oop5.autoload.php"><b>__auto_load()</b></a> function, which is setup in the config.</p>
 
-<p>This means that "classes" are loaded on demand and when called, and had two "scenaios"</p>
+<p>This means that classes are loaded on demand when first called, and have two loading techiques</p>
 <ul>
-	<li>A recognised lib eg $smarty</li>
-	<li>Or a class from classes/</li>
-	<li>Otherwise it fails</li>
+	<li>A recognised <b>lib</b> eg $smarty</li>
+	<li>Or a <b>fg*</b> class in <b>classes/</b></li>
+	<li>Otherwise it fails (error handline being worked on)</li>
 </ul>
 <p>Below is a brief example snippet of __autoload() usage</p>
 {source lang='php'}{literal}//* snippet from config.inc.php

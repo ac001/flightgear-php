@@ -11,11 +11,11 @@
 class fgIrc
 {
 	const ini = 'irc.ini';
-	const server = 'irc.flightgeat.org';
+	const server = 'irc.flightgear.org';
 	const url = 'irc://irc.flightgear.org/';
+
 	private $_channels = array();
 	
-
 	public function __construct(){
 		$arr  = parse_ini_file(fgSite::configPath().self::ini, true);
 		foreach($arr as $channel => $v){
@@ -29,11 +29,11 @@ class fgIrc
 
 	public function feed(){
 		$arr = array();
+		$arr['help'] = 'IRC chat, servers and channels';
 		$arr['server'] = self::server;
 		$arr['url'] = self::url;
-		$arr['channels'] = $this->_channels;
+		$arr['channels'] = array_values($this->_channels);
 		return $arr;
 	}
-
 }
 ?>

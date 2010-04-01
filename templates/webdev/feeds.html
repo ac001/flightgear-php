@@ -3,7 +3,14 @@
 {* The right box is floted to the right, so must be included first *}
 <div id="right_box">
 	
-
+	<div class="panel_box">
+		<h3>Available Feeds</h3>
+		<ul>
+		{foreach from=$Site->fgFeed->index() item=Feed}
+			<li><a href="#" class="link">{$Feed.title}</a></li>
+		{/foreach}
+		</ul>
+	</div>
 
 </div>
 
@@ -15,11 +22,50 @@
 
 	<p>Feeds as still a work in progress, however the idea is to expose various application data.</p>
 
-	<p>The feeds are available at <a href="feeds/">feeds/</a></p>
+	<ul>
+	<li>The feeds are available at <a href="feeds/"><b>feeds/</b></a></li>
+	<li>A feed with no paramaters return an "index" in json format</li>
+	<li>The resposne format can be defined with request var <b>format</b></li>
+	<li>Available format(s) are <b>json</b>, with xml, atom, yaml coming soon</li>
+	<li>The feed to return is defined by the <b>feed</b> query var</li>
+	<li>An <b>error</b> if retured is something happens to go wrong</li>
+	<li><b>success</b> is always returned as <b>true</b>, unless a network error</li>
+	</ul>
 
-	<p>By "default", it returns a "feed index" in json if no paramaters supplied</p>
+	<p>Below are example requests that returns the irc info in json</p>
+	<pre class="php">//** returns an index in json as default
+feeds/
 
-	
+//* returns the irc channels in json 
+feeds/?feed=irc
 
+//* returns the irc channels in xml 
+feeds/?feed=irc&format=xml
 
+//* Returns an error
+feeds/?feed=tYpo
+</pre>
+
+<h2>feeds.ini</h2>
+<p>Feeds are defined in the <b>feed.ini</b> file. Following is an example entry</p>
+{source lang='ini'}
+[my_feed]
+title = "My Cool Feed"
+description= "All the latest runnings"
+handler = "fgCool"
+{/source}
+<p>The <b>[*]</b> part is the <b>feed</b> and must be unique</p>
+<p>The <b>handler</b> is the name of the class to respond to this feed request</p>
+
+<h2>Responding to Request</h2>
+<p>The target class <b>must</b> currently have the class method <b>feed()</b>. This need to return an array appropriate for the format.Here is an example <b>feed()</b> function.</p>
+{source lang='php'}{literal}public function feed(){
+    $arr = array();
+    $arr['nfo'] = 'He it is';
+    $arr['my_feed'] = $this->get_some_stuff();
+    return $arr;
+}
+{/literal}{/source}
+
+<p>Its as simple as that</p>
 </div>

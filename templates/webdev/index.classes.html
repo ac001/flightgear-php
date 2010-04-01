@@ -44,8 +44,41 @@
 <p>This can now be called from anywhere with</p>
 {source lang='php'}{literal}$widget = new fgWidget();{/literal}{/source}
 
+<h2>Reserved and special methods</h2>
+<p>Currently the <b>feed()</b> method is reserved for the feeds/ service</p>
+<p>See the {link section=feeds title="feeds"} section for more info</p>
 
-<h2>Useful Classes</h2>
+
+<h2>Main Classes</h2>
+<ul>
+<li><b>fgException()</b> - exception object and utils</li>
+<li><b>$Site</b>  - an instance of <b>fgSite()</b>, global and controller</li>
+<li><b>$smarty</b>  - templating engine</li>
+<li><b>$db</b>  - database connector</li>
+<li><b>fgReponse()</b> - payload helper and packager</li>
+<li><b>fgFeed()</b> - feed handler</li>
+</ul>
+
+<h2>General Classes</h2>
+<ul>
+<li><b>fgUtils()</b> - helpers and utilities</li>
+<li><b>fgObject()</b> - a general setter/getter</li>
+<li><b>fgClass()</b> - class file helper, reflection</li>
+<li><b>fgMime()</b> - mime types helper</li>
+</ul>
+
+
+
+<h2>Content Classes</h2>
+<ul>
+<li><b>fgGallery()</b>  - gallery and images</li>
+<li><b>fgForum()</b> - forum links and utils</li>
+<li><b>fgMirror()</b> - ftp mirrors defned in mirrors.ini</li>
+<li><b>fgIrc()</b> - IRC stuff</li>
+<li><b>fgPlatform()</b>  - OS Platforms</li>
+</ul>
+
+
 
 <h3>fgObject()</h3>
 <p>This is a basic setter/getter eg</p>

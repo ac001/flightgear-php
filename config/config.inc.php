@@ -35,10 +35,6 @@ if(CLI){
 
  //* site root is parent to this file location
 define('SITE_ROOT', dirname(__FILE__).'/../');
-//* Location of class files
-define('CLASS_PATH', SITE_ROOT.'classes/');
-
-
 
 
 //*************************************************************************

@@ -12,17 +12,22 @@ class fgResponse
 {
     private $_payload = array();
     private $_error = null;
-
-	
+	private $_format = null;
 
     public function __construct(){
-       // $this->mime_type = $mime_type;
-       // $this->_return_array = array('success' => true);
-       // self::plain();
+       $this->_payload = self::emptyPayload();
     }
 
+	public static function emptyPayload(){
+       return array('success' => true);
+	}
+
+	public function setFormat($format){
+		$this->_format = $format;
+	}
+
     public function _add_val($key, $value){
-            $this->_return_array[$key] = $value;
+            $this->_payload[$key] = $value;
     }
     public function _add_array($array){
         foreach($array as $k => $v){
@@ -41,7 +46,7 @@ class fgResponse
     */
     public function add($arg1, $arg2 = null, $arg2_is_array = false){
 
-        //* Only one argument - so assumed to be array
+	    //* Only one argument - so assumed to be array
         if(is_null($arg2)){
             if( is_array($arg1) ){
                 $this->_add_array($arg1);
@@ -81,7 +86,7 @@ class fgResponse
        // if($this->tree_mode && !$cancel_tree_mode){
             echo json_encode( $this->_nodes );
        // }else{
-           // echo json_encode($this->_return_array);
+           // echo json_encode($this->_payload);
        // }
         //die();
     }
@@ -92,7 +97,7 @@ class fgResponse
        // if($this->tree_mode && !$cancel_tree_mode){
             echo json_encode( $this->_nodes );
        // }else{
-         //   echo json_encode($this->_return_array);
+         //   echo json_encode($this->_payload);
         //}
         die();
     }
@@ -133,25 +138,6 @@ class fgResponse
     }
 
 
-    public function set_request($dRequestObject){
-        $this->_return_array['command'] = $dRequestObject->command();
-        $this->_return_array['mode'] = $dRequestObject->mode();
-        if( $dRequestObject->is_tree() ){
-            $this->tree_mode = true;
-            $this->_return_array['node'] = $dRequestObject->node();
-        }
-    }
-
-    public static function plain(){
-        header('Content-type:'.fgMime::text);
-    }
-
-
-    public static function debug( $foo ){
-        self::send_plain();
-        print_r( $foo );
-    }
-
 	public static function sendHeader(){
 		 header('Content-type:'.fgMime::text);
 	}
@@ -164,11 +150,9 @@ class fgResponse
 		echo json_encode($payload);
 	}
 
-	public static function sendPayload(){
+	public function sendPayload(){
 		self::sendHeader();
-		$payload = array();
-		$payload['success'] = true;
-		echo json_encode($payload);
+		echo json_encode($this->_payload);
 	}
 }
 ?>

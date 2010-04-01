@@ -1,0 +1,50 @@
+<div id="right_box">
+	
+
+</div>
+
+
+<div id="content_box">
+	<h1>{$Site->pageTitle()}</h1>
+
+<p>Error handlers are still work in progress, although on the feeds they are implemented</p>
+
+<h3>Issues</h3>
+<p>Error handling falls into a few key areas</p>
+
+<ul>
+<li><b>404</b> - these are as yet  unhandled</li>
+<li><b>global</b> - tba</li>
+</ul>
+
+<h2>Example Error Handling</h2>
+
+<h3>Class method that throws an exception</h3>
+{source lang='php'}{literal}class fgFooBar
+{
+   public function validate(){
+      if($this->x > $this->y){
+         throw new fgException('invalid values', 'x is greater than y');
+      }
+   }  
+
+}{/literal}{/source}
+
+<h3>Script with validation</h3>
+{source lang='php'}{literal}// Example script with error handling and an rpc
+require_once('../../config/config.inc.php');
+
+// set up the error catch for this script
+try{
+
+	$foo = new fgFooBar($x, $y);
+	$foo->validate();
+
+	$foo->sendReply();
+
+} catch (fgException $e) {    
+	echo json_encode($e->error());
+	die();
+}
+{/literal}{/source}
+</div>

@@ -25,6 +25,11 @@ class fgMirror
 	public function index(){
 		return $this->_mirrors;
 	}
+
+	public function feed(){
+		$arr = array();
+		
+	}
 	
 }
 ?>

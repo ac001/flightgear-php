@@ -1,0 +1,27 @@
+<?php
+/** General Helpers and Utilities
+ * @package FlightGear
+ * @subpackage www
+ * @copyright (C) 2010 FlightGear Team
+ * @author Peter Morgan <ac001@daffodil.uk.com>
+ * @version 0.1
+ *
+ *
+*/
+class fgHelper
+{
+
+	private $_feeds = array();
+	private $_handlers = array();
+
+
+	public static function methodExists($class_name, $method_name){
+		return method_exists ( $class_name, $method_name );
+	}
+
+	public static function loadIniFile($ini_file, $as_array=true){
+		return parse_ini_file(fgSite::configPath().$ini_file, $as_array);
+	}
+
+}
+?>
