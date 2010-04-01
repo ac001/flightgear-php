@@ -30,7 +30,7 @@ class fgFoo
 	}
 	public function random(){
 		$messages = $this->messages();
-		return $messages[array_rand($messages)];
+		return $messages[array_rand($messages)]['label'];
 	}
 }
 

@@ -4,10 +4,11 @@ $REQUIRE_SMARTY = true;
 require_once('config/config.inc.php');
 
 $Site = new fgSite();
-$Site->site_id = '_portal_';
-$Site->site_title = 'FlightGear';
+$Site->id = 'portal';
+$Site->title = 'FlightGear Portal';
+$Site->section = 'index';
 
 $smarty->assign('Site', $Site);
-$smarty->display('portal_container.html')
+$smarty->display('web_container.html')
 
 ?>

@@ -2,7 +2,7 @@
 	
 	<div class="panel_box">
 		<h3>Random Foo</h3>
-		<p><b>{$Site->fgFoo->random()}</b></p>
+		<p>Word of the moment is <b>'{$Site->fgFoo->random()}'</b></p>
 	</div>
 
 </div>
@@ -12,7 +12,7 @@
 	<h1>{$Site->pageTitle()}</h1>
 
 
-	<p>The class <b>fgFoo.php</b> is autoloaded by call in template.</p>
+	<p>The class <b><a href="http://github.com/ac001/flightgear-php/blob/master/classes/fgFoo.php">fgFoo.php</a></b></b> is autoloaded by a call in template.</p>
 	<pre>{literal}{$Site->fgFoo->bar()}{/literal}</pre>
 		
 

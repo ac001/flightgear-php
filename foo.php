@@ -6,7 +6,7 @@ require_once('config/config.inc.php');
 
 //* Create site object and setup
 $Site = new fgSite();
-$Site->title = 'FlightGear - Skel';
+$Site->title = 'Foo Gear ';
 
 //** id also dictates the smarty_compile and the tempaltes/_sub_dir_
 $Site->id = '_foo_';
@@ -15,9 +15,9 @@ $Site->id = '_foo_';
 $Site->addSiteNav('foo.php', 'Foo', $Site->id);
 
 //** Create Page navigation
-$Site->addPageNav('index', 'Nav Label', 'Section title',
+$Site->addPageNav('index', 'Welcome Label', 'Welcome Title',
 				array(
-					array('plugin', 'Plugin', 'Plugin Demo'),
+					array('plugin', 'Plugin Demo', 'Autoload Plugin Demo'),
 					array('bar', 'Bar', 'Bar title')
 			)
 );
