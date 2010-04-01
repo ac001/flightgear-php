@@ -13,6 +13,7 @@ host C(100) INDEX,
 ip C(100) INDEX,
 contact C(150) INDEX,
 irc C(20) INDEX,
+tracked L,
 date_created T INDEX,
 date_updated T INDEX
 ";

@@ -20,11 +20,13 @@ class fgMpServer extends fgObject
 	public function import(){
 		$arr  = parse_ini_file(fgSite::configPath().self::ini, true);
 		foreach($arr as $host => $v){
-			//print_r($v);
+			print_r($v);
+			//global $db;
+			//$db->debug=1;
 			$parts = explode(".", $host);
 			$s = new fgMpServer(0);
 			$s->nick = $parts[0];
-
+			$s->type = 'mpserver';
 			$s->ip 		= isset($v['ip']) ? $v['ip'] : null;
 			$s->contact	= isset($v['contact']) ? $v['contact'] : null;
 			$s->irc		= isset($v['irc']) ? $v['irc'] : null;
@@ -51,16 +53,21 @@ class fgMpServer extends fgObject
 						$this->contact, $this->tracked
 					);
 		if($this->id() == 0){
-			$sql = 'insert into server(
+			$sql = 'insert into servers(
 					type, nick, host, ip, contact, tracked
 				)values(
 					?,    ?,    ?,    ?,  ?,       ?
 				)';
+				$this->db->execute($sql, $vars);
+				$this->insert_id();
 		}else{
-			$sql = 'update server set
+			$sql = 'update servers set
 					type=?, type=?, type=?, type=?, type=?, type=?
 				';
+				$this->db->execute($sql, $vars);
 		}
+		
+		return $this->id();
 	}
 
 	public function index(){
