@@ -17,7 +17,7 @@
 		<ul>
 			{foreach from=$Site->fgIrc->channels() item=Chan}
 				<li>{$Chan.title}<br>&nbsp;&nbsp;# 
-					<a href="{$Site->fgIrc->url}{$Chan.url}">{$Chan.chan}</a>
+					<a href="{$Site->fgIrc->url}{$Chan.url}">{$Chan.channel}</a>
 				</li>
 			{/foreach}
 		</ul>

@@ -125,6 +125,7 @@ body{
 #header_container h2{
 	margin-bottom: 10px;
 	font-size: 8pt;
+	font-weight: normal;
 	color: #888888;
 	margin-bottom: 20px;
 }
@@ -472,7 +473,15 @@ body{
 	font-size: 8pt;
 }
 
-
+#content_box pre.php{
+	background-color: #eeeeee;
+	border: 2px dotted #dddddd;
+	color: black;
+	margin-right: 20px;
+	margin-left: 70px; 
+	padding: 8px;
+	font-size: 8pt;
+}
 /******************************************/
 #content_box  #faq_box{
 	ssbackground-color: red;

@@ -1,0 +1,50 @@
+<div id="right_box">
+	
+	<div class="panel_box">
+		<h3>Random Foo</h3>
+		<p>Word of the moment is <b>'{$Site->fgFoo->random()}'</b></p>
+		<p>{literal}{$Site->fgFoo->random()}{/literal}
+		</p>
+	</div>
+
+</div>
+
+
+<div id="content_box">
+	<h1>{$Site->pageTitle()}</h1>
+
+
+	<p>The "application" is designed to be as self configurable as possible, however here are some pointers to how its achieved at the moment</p>
+
+	<h2>config/config.inc.php</h2>
+	<p>The <a href="">config.inc.php</a> is the main config file that needs to be included at the top of each script. It defines the enviroment, set's up the autoload enviroment, declares constants, etc.</p>
+	<p>The file is intended for use both in a webpage enviroment, and also as a shell, eg cron</p>
+	<p>Two variables <b>$REQUIRE_SMARTY</b> and <b>$REQUIRE_DB</b> need to be declared and <b>true</b> before the
+		config file is included to load smarty and connect to a database respectively.</p>
+	<pre class="php">
+    $REQUIRE_SMARTY = 1; // we need smarty for this web page
+    $REQUIRE_DB = 1; // don't need database
+    require_once('config/config.inc.php');</pre>
+	
+
+	<h3>SITE_ROOT</h3>
+	<p>This constant is the full system path to the "top" level of the site, ie the root</p>
+	<pre class="php">
+    echo SITE_ROOT;
+    >> outputs /home/user_name/public_html/flightgear-php/</pre>
+	
+	<h2>config/*.ini</h2>
+
+	<p>Other configurations such as mpservers, mirrors, irc channels etc are stored in good olde <b>*.ini</b> files. However the structure is such that these could be abandoned for an alternate (eg a database) later should the need require.
+	</p>
+	<p>Current ini files include</p>
+	<ul>
+		<li><a href="http://github.com/ac001/flightgear-php/blob/master/config/mirrors.ini">mirrors.ini</li>
+		<li><a href="http://github.com/ac001/flightgear-php/blob/master/config/irc.ini">irc.ini</li>
+		<li><a href="http://github.com/ac001/flightgear-php/blob/master/config/mpservers.ini">mpservers.ini</li>
+	</ul>
+
+	<p>There is a security consideration to be taken into account with the db configuration</p>
+	
+
+</div>

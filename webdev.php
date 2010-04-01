@@ -17,16 +17,18 @@ $Site->id = 'webdev';
 //** Create Page navigation
 $Site->addPageNav('index', 'Web Dev Index', 'Welcome To the FlightGear Web Dev',
 				array(
-					array('plugin', 'Plugin Demo', 'Autoload Plugin Demo'),
-					array('bar', 'Bar', 'Bar title')
+					array('install', 'Install', 'Installation'),
+					array('overview', 'Overview', 'Site and Code Overview'),
+					array('config', 'Config', 'Configuration'),
+					array('site_obj', '$Site Object'),
+					array('autoload', '__autoload()', 'function __autoload()'),
+					array('classes', 'Classes', 'Classes'),
+					array('plugin', 'Plugin Demo', 'Autoload Plugin Demo')
+					
 			)
 );
-$Site->addPageNav('another_section', 'Another Label', 'Lost in space',
-				array(
-					array('x_page', 'My X', 'My X lady'),
-					array('zzz', 'Zzzzz', 'Sleep time cpu')
-			)
-);
+$Site->addPageNav('example', 'Example', 'Site creation example');
+
 
 //** Setup the default $section and $page
 $Site->section = isset($_REQUEST['section']) ? $_REQUEST['section'] : 'index';

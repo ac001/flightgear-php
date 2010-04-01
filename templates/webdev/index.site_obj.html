@@ -1,0 +1,65 @@
+<div id="right_box">
+	
+	<div class="panel_box">
+		<h3>Random Foo</h3>
+		<p>Word of the moment is <b>'{$Site->fgFoo->random()}'</b></p>
+		<p>{literal}{$Site->fgFoo->random()}{/literal}
+		</p>
+	</div>
+
+</div>
+
+
+<div id="content_box">
+	<h1>{$Site->pageTitle()}</h1>
+
+
+	<p>The <b>$Site</b> object is the main controller class that is accessible in php and tempaltes.</p>
+
+	<p>Creating a new site area is a simple case of some simple configuration and scripts</p>
+
+	<p>A <b>$Site</b> object needs to be declared and properties set.</p>
+<pre class="php">{literal}
+$Site = new fgSite();
+$Site->id = 'foo';
+$Site->title = 'Foo Fun';{/literal}</pre>
+
+<h3>$Site->id</h3>
+<p>The <b>$Site->id</b> property is used as</p>
+<ul>
+<li>Is a kinda namespace</li>
+<li>Compiled smarty templates as saved with this as the <b>Site key</b></li>
+<li>The templates will be used from <b>templates/$Site->id/</b></li>
+<li>Is matched against the "inter site navigation" at the top</li>
+</ul>
+
+<h3>$Site->title </h3>
+<p>The <b>$Site->title</b> property appears in the header bar and the html title</p>
+
+<h3>$Site->section</h3>
+<h3>$Site->page</h3>
+<p>The current section and page, these are currently set in the top level script eg</p>
+<pre class="php">//* $page can be null, $section defaults to "index"
+$Site->section = isset($_REQUEST['section']) ? $_REQUEST['section'] : 'index';
+$Site->page = isset($_REQUEST['page']) ? $_REQUEST['page'] : null;</pre>
+
+
+<h3>$Site->addPageNav()</h3>
+<p>The <b>$Site->addPageNav()</b> function is used to add "sections" and "pages" to a site.</p>
+<p>The arguments take the form<br>
+<b>$section, $nav_label, $page_title, array($pages)</b></p>
+<ul>
+	<li><b>$section</b> - this is a top level of navigation</li>
+	<li><b>$nav_label</b> - The navigation and $page_title if $page_title is null</li>
+	<li><b>$page_title</b> - if null, then $nav_label is used as page title</li>
+	<li><b>array($pages)</b> - sub_pages in the form $page, $nav_label, $optional_title</li>
+	<li>Potentially later a multi-tier system and css might be interesting.</li>
+</ul>
+
+<h3>$Site->pageTitle()</h3>
+<p>This function outputs the current page's title.<br>
+
+<h3>$Site->contentTemplate()</h3>
+<p>Returns the current coentent template<br>
+
+</div>

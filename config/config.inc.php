@@ -27,7 +27,7 @@ define('CLI', php_sapi_name() == 'cli');
 if(CLI){
 	session_start();
 }
-date_default_timezone_set('Europe/London');
+date_default_timezone_set('UTC');
 
 
 //*************************************************************************

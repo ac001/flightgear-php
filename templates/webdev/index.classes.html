@@ -1,0 +1,75 @@
+<div id="right_box">
+	
+	<div class="panel_box">
+		<h3>Random Foo</h3>
+		<p>Word of the moment is <b>'{$Site->fgFoo->random()}'</b></p>
+		<p>{literal}{$Site->fgFoo->random()}{/literal}
+		</p>
+	</div>
+
+</div>
+
+
+<div id="content_box">
+	<h1>{$Site->pageTitle()}</h1>
+
+
+	<p>To try and keep the application clean, most application code and logic are embedded in classes</p>
+	<ul>
+		<li>Classes are locaated in the <b>classes/</b> directoty</li>
+		<li>Class names are generally prefixed with <b>fg*</b> as a namespce, at present eg fgFoo</li>
+		<li>A class must name the same filename ie <b>fgFoo.php</b></li>
+	</ul>
+
+	<p>You are encouraged to browse the existing classes for functionallity</p>
+
+
+<h3>Adding and Extending Functionality</h3>
+<p>Lets consider adding some new functionatily with an fgWidget() class to the site<p>
+<p>Simply create the class is classes/fgWidget.php, encapsulated with its code, eg</p>
+<pre class="php">{literal}
+class fgWidget
+{
+    const FOO = 'my_constant';
+    private $_data = null;
+    public $x;
+
+    public function __construct(){
+        //* Check if data is cached
+        $cache_file = SITE_ROOT.fgSite::CACHE_DIR.'my_data.txt';
+        if(file_exists($cache_file)){
+            return json_decode( file_get_contents($cache_file), true);
+        }
+        //* load data
+        $this->_data = get_data();
+		file_put_contents($cache_file, json_encode($this->_data));
+    }
+    function data(){
+        return $_data;
+    }
+}{/literal}</pre>
+<p>This can now be called from anywhere with</p>
+<pre class="php">$widget = new fgWidget();</pre>
+
+
+<h2>Useful Classes</h2>
+
+<h3>fgObject()</h3>
+<p>This is a basic setter/getter eg</p>
+<pre class="php">{literal}
+$myOb = new fgObject();
+
+$myOb->foo = 'bar';
+echo $myOb->foo;
+
+$myOb->my_array = array('foo', 'bar');
+foreach($myOb->my_array as $value){
+     echo $value;
+}
+{/literal}</pre>
+
+
+
+
+
+</div>

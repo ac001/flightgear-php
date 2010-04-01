@@ -1,0 +1,55 @@
+<div id="right_box">
+	
+	<div class="panel_box">
+		<h3>Smarty</h3>
+		<p>Word of the moment is <b>'{$Site->fgFoo->random()}'</b></p>
+		<p>{literal}{$Site->fgFoo->random()}{/literal}
+		</p>
+	</div>
+
+</div>
+
+
+<div id="content_box">
+	<h1>{$Site->pageTitle()}</h1>
+
+	<p>Here's some rough instructions to set up on a local machine</p>
+
+	<h2>How to run on http://localhost</h2>
+
+	<p>Required: Apache and php5 are installed.</p>
+
+<p>In the example below the  the <b>user_name</b> is  your  <b>public_html/</b> directory.</p>
+<pre>http://localhost/~user_name/flightgear-simpits/</pre>
+
+
+<h3>Clone this repository</h3>
+<p>Take a git clone of the repository</p>
+<pre class="shell">
+cd ~user_name/public_html/
+git checkout git@github.com:ac001/flightgear-php.git 
+</pre>
+
+
+<h3>Setup Permissions</h3>
+<p>Make the <b>_-rw_cache__/</b> directory writable by webserver server</p>
+<pre class="shell"> 
+cd flightgear-php
+chmod +w __rw_cache__
+</pre>
+
+<h3>Download Gallery</h3>
+<p>The gallery is not included in the repository. To fetch the gallery run the <b>etc/checkout_gallery.sh</b> script.
+This will create a <b>gallery/</b> directory and then checkout a version from google svn.</p>
+<pre class="shell"> 
+cd etc/
+./checkout_gallery.sh
+</pre>
+
+<h3>View it</h3>
+<p>Now point your browser at</p>
+<pre>http://localhost/~user_name/flightgear-php/</pre>
+
+<p>Check php with</p>
+<pre>http://localhost/~user_name/flightgear-php/etc/php.php</pre>
+</div>

@@ -3,12 +3,20 @@
 {* The right box is floted to the right, so must be included first *}
 <div id="right_box">
 	
+
 	<div class="panel_box">
-		<h3>Side Box</h3>
-		<p>Something here</p>
+		<h3>Class Documentation</h3>
+		<p><a href="etc/docs/"><b>phpdoc Classes</b></a></p>
 	</div>
 
-	{include file='webdev/snip.my_box.html'}
+
+	<div class="panel_box">
+		<h3>Smarty</h3>
+		<img src="http://www.smarty.net/gifs/smarty_icon.gif" style="float:right; margin: 5px;" alt="smarty">
+		<p>Powered by Smarty<br>
+		<a href="http://smarty.net">smarty.net</a></p>
+	</div>	
+
 </div>
 
 
@@ -17,8 +25,8 @@
 
 	<h1>{$Site->pageTitle()}</h1>
 
-	<p>The project source is at GitHub 
-		<a href="http://github.com/ac001/flightgear-php/"><b>flightgear-php</b></a>
+	<p>The project source is at GitHub <br>
+		<a href="{$Site->git_url}">{$Site->git_url}</a>
 	</p>
 
 	<p>This is an example of a "site" zone. The check the <a href="http://github.com/ac001/flightgear-php/blob/master/webdev.php">webdev.php</a> source to see configuration</p>

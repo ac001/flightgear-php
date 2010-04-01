@@ -1,0 +1,55 @@
+<div id="right_box">
+	
+	<div class="panel_box">
+		<h3>Random Foo</h3>
+		<p>Word of the moment is <b>'{$Site->fgFoo->random()}'</b></p>
+		<p>{literal}{$Site->fgFoo->random()}{/literal}
+		</p>
+	</div>
+
+</div>
+
+
+<div id="content_box">
+	<h1>{$Site->pageTitle()}</h1>
+
+
+	<p>The "design" of this site is intended to be flexible, including more development twoaard internationallisation and automation.</p>
+
+<h3>A Zone/Site</h3>
+<p>A zone/site is considered to be a top level script, such as this "site", <b>webdev.php</b></p>
+<p>The <b>$Site</b> object is used to "control" a site, including navigation, loading classes etc. This is
+used globally throughout the application.</p>
+
+
+<h3>Navigation, Section and Page</h3>
+<p>The site structure is designed around a two tier level ie <b>section/page</b></p>
+<p>All urls take the form</p>
+<pre class="php">
+webdev.php?section=download
+webdev.php?section=download&page=linux
+
+//* TODO is to use mod_rewite for 
+/webdev/section/*page*/
+</pre>
+
+
+<h3>Templating</h3>
+<p>The site user <b>$smarty</b> templating <a href="http://smarty.net">http://smarty.net</a></p>
+<p>The smarty templates are in directory <b>templates/*</b></p>
+
+<p>The <b>web_container.html</b> tempaltes is the "main" template, with the head, body, navigation, images, layout, js, css etc. This is displayed by smarty.</p>
+<pre class="php">$smarty->display('web_container.html);</pre>
+
+<p>The container "includes" the <b>site/section.page.html</b> file ie</p>
+<pre class="php">{literal}
+{* line below includes the content page ie  "templates/site/section.page.html" *}
+{include file=$Site->mainPage()};{/literal}</pre>
+
+<p>web site "section/pages"  html files are in the directory <b>templates/site_id/*</b> in the form</p>
+<pre class="php">section.html
+section.page.html</pre>
+
+
+
+</div>

@@ -7,34 +7,6 @@ This is some playing with running flightgear site on php
 Working dev test copy is at
 http://flightgear.simpits.org
 
---------------------------------------------------------------------
-How to run on http://localhost
---------------------------------------------------------------------
-Here's some rough instructions to set up on a local machine
-
-Required: Apache and php5 are installed.
-
-example below is in the user "user_name"'s public_html/ 
-html so appears at
-http://localhost/~user_name/flightgear-simpits/
-
-; Take a snapshot
-cd ~user_name/public_html/
-git checkout git@github.com:ac001/flightgear.simpits.git 
-
-; you need to make the smarty templates directory and cache writable by www server
-cd flightgear.simpits
-chmod +w __rw_cache__
-
-
-; The gallery not included. So to get then run the checkout gallery script
-; this will create a gallery/ directory and then checkout a version from google svn
-cd etc/
-./checkout_gallery.sh
-
-;; View it - now navigate to
-http://localhost/~user_name/flightgear-simpits/
-
 
 --------------------------------------------------------------------
 Hacking

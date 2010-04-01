@@ -1,0 +1,84 @@
+<div id="right_box">
+	
+	<div class="panel_box">
+		<h3>Random Foo</h3>
+		<p>Word of the moment is <b>'{$Site->fgFoo->random()}'</b></p>
+		<p>{literal}{$Site->fgFoo->random()}{/literal}
+		</p>
+	</div>
+
+</div>
+
+
+<div id="content_box">
+	<h1>{$Site->pageTitle()}</h1>
+
+<p>Here is a step by step example of creating a sit/zone "foo"</p>
+
+<h3>Create top level script</h3>
+<p>Create a file inder the webroot <b>foo.php</p>
+<pre class="php">
+//** This is foo.php script
+
+//** load the configuration
+$REQUIRE_SMARTY = 1;
+require_once('config/config.inc.php');
+
+$smarty->assign('Site', $Site);
+$smarty->display('foo_container/html');
+</pre>
+
+<p>Classes are autoloaded on demand, within tempaltes
+
+for example to create a plugin called fgFoo()
+
+First add to navigation in main page eg web.php
+$Site->addPageNav('foo', 'Nav label','Foo title');
+
+Create the "section" file eg
+web_site/foo.html
+
+Create the left_box and content_box , and drop in our foo
+<div id="right_box">
+	<h3>Random Foo</h3>
+	<p>{$Site->fgFoo->random();
+</div>
+
+<div id="content_box">
+	<h1>{$Site->pageTitle()}</h1>
+	{foreeach from=$Site->fgFoo->mesages() item=Mess}
+		<li>{$Mess.label}</li>
+	{/foreach}
+</div>
+
+create the classes/fgFoo.php files
+
+<pre class="code">
+class fgFoo
+{
+	private = $_cache = null;
+
+	public function bar(){
+		return 'hello';
+	}
+	public function messages(){
+		if(is_null($this->_cache)){
+			//** do stuff to get data eg from db
+			$this->_cache = array(
+						array('label' => 'Free'),
+						array('label' =>  'And'),
+						array('label' => 'Open'),
+						array('label' => 'Source')
+			);
+		}
+		return $this->_cache;
+	}
+	public function random(){
+		$messages = $this->messages();
+		return $messages[array_rand($messages];
+	}
+}
+</pre>
+
+
+</div>

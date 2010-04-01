@@ -15,9 +15,10 @@ class fgSite
 	const CACHE_DIR = '__rw_cache__/cache/';
 	const SMARTY_COMPILE_DIR = '__rw_cache__/smarty_compile_dir/';
 
+	##const sites_ini = 'sites.ini';
 
 	//* Local "property" object - see __get()
-    private  $_DATA = array();
+    private  $_PROPS = array();
 
 	//* Navigation
 	private $nav_items;
@@ -29,6 +30,8 @@ class fgSite
 	public $title;
 	public $section;
 	public $page;
+
+	public $git_url = 'http://github.com/ac001/flightgear-php/';
 
 	//* Construct and load Sites array - Hard coded here atmo
 	public function __construct(){
@@ -57,16 +60,16 @@ class fgSite
 	//*** Autoload Proeprty Classes
     public function __get($key) {
 
-		if(!isset($this->_DATA[$key])){
+		if(!isset($this->_PROPS[$key])){
 			$class_file = SITE_ROOT.'classes/'.$key.'.php';
 			if(file_exists($class_file)){
 				require_once($class_file);
-				$this->_DATA[$key] = new $key;
+				$this->_PROPS[$key] = new $key;
 			}
 		}
 
-        if (isset($this->_DATA[$key])) {
-            return $this->_DATA[$key];
+        if (isset($this->_PROPS[$key])) {
+            return $this->_PROPS[$key];
         }else{
             return null;
         }
