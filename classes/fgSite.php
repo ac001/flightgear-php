@@ -14,6 +14,7 @@ class fgSite
 	const CACHE_DIR = '__rw_cache__/cache/';
 	const SMARTY_COMPILE_DIR = '__rw_cache__/smarty_compile_dir/';
 
+
 	//* Local "property" object - see __get()
     private  $_DATA = array();
 
@@ -109,6 +110,10 @@ class fgSite
 		}
 	}
 
+
+	public static function configPath(){
+		return SITE_ROOT.'config/';
+	}
 
 }
 ?>

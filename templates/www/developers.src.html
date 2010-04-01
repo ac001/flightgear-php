@@ -1,7 +1,4 @@
-{% extends "MAIN.html" %}
-
-
-{% block right_box %}
+<div id="right_box">
 
 	<div class="panel_box">
 		<h3>Design Proposal</h3>
@@ -12,16 +9,17 @@
 
 	<div class="panel_box">
 		<h3>History</h3>
-		<img src="/images/missc/history.jpg" style="float: right; margin: 10px;">
+		<img src="images/missc/history.jpg" style="float: right; margin: 10px;">
 		<p>Read some history at <a href="http://en.wikipedia.org/wiki/FlightGear">WikiPedia</a></P>
 	</div>
 
-{% endblock %}
+</div>
 
 
-{% block content %}
 
-<h1>FlightGear Anonymous CVS instructions</h1>
+<div id="content_box">
+	<h1>{$Site->pageTitle()}</h1>
+
 
 
  
@@ -162,5 +160,4 @@ rdiff -u
  
 <P> 
  
-
-{% endblock content %}
+</div>

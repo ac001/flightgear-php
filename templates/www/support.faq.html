@@ -1,18 +1,16 @@
-{% extends "MAIN.html" %}
-
-{% block right_box %}
-
+<div id="right_box">
 
 	<div class="panel_box">
 		<h3>Wiki</h3>
 		<p>Search the <a href="http://wiki.flightgear.org">wiki for more info</a>.</a></P>
 	</div>
 
+</div>
 
-{% endblock %}
 
-{% block content %}
 
+<div id="content_box">
+	<h1>{$Site->pageTitle()}</h1>
     
       <p>Welcome to the FlightGear FAQ.  Here you will find the answers to
       some questions that are frequently asked on our mailing lists.  If
@@ -995,4 +993,4 @@
 </div><!-- faq_box -->
 
 	
-{% endblock %}
+</div>

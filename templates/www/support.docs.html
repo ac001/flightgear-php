@@ -1,23 +1,20 @@
-{% extends "MAIN.html" %}
-
-{% block right_box %}
+<div id="right_box">
 
 	<div class="panel_box">
 		<h3>Contents</h3>
-
 		<ul>
 			<li><a href="#tutorials">Tutorials</a></li>
-		<li><a href="#papers">Papers &amp; Presentations</a></li>
-		<li><a href="#dev_docs">Development Docs</a></li>
+			<li><a href="#papers">Papers &amp; Presentations</a></li>
+			<li><a href="#dev_docs">Development Docs</a></li>
 		</ul>
-
 	</div>
-
-{% endblock %}
-
+</div>
 
 
-{% block content %}
+
+<div id="content_box">
+	<h1>{$Site->pageTitle()}</h1>
+
 
 <H2>The FlightGear Manual</H2>
 
@@ -227,7 +224,7 @@ development side of Flight Gear.</p>
 </UL>
 
 
-<H3>Scenery</H3>
+<h3>Scenery</h3>
 
 <UL>
   <LI> <A HREF="http://www.flightgear.org/Docs/Scenery/CoordinateSystem/CoordinateSystem.html"> 
@@ -243,12 +240,12 @@ development side of Flight Gear.</p>
 </UL>
 
 
-<H3>Time</H3>
+<h3>Time</h3>
 
-<UL>
-  <LI> <A HREF="http://www.flightgear.org/Docs/Time/Events/Events.html">The Periodic Event Scheduler</A>
-</UL>
+<ul>
+  <li> <a HREF="http://www.flightgear.org/Docs/Time/Events/Events.html">The Periodic Event Scheduler</a></li>
+</ul>
 
 
 	
-{% endblock %}
+</div>

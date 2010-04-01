@@ -1,20 +1,17 @@
-{% extends "idea.html" %}
+<div id="right_box">
 
-
-{% block right_box %}
 
 	<div class="panel_box">
 		<h3>Not on this list?</h3>
 		<p>If you want you project to appear on this page then <a href="#">click here</a> to submit the details. Please note the editors reserve the right to remove links as there are so many related projects :-)</P>
 	</div>
 
+</div>
 
-{% endblock %}
 
 
-{% block content %}
-
-<h1>FlightGear Based Projects</h1>
+<div id="content_box">
+	<h1>{$Site->pageTitle()}</h1>
 
  
 <H3>RWTH Aachen research simulator</H3> 
@@ -209,4 +206,4 @@ systems and logics are done like Airbus does today.</p>
  
 <p><A HREF="http://www.msimulation.de">More info</A>.</p>
  
-{% endblock content %}
+</div>

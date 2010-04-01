@@ -46,16 +46,18 @@ $Site->addPageNav(	'download', 'Download', 'Download Central',
 );
 $Site->addPageNav(	'developers', 'Developers', null,
 					array(	
-							array('src', 'Source Code'),
+							array('src', 'Source Code', 'Anonymous CVS instructions'),
 							array('credits', 'Credits')
 					)
 );
 $Site->addPageNav(	'links', 'Links', null,
 					array(	
 							array('sites', 'Related Sites'),
-							array('projects', 'Projects')
+							array('projects', 'Projects', 'FlightGear Based Projects')
 					)
 );
+
+$Site->fgMirror->index();
 
 $smarty->assign('Site', $Site);
 $smarty->display('web_container.html')

@@ -1,7 +1,6 @@
-{% extends "idea.html" %}
+<div id="right_box">
 
 
-{% block right_box %}
 
 	<div class="panel_box">
 		<h3>Wiki</h3>
@@ -9,12 +8,13 @@
 	</div>
 
 
-{% endblock %}
+</div>
 
 
-{% block content %}
 
-<h1>FlightGear Related Links</h1>
+<div id="content_box">
+	<h1>{$Site->pageTitle()}</h1>
+
 
 
 <H3>Major Projects</H3>
@@ -501,4 +501,4 @@
        general aviation site.
 </UL> 
 
-{% endblock content %}
+</div>

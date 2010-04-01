@@ -1,3 +1,6 @@
+{* This is a smarty comment and does not get send to browser *}
+
+{* The right box is floted to the right, so must be included first *}
 <div id="right_box">
 	
 	<div class="panel_box">
@@ -10,14 +13,16 @@
 </div>
 
 
+{* Main Content Box *}
 <div id="content_box">
+
 	<h1>{$Site->pageTitle()}</h1>
 
-	<p>The project source is at GitHub <a href="http://github.com/ac001/flightgear-php/"><b>flightgear-php</b></a></p>
-
-	<p>
-	This is an example of a "site" zone. The check the <a href="http://github.com/ac001/flightgear-php/blob/master/foo.php">foo.php</a> source to see configuration<p>
+	<p>The project source is at GitHub 
+		<a href="http://github.com/ac001/flightgear-php/"><b>flightgear-php</b></a>
 	</p>
+
+	<p>This is an example of a "site" zone. The check the <a href="http://github.com/ac001/flightgear-php/blob/master/foo.php">foo.php</a> source to see configuration</p>
 
 	<pre>
 	//** $Site props example
@@ -27,9 +32,11 @@
 
 	</pre>
 
-	<p>This displays the <a href="http://github.com/ac001/flightgear-php/blob/master/templates/_foo_/index.html">templates/_foo_/index.html</a> template</p>
+	<p>This displays the 
+		<a href="http://github.com/ac001/flightgear-php/blob/master/templates/_foo_/index.html">templates/_foo_/index.html</a> template
+	</p>
 
-	<p>Check the  <b>Plugins Demo</b></p>
+	<p>Check the  <a href="{$SCRIPT_NAME}?section={$Site->section}&page=plugin"><b>Plugins Demo</b></a></p>
 
 
 </div>

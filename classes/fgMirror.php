@@ -9,29 +9,20 @@
 */
 class fgMirror
 {
-	const path = 'gallery/images/';
+	const ini = 'mirrors.ini';
 	
 	private $_mirrors = array();
 
 	public function __construct(){
-		$this->addMirror('Germany', 'ftp://ftp.de.flightgear.org/pub/fgfs/');
-		$this->addMirror('Germany', 'http://flightgear.mxchange.org/pub/fgfs/');
-		$this->addMirror('South Africa', '	 ftp://ftp.is.co.za/pub/games/flightgear/');
-		$this->addMirror('Ukraine', 'ftp://ftp.linux.kiev.ua/pub/mirrors/ftp.flightgear.org/flightgear/');
-		$this->addMirror('USA, North Carolina', 'ftp://mirrors.ibiblio.org/pub/mirrors/flightgear/ftp/');
-		$this->addMirror('USA, Minnesota', 'http://mirrors.ibiblio.org/pub/mirrors/flightgear/ftp/');
-		$this->addMirror('USA, California', 'ftp://ftp.kingmont.com/flightsims/flightgear/');
-	}
-
-	public function addMirror($location, $host){
-		$this->_mirrors = array('location' => $locaion, 'host' => $host);
+		$arr  = parse_ini_file(fgSite::configPath().self::ini, true);
+		foreach($arr as $location => $v){
+			$this->_mirrors[] = array('location' => $location, 'url' => $v['server']);
+		}
 	}
 
 	public function index(){
-		return $_mirrors;
+		return $this->_mirrors;
 	}
-
-
 	
 }
 ?>

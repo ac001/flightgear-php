@@ -11,7 +11,7 @@ class fgPlatform
 {
 
 	public function index(){
-		return $foo;
+		return array('Linux', 'Windows','Bsd');
 	}
 
 

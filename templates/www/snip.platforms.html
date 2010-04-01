@@ -1,13 +1,13 @@
 
 
 
-	<div class="panel_box">
-		<h3>Supported Platforms</h3>
-			<ul>
-			{* % for p in conf.platforms %}
-			<li><a href="/idea/download/flightgear/#{{ p.platform }}" class="link">{{ p.label }}</a></li>
-			{% endfor % *}
-			</ul>
-	</div>
+<div class="panel_box">
+	<h3>Supported Platforms</h3>
+	<ul>
+	{foreach from=$Site->fgPlatform->index() item=Plat}
+		<li><a href="#" class="link">{$Plat}</a></li>
+	{/foreach}
+	</ul>
+</div>
 
 

@@ -1,20 +1,27 @@
-{% extends "MAIN.html" %}
-
-
-{% block right_box %}
+<div id="right_box">
 
 
 
+	<div class="panel_box">
+		<h3>ToDO</h3>
+		<p>Index here</P>
+	</div>
 
-{% endblock %}
 
-{% block content %}
+</div>
 
 
-{% for ver in app.versions %}
+
+<div id="content_box">
+	<h1>{$Site->pageTitle()}</h1>
+
+
+<p>#TODO</p>
+
+{* % for ver in app.versions %}
 	<h3>{{ ver.version}}</h3>
 	<p>{{ ver.info }}</p>
 
-{% endfor %}
+{% endfor % *}
 
-{% endblock content %}
+</div>

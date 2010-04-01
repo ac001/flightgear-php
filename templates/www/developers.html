@@ -1,15 +1,22 @@
-{% extends "MAIN.html" %}
-
-{% block side_box %}
+<div id="right_box">
 
 
-<h4>Links</h4>
-<p>Somehing ere</p>
-{% endblock side_box %}
+
+	<div class="panel_box">
+		<h3>Wiki</h3>
+		<p>There are also a lot more links in the wiki</P>
+	</div>
 
 
-{% block content %}
+</div>
 
+
+
+<div id="content_box">
+	<h1>{$Site->pageTitle()}</h1>
+
+
+<h3>#TODO#</h3>
 <table>
 <tr>
 
@@ -17,13 +24,13 @@
 	<th>Name</th>
 
 </tr>
-{% for dev in devs %}
+{* % for dev in devs %}
 	<tr>
 
 		<td>{{ dev.cvs }}</td>
 		<td>{{ dev.name }}</td>
     </tr>
-{% endfor %}
+{% endfor % *}
 </table>
 
-{% endblock %}
+</div>
