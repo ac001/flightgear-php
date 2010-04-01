@@ -18,8 +18,9 @@ class fgMirror
 		$arr  = parse_ini_file(fgSite::configPath().self::ini, true);
 		ksort($arr);
 		foreach($arr as $location => $v){
-			$this->_mirrors[] = array('location' => $location, 'url' => $v['server']);
+			$this->_mirrors[$location] = array('location' => $location, 'url' => $v['server']);
 		}
+		ksort($this->_mirrors);
 	}
 
 	public function index(){
@@ -28,7 +29,8 @@ class fgMirror
 
 	public function feed(){
 		$arr = array();
-		
+		$arr['mirrors'] = array_values($this->_mirrors);
+		return $arr;
 	}
 	
 }

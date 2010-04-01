@@ -14,35 +14,41 @@ class fgMpServer
 
 	private $_servers = array();
 	
-	/*
-	[mpserver01.flightgear.org]
-	tracked = 1
-	location = "Germany"
-	contact ="Oliver Schroeder"
-	irc="os"	
-	*/
 	public function __construct(){
 		$arr  = parse_ini_file(fgSite::configPath().self::ini, true);
 		foreach($arr as $host => $v){
-			$this->_servers[$host] = array('host' => $host, 
-											'location' => $v['location'],
-											'contact' => $v['contact'],
-											'irc' => $v['irc'],
-											'tracked' => $v['tracked']
-									);
+			//print_r($v);
+			$arr = array();
+			$arr['host'] 	= $host ;
+			$arr['nick'] 	= $v['nick'];
+			$arr['ip'] 		= $v['ip'] ? $v['ip'] : null;
+			$arr['contact']	= $v['contact'] ? $v['contact'] : null;
+			$arr['irc']		= $v['irc'] ? $v['irc'] : null;
+			$arr['tracked']	= $v['tracked'] ? true : false;
+			$arr['updated']	= $v['updated'] ? $v['updated'] : null;
+			$this->_servers[] =$arr;
 		}
+		print_r($this->_servers);
 	}
 
-	public function channels(){
-		return $this->_channels;
+	public function index(){
+		return $this->_servers;
 	}
 
 	public function feed(){
 		$arr = array();
 		$arr['mpservers'] = array_values($this->_servers);
-		//$arr['url'] = self::url;
-		//$arr['channels'] = $this->_channels;
 		return $arr;
+	}
+
+	public function conf(){
+		$str =  '# source: '.'url here'."\n";
+		$str .= '# dated: '.date("Y-m-d H:I:s")."\n\n";
+		foreach($this->_servers as $srv){
+			$str .= sprintf("# %s\n%s\n\n", $srv['location'], $srv['host']);
+		}
+		return $str;
+
 	}
 }
 ?>

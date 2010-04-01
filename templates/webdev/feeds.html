@@ -7,7 +7,7 @@
 		<h3>Available Feeds</h3>
 		<ul>
 		{foreach from=$Site->fgFeed->index() item=Feed}
-			<li><a href="#" class="link">{$Feed.title}</a></li>
+			<li><a href="feeds/?feed={$Feed.feed}" class="link">{$Feed.title}</a></li>
 		{/foreach}
 		</ul>
 	</div>

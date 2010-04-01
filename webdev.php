@@ -32,7 +32,10 @@ $Site->addPageNav('example', 'Example Site', 'Site creation example',
 			)
 );
 
-$Site->addPageNav('feeds', 'Feeds', 'Available Feeds');
+$Site->addPageNav('feeds', 'Feeds', 'Creating and Using Feeds',
+	array(
+					array('conf', 'conf Files', 'Configuration Files')
+));
 $Site->addPageNav('production', 'Production Server', 'Production Server');
 
 //** Setup the default $section and $page

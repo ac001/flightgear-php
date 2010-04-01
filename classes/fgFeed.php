@@ -23,17 +23,19 @@ class fgFeed
 				$this->_handlers[$feed] = $v['handler'];
 			}
 		}
+		ksort($this->_feeds);
 	}
 
 	public function index(){
 		return $this->_feeds;
 	}
 
-	public function feedIndex(){
+	public function welcomeIndex(){
 		$arr = array();
-		$arr['help'] = 'Welcome to the FlightGear feeds';
+		$arr['message'] = 'Welcome to the FlightGear feeds';
 		$arr['feeds'] = array_values($this->_feeds);
 		$arr['formats'] = self::formats();
+		$arr['notam'] = array();
 		return $arr;
 	}
 
@@ -44,7 +46,7 @@ class fgFeed
 		return array_key_exists($feed, $this->_feeds);
 	}
 
-	public function validateRequest($feed){
+	public function validateFeed($feed){
 		//* Check feed exists
 		if(!array_key_exists($feed, $this->_feeds)){
 			throw new fgException($feed.': feed not found', 'The requested feed is not recognised');

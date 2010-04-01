@@ -12,10 +12,10 @@ try{
 	//*  Process Request
 	$feed_requested = isset($_REQUEST['feed']) ? $_REQUEST['feed'] : null;
 	if($feed_requested){
-		$Feed->validateRequest($feed_requested);
+		$Feed->validateFeed($feed_requested);
 		$Response->add( $Feed->getFeed($feed_requested) );
 	}else{
-		$Response->add( $Feed->index() );
+		$Response->add( $Feed->welcomeIndex() );
 	}
 
 	//header('Content-type: text/plain');

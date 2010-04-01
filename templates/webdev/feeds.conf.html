@@ -1,0 +1,19 @@
+<div id="right_box">
+	
+
+</div>
+
+
+<div id="content_box">
+	<h1>{$Site->pageTitle()}</h1>
+
+
+<h3>conf idea</h3>
+<p>One possibility is using the feeds to update remote servers, eg mpservers relay as below</p>
+<pre class="shell">wget http://site.org/feeds/?conf=mpservers /etc/fgms.servers.conf</pre>
+
+<p>Below is demo output</p>
+
+<pre>{$Site->fgMpServer->conf()}</pre>
+
+</div>
