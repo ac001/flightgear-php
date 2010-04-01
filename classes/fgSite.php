@@ -39,23 +39,25 @@ class fgSite
 		$this->nav_items = array();
 
 		//** Intersite Navigation
-		$this->addSiteNav('index.php',  'Portal', 'portal');
-		$this->addSiteNav('web.php',  'Website', 'www');
-		$this->addSiteNav('http://fg-aircraft.appspot.com',  'Aircraft', 'fg-aircraft');
-		$this->addSiteNav('http://fg-online.appspot.com',  'Online', 'fg-online');
-		$this->addSiteNav('http://wiki.flightgear.org',  'Wiki', 'wiki');
-		$this->addSiteNav('http://www.flightgear.org/forums/',  'Forums', 'forums');
-		$this->addSiteNav('webdev.php',  'WebDev', 'webdev');
+		$this->addSiteNav('portal', 'index.php',  'Portal' );
+		$this->addSiteNav('www', 'www.php',  'Website');
+		$this->addSiteNav('aircraft', 'aircraft.php',  'Aircraft');
+		$this->addSiteNav('online', 'online.php',  'Online' );
+		$this->addSiteNav('wiki', 'http://wiki.flightgear.org',  'Wiki');
+		$this->addSiteNav('forums', 'http://www.flightgear.org/forums/',  'Forums');
+		$this->addSiteNav('webdev', 'webdev.php',  'WebDev');
 	}
 
 	//***  Sites Navigation
 	public function sitesNav(){
 		return $this->site_items;
 	}
-	public function addSiteNav($url, $label, $site_id){
-		$this->site_items[] = array('url' => $url, 'label' => $label, 'id' =>$site_id);
+	public function addSiteNav($site_id, $url, $label){
+		$this->site_items[$site_id] = array('url' => $url, 'label' => $label, 'id' => $site_id);
 	}
-
+	public function siteUrl($id){
+		return $this->site_items[$id]['url'];
+	}
 
 	//*** Autoload Proeprty Classes
     public function __get($key) {
