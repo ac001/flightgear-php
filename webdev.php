@@ -6,16 +6,16 @@ require_once('config/config.inc.php');
 
 //* Create site object and setup
 $Site = new fgSite();
-$Site->title = 'Foo Gear ';
+$Site->title = 'Web Development';
 
 //** id also dictates the smarty_compile and the tempaltes/_sub_dir_
-$Site->id = '_foo_';
+$Site->id = 'webdev';
 
 //** Add to intersite navigation >> locaion.php, $site_title, $site_id
-$Site->addSiteNav('foo.php', 'Foo', $Site->id);
+//$Site->addSiteNav('dev.php', 'Dev', $Site->id);
 
 //** Create Page navigation
-$Site->addPageNav('index', 'Welcome Label', 'Welcome Title',
+$Site->addPageNav('index', 'Web Dev Index', 'Welcome To the FlightGear Web Dev',
 				array(
 					array('plugin', 'Plugin Demo', 'Autoload Plugin Demo'),
 					array('bar', 'Bar', 'Bar title')

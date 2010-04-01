@@ -1,8 +1,8 @@
 <?php
 /** Irc Handler
  * @package FlightGear
- * @subpackage WWW
- * @copyright (C) 2010 Peter Morgan
+ * @subpackage www
+ * @copyright (C) 2010 FlightGear Team
  * @author Peter Morgan <ac001@daffodil.uk.com>
  * @version 0.1
  *

@@ -3,6 +3,8 @@
 	<div class="panel_box">
 		<h3>Random Foo</h3>
 		<p>Word of the moment is <b>'{$Site->fgFoo->random()}'</b></p>
+		<p>{literal}{$Site->fgFoo->random()}{/literal}
+		</p>
 	</div>
 
 </div>
@@ -12,7 +14,7 @@
 	<h1>{$Site->pageTitle()}</h1>
 
 
-	<p>View the template source <a href="http://github.com/ac001/flightgear-php/blob/master/templates/_foo_/index.plugin.html">templates/_foo_/index.plugin.html</a> template</p>
+	<p>View the template source <a href="http://github.com/ac001/flightgear-php/blob/master/templates/webdev/index.plugin.html">templates/webdev/index.plugin.html</a> template</p>
 
 	<p>The class <b><a href="http://github.com/ac001/flightgear-php/blob/master/classes/fgFoo.php">fgFoo.php</a></b></b> is autoloaded from the <a href="http://github.com/ac001/flightgear-php/tree/master/classes/">classes/</a> directory by a call in template.</p>
 
@@ -22,7 +24,6 @@
 
 
 	<h2>{$Site->fgFoo->bar()}</h2>
-
 	<ul>
 	{foreach from=$Site->fgFoo->messages() item=Mess}
 		<li>{$Mess.label}</li>

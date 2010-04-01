@@ -1,7 +1,8 @@
 <?php
 /** Core Site Object
  * @package FlightGear
- * @subpackage WWW
+ * @subpackage www
+ * @copyright (C) 2010 FlightGear Team
  * @author Peter Morgan <ac001@daffodil.uk.com>
  * @version 0.1
  *
@@ -41,6 +42,7 @@ class fgSite
 		$this->addSiteNav('http://fg-online.appspot.com',  'Online', 'fg-online');
 		$this->addSiteNav('http://wiki.flightgear.org',  'Wiki', 'wiki');
 		$this->addSiteNav('http://www.flightgear.org/forums/',  'Forums', 'forums');
+		$this->addSiteNav('webdev.php',  'WebDev', 'webdev');
 	}
 
 	//***  Sites Navigation

@@ -209,7 +209,7 @@ body{
 	padding: 0px 1px 1px;
 	margin-left: 0px;
 	margin-top: 10px;
-	font: bold 12pt  sans-serif;
+	font: bold 10pt  sans-serif;
 	background-color: #035EAC;
 }
 
@@ -255,7 +255,6 @@ body{
 	width: 200px;
 	padding-left: 10px;
 	min-height: 500px;
-	border-left: 1px solid #eeeeee;
 }
 
 
@@ -368,16 +367,18 @@ body{
 /******************************************/
 #content_box{
 	margin-right: 240px;
-	ssbackground-color: #44ffee;
 }
 #content_box h1{
-	background-color: #efefef;
-	padding: 5px 0px 5px 10px;
+	background-color: #eeeeee;
+	color: #444444;
+	padding: 5px 0px 5px 15px;
 	margin-bottom: 10px;
-	border: 1px solid #aaaaaa;
-	border-left: 4px solid #aaaaaa;
 	font-family: sans-serif;
 	font-size: 16pt;
+	border: 1px solid #A0C9E9;
+	border-radius: 3px;
+	-moz-border-radius: 3px; 
+	-webkit-border-radius: 3px;
 }
 
 #content_box h2{
