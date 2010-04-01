@@ -6,7 +6,7 @@
 		<h3>Forum Links</h3>
 		<ul>
 			{foreach from=$Site->fgForum->index() item=Forum}
-			<li><a href="http://www.flightgear.org/forums/viewforum.php?f={$Forum.title}" >{$Forum.title}</a></li>
+			<li><a href="{$Site->fgForum->view_url}{$Forum.id}" >{$Forum.title}</a></li>
 			{/foreach}
 		</ul>
 	</div>
@@ -15,11 +15,11 @@
 	<div class="panel_box">
 		<h3>irc.flightgear.org</h3>
 		<ul>
-			{* % for chan in app.irc_channels %}
-				<li>{{ chan.title }}<br>&nbsp;&nbsp;# 
-					<a href="irc://irc.flightgear.org/{{ chan.channel }}">{{ chan.channel }}</a>
+			{foreach from=$Site->fgIrc->channels() item=Chan}
+				<li>{$Chan.title}<br>&nbsp;&nbsp;# 
+					<a href="{$Site->fgIrc->url}{$Chan.url}">{$Chan.chan}</a>
 				</li>
-			{% endfor % *}
+			{/foreach}
 		</ul>
 	</div>
 

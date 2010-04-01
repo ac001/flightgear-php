@@ -9,8 +9,10 @@
 */
 class fgForum
 {
-	public function index(){
-		return array(
+	public $url = 'http://www.flightgear.org/forums/';
+	public $view_url = 'http://www.flightgear.org/forums/viewforum.php?f=';
+	
+	private $_forums = array(
 			array('key' => 'general', 'id'=> 2, 'title'=> 'General Help'),
 			array('key'=> 'install', 'id'=> 11,'title'=> 'Install Help'),
 			array('key'=> 'events', 'id'=> 10, 'title'=>'Events'),
@@ -18,7 +20,10 @@ class fgForum
 			array('key'=> 'scenery', 'id'=> 5, 'title'=>'Scenery Enancment'),
 			array('key'=> 'stories', 'id'=> 3, 'title'=>'Stories and Humour'),
 			array('key'=> 'new_features', 'id'=> 6, 'title'=>'New Features')
-		);
+	);
+
+	public function index(){
+		return $this->_forums;
 	}	
 }
 ?>

@@ -20,7 +20,7 @@
 	<h1>{$Site->pageTitle()}</h1>
 
 
-{foreach item=Img from=$Site->gallery->index()}
+{foreach item=Img from=$Site->fgGallery->index()}
 	<div class="gallery_thumb_box" id="gallery">
 	<a href="gallery/images/{$Img}" 
 		rel="lightbox"><img src="gallery/thumbs/{$Img}"></a>
