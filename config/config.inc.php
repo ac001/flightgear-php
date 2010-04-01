@@ -1,5 +1,10 @@
 <?php
 
+
+define('SITE_KEY', 'flight-simpits-v0.1');
+define('VERSION', '0.1');
+
+
 //*************************************************************************
 //** Error Handling
 //*************************************************************************
@@ -19,15 +24,21 @@ function my_exception_handler($exception)
 //*************************************************************************
 //** General Definition and settings
 //*************************************************************************
-define('SITE_KEY', 'flight-simpits-v0.1');
-define('VERSION', '0.1');
 
-define('SITE_ROOT', dirname(__FILE__).'/../'); //* site root is parent to this file location
+date_default_timezone_set('UTC');
+
 define('CLI', php_sapi_name() == 'cli');
+
 if(CLI){
 	session_start();
 }
-date_default_timezone_set('UTC');
+
+ //* site root is parent to this file location
+define('SITE_ROOT', dirname(__FILE__).'/../');
+//* Location of class files
+define('CLASS_PATH', SITE_ROOT.'classes/');
+
+
 
 
 //*************************************************************************

@@ -11,6 +11,7 @@
 class fgIrc
 {
 	const ini = 'irc.ini';
+	const server = 'irc.flightgeat.org';
 	const url = 'irc://irc.flightgear.org/';
 	private $_channels = array();
 	
@@ -24,7 +25,15 @@ class fgIrc
 
 	public function channels(){
 		return $this->_channels;
-	}	
+	}
+
+	public function feed(){
+		$arr = array();
+		$arr['server'] = self::server;
+		$arr['url'] = self::url;
+		$arr['channels'] = $this->_channels;
+		return $arr;
+	}
 
 }
 ?>

@@ -31,7 +31,7 @@ $Site->addPageNav('example', 'Example Site', 'Site creation example',
 			)
 );
 
-
+$Site->addPageNav('feeds', 'Feeds', 'Available Feeds');
 //** Setup the default $section and $page
 $Site->section = isset($_REQUEST['section']) ? $_REQUEST['section'] : 'index';
 $Site->page = isset($_REQUEST['page']) ? $_REQUEST['page'] : null;
