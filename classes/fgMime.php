@@ -1,7 +1,7 @@
 <?php
 /** Mime Helper
  * @package FlightGear
- * @subpackage www
+ * @subpackage General
  * @copyright (C) 2010 FlightGear Team
  * @author Peter Morgan <ac001@daffodil.uk.com>
  * @version 0.1

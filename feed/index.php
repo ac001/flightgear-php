@@ -2,6 +2,14 @@
 
 require_once('../config/config.inc.php');
 
+//$url = "sshttp://mpmap02.flightgear.org/fg_server_xml.cgi?mpserver02.flightgear.org:5001s";
+
+//$xml_string = file_get_contents($url);
+//echo "<pre>";
+//print_r($xml_string);
+//die;
+
+
 //* Feed object
 $Feed = new fgFeed();
 
