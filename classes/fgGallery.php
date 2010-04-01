@@ -18,11 +18,11 @@ class fgGallery
 		if($this->_cache){
 			return $this->_cache;
 		}
-		$cache_file = SITE_ROOT.fgSite::CACHE_DIR.'gallery.txt';
-		if(file_exists($cache_file)){
-			$data = json_decode( file_get_contents($cache_file), true);
-			return $data['gallery'];
-		}
+		//$cache_file = SITE_ROOT.fgSite::CACHE_DIR.'gallery.txt';
+		//if(file_exists($cache_file)){
+		//	$data = json_decode( file_get_contents($cache_file), true);
+		//	return $data['gallery'];
+		//}
 		echo SITE_ROOT;
 		$files = scandir(SITE_ROOT.self::path); //* why php dont have return dirs|no_dot
 		print_r($files);
