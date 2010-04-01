@@ -8,8 +8,8 @@ define('VERSION', '0.1');
 //*************************************************************************
 //** Error Handling
 //*************************************************************************
-error_reporting(E_ALL | E_STRICT); 
-ini_set('display_errors', 1);
+error_reporting(-1); 
+//ini_set('display_errors', 1);
 
 function my_error_handler($errno, $errstr, $errfile, $errline){
    // echo "@Error:".$errstr."<br>";   
