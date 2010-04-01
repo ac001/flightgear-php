@@ -1,8 +1,7 @@
 <?php
-/** General Site Helper
+/** Core Site Object
  * @package FlightGear
  * @subpackage WWW
- * @copyright (C) 2010 Peter Morgan
  * @author Peter Morgan <ac001@daffodil.uk.com>
  * @version 0.1
  *
@@ -11,45 +10,64 @@
 
 class fgSite
 {
+	//* Defines
 	const CACHE_DIR = '__rw_cache__/cache/';
 	const SMARTY_COMPILE_DIR = '__rw_cache__/smarty_compile_dir/';
 
+	//* Local "property" object - see __get()
     private  $_DATA = array();
 
+	//* Navigation
 	private $nav_items;
 	private $site_items;
 
+	//* Public Props
 	public $tm = '<span class="tm">FlightGear</span>';
-	public $site_id;
-	public $site_title;
+	public $id;
+	public $title;
 	public $section;
 	public $page;
 
+	//* Construct and load Sites array - Hard coded here atmo
 	public function __construct(){
 		$this->site_items = array();
 		$this->nav_items = array();
+
+		//** Intersite Navigation
+		$this->addSiteNav('index.php',  'Portal', 'portal');
+		$this->addSiteNav('web.php',  'Website', 'www');
+		$this->addSiteNav('http://fg-aircraft.appspot.com',  'Aircraft', 'fg-aircraft');
+		$this->addSiteNav('http://fg-online.appspot.com',  'Online', 'fg-online');
+		$this->addSiteNav('http://wiki.flightgear.org',  'Wiki', 'wiki');
+		$this->addSiteNav('http://www.flightgear.org/forums/',  'Forums', 'forums');
 	}
 
-	//*** Autload Classes
+	//***  Sites Navigation
+	public function sitesNav(){
+		return $this->site_items;
+	}
+	public function addSiteNav($url, $label, $site_id){
+		$this->site_items[] = array('url' => $url, 'label' => $label, 'id' =>$site_id);
+	}
+
+
+	//*** Autoload Proeprty Classes
     public function __get($key) {
-		if($key == 'gallery'){
-			$this->_DATA[$key] = new fgGallery();
+
+		if(!isset($this->_DATA[$key])){
+			$class_file = SITE_ROOT.'classes/'.$key.'.php';
+			if(file_exists($class_file)){
+				require_once($class_file);
+				$this->_DATA[$key] = new $key;
+			}
 		}
+
         if (isset($this->_DATA[$key])) {
             return $this->_DATA[$key];
         }else{
             return null;
         }
     }
-
-
-	//*** Sites Navigation
-	public function sitesNav(){
-		return $this->site_items;
-	}
-	public function addSiteNav($url, $label, $site_id){
-		$this->site_items[] = array('url' => $url, 'label' => $label, 'site_id' =>$site_id);
-	}
 
 
 	//*** Page Navigation
@@ -74,13 +92,15 @@ class fgSite
 	}
 
 
-	//*** Page Handlers
-	public function mainPage(){
+	//*** Content Template
+	public function contentTemplate(){
 		if(is_null($this->page)){
-			return 'web_site/'.$this->section.'.html';
+			return $this->id.'/'.$this->section.'.html';
 		}
-		return 'web_site/'.$this->section.'.'.$this->page.'.html';
+		return $this->id.'/'.$this->section.'.'.$this->page.'.html';
 	}
+
+	//*** Page Title
 	public function pageTitle(){
 		if(is_null($this->page)){
 			return $this->nav_items[$this->section]['title'];
@@ -90,13 +110,5 @@ class fgSite
 	}
 
 
-	//*** Gallery
-	//public function gallery(){
-	//	return fgGallery::gallery();
-	//}
-	//public function gallery_random(){
-	//	//$gallery = new fgGallery();
-	//	return fgGallery::gallery_random();
-	//}
 }
 ?>

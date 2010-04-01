@@ -1,0 +1,28 @@
+<div id="right_box">
+	
+	<div class="panel_box">
+		<h3>Random Foo</h3>
+		<p><b>{$Site->fgFoo->random()}</b></p>
+	</div>
+
+</div>
+
+
+<div id="content_box">
+	<h1>{$Site->pageTitle()}</h1>
+
+
+	<p>The class <b>fgFoo.php</b> is autoloaded by call in template.</p>
+	<pre>{literal}{$Site->fgFoo->bar()}{/literal}</pre>
+		
+
+
+	<h2>{$Site->fgFoo->bar()}</h2>
+
+	<ul>
+	{foreach from=$Site->fgFoo->messages() item=Mess}
+		<li>{$Mess.label}</li>
+	{/foreach}
+	</ul>
+
+</div>
