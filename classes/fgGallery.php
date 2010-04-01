@@ -23,7 +23,9 @@ class fgGallery
 			$data = json_decode( file_get_contents($cache_file), true);
 			return $data['gallery'];
 		}
+		echo SITE_ROOT;
 		$files = scandir(SITE_ROOT.self::path); //* why php dont have return dirs|no_dot
+		print_r($files);
 		$files = array_flip($files);
 		unset($files['.']);
 		unset($files['..']);
