@@ -24,10 +24,32 @@
 git clone git@github.com:ac001/flightgear-php.git{/source}
 
 
-<h3>Setup Permissions</h3>
+<h3>Apache File Permissions</h3>
 <p>Make the <b>_-rw_cache__/</b> directory writable by webserver server</p>
 {source lang='bash'}cd flightgear-php
 chmod +w __rw_cache__{/source}
+
+<h3>Database setup</h3>
+<p>Its assumed you can create a database, user with premissions already</p>
+<p>Copy the skeleton database config file to <b>DB.php</b></p>
+{source lang='bash'}cp config/DB.skel.php config/DB.php
+{/source}
+<p>Set the driver, credentials and database</b></p>
+{source lang='php'}$DB['driver'] = 'mysqli';
+$DB['server'] = 'localhost';
+$DB['user'] = 'flightgear';
+$DB['pass'] = 'sectet';
+$DB['db'] = 'flightgear_www';
+{/source}
+<p>Create or update the database schema by running the <b>db_create_update.php</b> script. Notes
+that this will not loose data in anyway, it just creates tables, columns, redefine cols based on the config in <b>DB_DEF.php</b></p>
+{source lang='bash'}cd etc/
+php ./db_create_update.php
+{/source}
+<p>If you want som skel data, then run the <b>import_ini.php</b> script to polulate from ini files</p>
+{source lang='bash'}cd etc/
+php ./import_ini.php
+{/source}
 
 <h3>Download Gallery</h3>
 <p>The gallery is not included in the repository. To fetch the gallery run the <b>etc/checkout_gallery.sh</b> script.

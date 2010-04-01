@@ -35,5 +35,10 @@ class fgObject
 	public function id(){
 		return $this->_ID;
 	}
+
+	public function insert_id(){
+		$this->_ID = $this->db->insert_id();
+		return $this->_ID;
+	}
 }
 ?>

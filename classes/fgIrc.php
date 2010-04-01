@@ -8,7 +8,7 @@
  *
  *
 */
-class fgIrc
+class fgIrc extends fgObject
 {
 	const ini = 'irc.ini';
 	const server = 'irc.flightgear.org';
@@ -16,12 +16,30 @@ class fgIrc
 
 	private $_channels = array();
 	
-	public function __construct(){
+	public function __construct($id = null){
+		parent::__construct($id);
+	}
+
+	public function import(){
+
 		$arr  = parse_ini_file(fgSite::configPath().self::ini, true);
 		foreach($arr as $channel => $v){
 			$this->_channels[] = array('channel' => $channel, 'url' => self::url.$channel, 'title' => $v['title'] );
+			$s = new fgMpServer(0);
+			$s->nick = $v['title'];
+			$s->type = 'irc';
+			$s->host	= 'irc.flightgear.org';
+			$s->location	= $channel;
+			$s->irc 		=  null;
+			//$s->contact	= isset($v['contact']) ? $v['contact'] : null;
+			//$s->irc		= isset($v['irc']) ? $v['irc'] : null;
+			//$s->tracked	= $v['tracked'] == 1 ? true : null;
+			$s->save();
+
 		}
+
 	}
+
 
 	public function channels(){
 		return $this->_channels;

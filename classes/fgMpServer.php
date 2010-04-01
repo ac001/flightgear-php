@@ -20,49 +20,38 @@ class fgMpServer extends fgObject
 	public function import(){
 		$arr  = parse_ini_file(fgSite::configPath().self::ini, true);
 		foreach($arr as $host => $v){
-			print_r($v);
-			//global $db;
-			//$db->debug=1;
 			$parts = explode(".", $host);
 			$s = new fgMpServer(0);
 			$s->nick = $parts[0];
 			$s->type = 'mpserver';
+			$s->host	= $host;
 			$s->ip 		= isset($v['ip']) ? $v['ip'] : null;
 			$s->contact	= isset($v['contact']) ? $v['contact'] : null;
+			$s->location	= isset($v['location']) ? $v['location'] : null;
 			$s->irc		= isset($v['irc']) ? $v['irc'] : null;
-			$s->tracked	= $v['tracked'] ? true : false;
+			$s->tracked	= $v['tracked'] == 1 ? true : null;
 			$s->save();
-			/*
-			$arr = array();
-			$arr['host'] 	= $host ;
-			$arr['nick'] 	= $v['nick'];
-			$arr['ip'] 		= $v['ip'] ? $v['ip'] : null;
-			$arr['contact']	= $v['contact'] ? $v['contact'] : null;
-			$arr['irc']		= $v['irc'] ? $v['irc'] : null;
-			$arr['tracked']	= $v['tracked'] ? true : false;
-			$arr['updated']	= $v['updated'] ? $v['updated'] : null;
-			$this->_servers[] =$arr;
-			*/
+
 		}
-		print_r($this->_servers);
+
 	}
 
 	public function save(){
 		$vars = array(	$this->type, $this->nick, 
 						$this->host, $this->ip, 
-						$this->contact, $this->tracked
+						$this->contact, $this->irc, $this->location, $this->tracked
 					);
 		if($this->id() == 0){
 			$sql = 'insert into servers(
-					type, nick, host, ip, contact, tracked
+					type, nick, host, ip, contact, irc, location, tracked, date_created
 				)values(
-					?,    ?,    ?,    ?,  ?,       ?
+					?,    ?,    ?,    ?,  ?,       ?,   ?,       ?,        now()
 				)';
 				$this->db->execute($sql, $vars);
 				$this->insert_id();
 		}else{
 			$sql = 'update servers set
-					type=?, type=?, type=?, type=?, type=?, type=?
+					type=?, type=?, type=?, type=?, type=?, date_updated=now()
 				';
 				$this->db->execute($sql, $vars);
 		}

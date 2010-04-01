@@ -8,20 +8,37 @@
  *
  *
 */
-class fgMirror
+class fgMirror extends fgObject
 {
 	const ini = 'mirrors.ini';
 	
 	private $_mirrors = array();
 
-	public function __construct(){
+	public function __construct($id = null){
+		parent::__construct($id);
+	}
+
+	public function import(){
 		$arr  = parse_ini_file(fgSite::configPath().self::ini, true);
 		ksort($arr);
 		foreach($arr as $location => $v){
 			$this->_mirrors[$location] = array('location' => $location, 'url' => $v['server']);
+
+			$s = new fgMpServer(0);
+			$s->nick = null;
+			$s->type = 'mirror';
+			$s->host	= $v['server'];
+			$s->location	= $location;
+			$s->ip 		= isset($v['ip']) ? $v['ip'] : null;
+			//$s->contact	= isset($v['contact']) ? $v['contact'] : null;
+			//$s->irc		= isset($v['irc']) ? $v['irc'] : null;
+			//$s->tracked	= $v['tracked'] == 1 ? true : null;
+			$s->save();
+
 		}
-		ksort($this->_mirrors);
+
 	}
+
 
 	public function index(){
 		return $this->_mirrors;
