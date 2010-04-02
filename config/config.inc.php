@@ -75,8 +75,10 @@ function __autoload($class_name){
 //*********************************************************
 function load_db(){
 	global $db, $DB;
+
 	require_once(SITE_ROOT.'libs/adodb5/adodb.inc.php');
 	require_once(SITE_ROOT.'config/DB.php');
+	$ADODB_FETCH_MODE = ADODB_FETCH_ASSOC;
 	$db = ADONewConnection($DB['driver']); # eg 'mysql' or 'postgres'
 	$db->debug = false;
 	$db->Connect($DB['server'], $DB['user'], $DB['pass'], $DB['db']);

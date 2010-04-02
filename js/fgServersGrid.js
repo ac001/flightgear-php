@@ -50,58 +50,84 @@ this.statusLabel = new Ext.Toolbar.TextItem({text:'Socket Status'});
 
 
 //* Pilots Datastore
-this.store = new Ext.data.JsoonStore({
+this.store = new Ext.data.JsonStore({
 	url: AJAX_FETCH,
 	baseParams: {'fetch': 'servers'},
+	root: 'servers',
 	idProperty: 'server_id',
-	fields: [ 	'host', 'nick', 'type', 'ip' ,'location','comment','contact','irc' ],
+	fields: [ 	'server_id', 'host', 'nick', 'type', 'ip' ,'location','comment','contact','irc', 'tracked','active'],
 	remoteSort: false,
 	sortInfo: {field: "host", direction: 'ASC'}
 });
 
+this.store.load();
+
+
+this.actionAdd = new Ext.Button({ text:'Add', iconCls:'icoServerAdd', 
+				handler:function(){
+					var d = new fgServerDialog();
+				}
+});
+this.actionEdit = new Ext.Button({ text:'Edit', iconCls:'icoServerEdit', disabled: true,
+				handler:function(){
+					
+				}
+});
+this.actionDelete = new Ext.Button({text:'Delete', iconCls:'icoServerDelete', disabled: true,
+				handler:function(){
+					
+				}
+});
+
+this.selModel = new Ext.grid.RowSelectionModel({singleSelect: true});
+this.selModel.on("selectionchange", function(selModel){
+	self.actionEdit.setDisabled(!selModel.hasSelection())
+	self.actionDelete.setDisabled(!selModel.hasSelection())
+});
 
 //************************************************
 //** Servers  Grid
 //************************************************
 this.grid = new Ext.grid.GridPanel({
+	title: 'Admin Servers',
 	renderTo: 'widget_div',
-	title: 'Servers',
-	iconCls: 'iconPilots',
+	iconCls: 'icoServers',
 	height: 500,
+	deferredRender: true,
 	autoScroll: true,
-	
-	tbar:[ 	
+	enableHdMenu: false,
+	layout:'fit',
+	sm: this.selModel,
+	tbar:[ 	this.actionAdd, this.actionEdit, this.actionDelete,
+			"-",
 			'->',
-			{text: 'Connect', iconCls: 'iconRefresh', 
+			{text: 'Refresh', iconCls: 'icoRefresh', 
 				handler: function(){
-					self.create_socket()
+					self.store.load()
 				}
 			}    
 	],
 	viewConfig: {emptyText: 'No servers online', forceFit: true}, 
 	store: this.store,
 	loadMask: true,
-	//TODO sm: pilotsSelectionModel,
-	columns: [ 
-				{header: 'Nick',  dataIndex:'host', sortable: true},
+	columns: [  {header: '#',  dataIndex:'server_id', sortable: true},
+				{header: 'Nick',  dataIndex:'nick', sortable: true},
 				{header: 'Type',  dataIndex:'type', sortable: true},
-				{header: 'Host', dataIndex:'nick', sortable: true, align: 'right'},
+				{header: 'Host', dataIndex:'host', sortable: true},
 				{header: 'Ip', dataIndex:'ip', sortable: true, align: 'center'},
-				{header: 'Location', dataIndex:'location', sortable: true, align: 'left', hidden: true},
-				{header: 'Contact', dataIndex:'contact', sortable: true, align: 'left',
-					renderer: function(v, meta, rec, rowIdx, colIdx, cstore){
-						return Ext.util.Format.number(v, '0.000');
-					}
-				}
+				{header: 'Location', dataIndex:'location', sortable: true, align: 'left'},
+				{header: 'Contact', dataIndex:'contact', sortable: true, align: 'left'},
+				{header: 'Tracked', dataIndex:'tracked', sortable: true, align: 'center'},
+				{header: 'Active', dataIndex:'active', sortable: true, align: 'center'}
 	],
 	listeners: {},
 	bbar: ['->',  this.statusLabel]
 });
 this.grid.on("rowdblclick", function(grid, idx, e){
-	var rec = self.store.getAt(idx);
-
+	var record = self.store.getAt(idx);
+	var d = new fgServerDialog(record.data);
 });    
-
+    
 
 
 

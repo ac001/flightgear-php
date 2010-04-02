@@ -11,7 +11,7 @@
 class fgMpServer extends fgObject
 {
 	const type = 'mpserver';
-
+	const ini = 'mpservers.ini';
 	private $_servers = array();
 	
 	public function __construct($id = null){

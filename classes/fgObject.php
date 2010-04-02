@@ -10,8 +10,8 @@
 */
 class fgObject 
 {
-	private $_ID;
-    private  $_PROPS;
+	protected $_ID;
+    protected  $_PROPS;
 	protected $db;
 
     public function __construct($mixed = null){
@@ -31,6 +31,7 @@ class fgObject
 			global $db;
 			$this->db = $db;
 			$this->_ID = $mixed;
+			echo "#".$this->id()."#";
 		}
 
 

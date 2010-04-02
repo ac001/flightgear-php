@@ -38,9 +38,9 @@ $Site->addPageNav('feeds', 'Feeds', 'Creating and Using Feeds',
 ));
 $Site->addPageNav('production', 'Production Server', 'Production Server');
 
-$Site->addPageNav('admin', 'Site Admin', 'Site Administration',
+$Site->addPageNav('admin', 'Site Administration', 'Site Administration',
 				array(
-					array('servers', 'Servers', 'Servers'),
+					array('servers', 'Servers', 'Admin Servers'),
 					array('news', 'Announcements', 'New, Updates and Announcments'),
 					array('notam', 'Notam', 'Notam Admin')
 			));
