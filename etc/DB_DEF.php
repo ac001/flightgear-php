@@ -5,6 +5,7 @@
 //**************************************************************
 //* Servers
 //**************************************************************
+
 $tables['servers'] = "
 server_id I AUTO PRIMARY NOTNULL,
 type C(20) INDEX,
@@ -23,24 +24,25 @@ rank I
 
 
 //**************************************************************
-//* Members
+//* Users
 //**************************************************************
 $tables['users'] = "
 user_id I AUTO PRIMARY NOTNULL,
 name C(20) INDEX,
-email C(20) INDEX,
+email C(100) INDEX,
 passwd C(60),
 irc C(50) INDEX,
 callsign C(50) INDEX,
 cvs C(50) INDEX,
 location C(50),
 www C(50),
-hangar (C50),
+hangar C(50),
 date_created T INDEX,
 date_updated T INDEX,
 active L INDEX,
 karma I INDEX,
-security C(50) INDEX
+security C(50) INDEX,
+token C(100)
 ";
 
 ?>

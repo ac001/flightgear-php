@@ -10,7 +10,7 @@
 */
 class fgMirror extends fgObject
 {
-	const ini = 'mirrors.ini';
+	const type = 'mpserver';
 	
 	private $_mirrors = array();
 
@@ -24,9 +24,9 @@ class fgMirror extends fgObject
 		foreach($arr as $location => $v){
 			$this->_mirrors[$location] = array('location' => $location, 'url' => $v['server']);
 
-			$s = new fgMpServer(0);
+			$s = new fgServer(0);
 			$s->nick = null;
-			$s->type = 'mirror';
+			$s->type = self::type;
 			$s->host	= $v['server'];
 			$s->location	= $location;
 			$s->ip 		= isset($v['ip']) ? $v['ip'] : null;
@@ -41,7 +41,7 @@ class fgMirror extends fgObject
 
 
 	public function index(){
-		return $this->_mirrors;
+		return fgServer::index(self::type);
 	}
 
 	public function feed(){

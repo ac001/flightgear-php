@@ -1,7 +1,7 @@
 <?php
 
 
-define('SITE_KEY', 'flight-simpits-v0.1');
+define('SITE_KEY', 'FG-0.1');
 define('VERSION', '0.1');
 
 $smaarty = null;
@@ -57,9 +57,9 @@ function __autoload($class_name){
 			//require_once( ADODB_DIR.'adodb-errorhandler.inc.php' );
 			return;
 
-        case 'phpmailer+not_yet':
+        case 'phpmailer':
             #require_once(DAFFO_ROOT_PATH.'/phpmailer/class.phpmailer.php');
-            require_once(DAFFO_ROOT_PATH.'/PHPMailer_v5.1/class.phpmailer.php');
+            require_once(SITE_ROOT.'libs/PHPMailer_v5.1/class.phpmailer.php');
             break;
 
         default:
@@ -78,7 +78,7 @@ function load_db(){
 	require_once(SITE_ROOT.'libs/adodb5/adodb.inc.php');
 	require_once(SITE_ROOT.'config/DB.php');
 	$db = ADONewConnection($DB['driver']); # eg 'mysql' or 'postgres'
-	$db->debug = true;
+	$db->debug = false;
 	$db->Connect($DB['server'], $DB['user'], $DB['pass'], $DB['db']);
 	unset($DB);
 }

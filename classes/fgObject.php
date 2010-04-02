@@ -14,10 +14,28 @@ class fgObject
     private  $_PROPS;
 	protected $db;
 
-    public function __construct($id = null){
-		global $db;
-		$this->db = $db;
-		$this->_ID = $id;
+    public function __construct($mixed = null){
+
+		//** its its an array, then its a setter getter
+		if(is_array($mixed)){
+			foreach($mixed as $key => $value){
+				if(is_array($value)){
+					$this->_PROPS[$key] = new fgObject($value);
+				}else{
+					$this->_PROPS[$key] = $value;
+				}
+			}
+
+		//* Otherwise its a db object--
+		}else{
+			global $db;
+			$this->db = $db;
+			$this->_ID = $mixed;
+		}
+
+
+
+
     }
 
     public function __set($key, $value){

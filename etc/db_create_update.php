@@ -1,3 +1,4 @@
+#!/usr/bin/php 
 <?php
 
 $LOAD_DB = true;
@@ -10,7 +11,7 @@ require_once('./DB_DEF.php');
 //********************************************************************
 
 $dict = NewDataDictionary($db);
-$db->debug=0;
+$db->debug=1;
 echo "### Updating tables\n";
 //$dict->debug=1;
 foreach($tables as $table => $flds){

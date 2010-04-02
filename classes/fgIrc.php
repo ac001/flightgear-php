@@ -14,6 +14,8 @@ class fgIrc extends fgObject
 	const server = 'irc.flightgear.org';
 	const url = 'irc://irc.flightgear.org/';
 
+	const type = 'irc';
+
 	private $_channels = array();
 	
 	public function __construct($id = null){
@@ -25,9 +27,9 @@ class fgIrc extends fgObject
 		$arr  = parse_ini_file(fgSite::configPath().self::ini, true);
 		foreach($arr as $channel => $v){
 			$this->_channels[] = array('channel' => $channel, 'url' => self::url.$channel, 'title' => $v['title'] );
-			$s = new fgMpServer(0);
+			$s = new fgServer(0);
 			$s->nick = $v['title'];
-			$s->type = 'irc';
+			$s->type = self::type;
 			$s->host	= 'irc.flightgear.org';
 			$s->location	= $channel;
 			$s->irc 		=  null;
@@ -41,8 +43,8 @@ class fgIrc extends fgObject
 	}
 
 
-	public function channels(){
-		return $this->_channels;
+	public function index(){
+		return fgServer::index(self::type);
 	}
 
 	public function feed(){

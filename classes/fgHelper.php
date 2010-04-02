@@ -10,17 +10,9 @@
 */
 class fgHelper
 {
-
-	private $_feeds = array();
-	private $_handlers = array();
-
-
-	public static function methodExists($class_name, $method_name){
-		return method_exists ( $class_name, $method_name );
-	}
-
-	public static function loadIniFile($ini_file, $as_array=true){
-		return parse_ini_file(fgSite::configPath().$ini_file, $as_array);
+	public static function loadIniFile($ini_file, $process_sections=true){
+		return parse_ini_file(fgSite::configPath().$ini_file, $process_sections);
+		//return $as_class ? new fgObject($ini_vars) : $ini_vars;
 	}
 
 }

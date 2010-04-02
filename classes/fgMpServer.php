@@ -10,7 +10,7 @@
 */
 class fgMpServer extends fgObject
 {
-	const ini = 'mpservers.ini';
+	const type = 'mpserver';
 
 	private $_servers = array();
 	
@@ -21,9 +21,9 @@ class fgMpServer extends fgObject
 		$arr  = parse_ini_file(fgSite::configPath().self::ini, true);
 		foreach($arr as $host => $v){
 			$parts = explode(".", $host);
-			$s = new fgMpServer(0);
+			$s = new fgServer(0);
 			$s->nick = $parts[0];
-			$s->type = 'mpserver';
+			$s->type = self::type;
 			$s->host	= $host;
 			$s->ip 		= isset($v['ip']) ? $v['ip'] : null;
 			$s->contact	= isset($v['contact']) ? $v['contact'] : null;
@@ -31,12 +31,11 @@ class fgMpServer extends fgObject
 			$s->irc		= isset($v['irc']) ? $v['irc'] : null;
 			$s->tracked	= $v['tracked'] == 1 ? true : null;
 			$s->save();
-
 		}
 
 	}
 
-	public function save(){
+	/* public function save(){
 		$vars = array(	$this->type, $this->nick, 
 						$this->host, $this->ip, 
 						$this->contact, $this->irc, $this->location, $this->tracked
@@ -58,11 +57,12 @@ class fgMpServer extends fgObject
 		
 		return $this->id();
 	}
+	*/
 
 	public function index(){
 		//$sql = 'select * from servers where type=? order by host asc';
 		//return $this->db->getAll($sql, array('mpserver'));
-		return fgServer::index('mpserver');
+		return fgServer::index(self::type);
 	}
 
 	public function feed(){
