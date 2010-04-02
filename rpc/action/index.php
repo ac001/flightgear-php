@@ -19,7 +19,7 @@ try{
 		throw new fgException('no action','action variable set');
 	}
 
-	//* perform on action
+	//* execute an action
 	switch($action){
 		case 'signup':
 			$Auth = new fgAuth();
@@ -27,7 +27,6 @@ try{
 			break;
 
 		case 'server':
-			$db->debug=1;
 			$S = new fgServer($Req->server_id);
 			$S->type = $Req->type;
 			$S->nick = $Req->nick;

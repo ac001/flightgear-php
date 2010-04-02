@@ -31,7 +31,6 @@ class fgObject
 			global $db;
 			$this->db = $db;
 			$this->_ID = $mixed;
-			echo "#".$this->id()."#";
 		}
 
 

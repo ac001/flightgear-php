@@ -35,7 +35,6 @@ class fgServer extends fgObject
 					type=?, nick=?, host=?, ip=?, contact=?, irc=?, location=?, tracked=?, active=?, date_updated=now()
 					where server_id = ?
 				';
-				echo "@".$this->id()."@";
 				$vars[] = $this->id();
 				$this->db->execute($sql, $vars);
 		}

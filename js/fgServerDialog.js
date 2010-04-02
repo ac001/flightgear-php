@@ -53,8 +53,13 @@ this.frm = new Ext.FormPanel({
 					{fieldLabel: 'Location', xtype: 'textfield',  name: 'location', width: '50%', msgTarget: 'side', emptyText: 'eg City, Country' },
 					{fieldLabel: 'Contact', xtype: 'textfield',  name: 'contact', width: '50%', msgTarget: 'side', emptyText: 'eg Fred Foo'},
 					{fieldLabel: 'Comment', xtype: 'textarea',  name: 'comment', width: '90%', msgTarget: 'side'},
-					{fieldLabel: 'Tracked', xtype: 'checkbox',  name: 'tracked'},
+					{fieldLabel: 'Tracked', xtype: 'checkbox',  name: 'tracked', boxLabel: 'Only applies to mpservers'},
 					{fieldLabel: 'Active', xtype: 'checkbox',  name: 'active', boxLabel: 'Only active items appeat in public areas'},
+			]
+			},
+			{xtype: 'fieldset', title: 'Change and Event Log', autoHeight: true,
+			items:[ 
+					{hideLabel: true, xtype: 'textarea',  name: 'log', width: '100%', allowBlank: false},
 			]
 			}
 	],
@@ -78,11 +83,12 @@ this.frm = new Ext.FormPanel({
 										return;
 									}
                                    // location.href= 'index.php?section=signup&page=ack';
+									Ext.fg.msg('Saved', 'Details succesfully saved');
 									self.win.close();
                                 },
                                 failure: function(){
 
-                                    //Ext.geo.msg('OOOPS', 'Something went wrong !');
+                                    Ext.fg.msg('OOOPS', 'Something went wrong !');
                                 }
 
                             });
@@ -97,9 +103,9 @@ this.frm.getForm().setValues(confOb);
 
 
 this.win = new Ext.Window({
-	title: 'Server Details',
+	title: 'Server Entry',
 	iconCls: 'icoServer',
-	width: 600,
+	width: 700,
 	items:[ this.frm 
 	]
 

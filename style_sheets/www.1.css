@@ -2,6 +2,13 @@
 /***************************************/
 /* Unique Items */
 /***************************************/
+#msg-div {
+    position:absolute;
+    left:5%;
+    top:100px;
+    width:350px;
+    z-index:20000;
+}
 
 /* Trademark */
 .tm{

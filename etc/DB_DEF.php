@@ -15,9 +15,9 @@ ip C(100) INDEX,
 contact C(150) INDEX,
 irc C(20) INDEX,
 location C(50) INDEX,
-tracked L,
 date_created T INDEX,
 date_updated T INDEX,
+tracked L,
 active L,
 rank I
 ";

@@ -10,7 +10,7 @@
 */
 class fgMirror extends fgObject
 {
-	const type = 'mpserver';
+	const type = 'mirror';
 	const ini = 'mirrors.ini';
 	
 	private $_mirrors = array();

@@ -110,7 +110,7 @@ $icons['icoLogout'] = 'book_previous.png';
 /* Application Icons  */
 /*******************************************************************************************/
 
-
+$icons['icoUsers'] = 'group.png';
 $icons['icoUser'] = 'user.png';
 $icons['icoUserView'] = 'user.png';
 $icons['icoUserAdd'] = 'user_add.png';

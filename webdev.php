@@ -40,9 +40,8 @@ $Site->addPageNav('production', 'Production Server', 'Production Server');
 
 $Site->addPageNav('admin', 'Site Administration', 'Site Administration',
 				array(
-					array('servers', 'Servers', 'Admin Servers'),
-					array('news', 'Announcements', 'New, Updates and Announcments'),
-					array('notam', 'Notam', 'Notam Admin')
+					array('users', 'Users ', 'Admin Users'),
+					array('servers', 'Servers')
 			));
 
 
