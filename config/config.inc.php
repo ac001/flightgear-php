@@ -110,6 +110,8 @@ function load_smarty(){
 	//** Assign general variables
 	$smarty->assign('nice_date_format', '%d-%m-%Y');
 	$smarty->assign('nice_date_time_format', '%d-%m-%Y : %I %p');
+
+	$smarty->assign('JS', 'http://fg-cache.appspot.com/');
 }
 if(isset($LOAD_SMARTY) && $LOAD_SMARTY){
 	load_smarty();

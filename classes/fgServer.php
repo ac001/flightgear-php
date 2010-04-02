@@ -8,32 +8,13 @@
  *
  *
 */
-class fgMpServer extends fgObject
+class fgServer extends fgObject
 {
-	const ini = 'mpservers.ini';
 
 	private $_servers = array();
 	
 	public function __construct($id = null){
 		parent::__construct($id);
-	}
-	public function import(){
-		$arr  = parse_ini_file(fgSite::configPath().self::ini, true);
-		foreach($arr as $host => $v){
-			$parts = explode(".", $host);
-			$s = new fgMpServer(0);
-			$s->nick = $parts[0];
-			$s->type = 'mpserver';
-			$s->host	= $host;
-			$s->ip 		= isset($v['ip']) ? $v['ip'] : null;
-			$s->contact	= isset($v['contact']) ? $v['contact'] : null;
-			$s->location	= isset($v['location']) ? $v['location'] : null;
-			$s->irc		= isset($v['irc']) ? $v['irc'] : null;
-			$s->tracked	= $v['tracked'] == 1 ? true : null;
-			$s->save();
-
-		}
-
 	}
 
 	public function save(){
@@ -59,10 +40,12 @@ class fgMpServer extends fgObject
 		return $this->id();
 	}
 
-	public function index(){
-		//$sql = 'select * from servers where type=? order by host asc';
-		//return $this->db->getAll($sql, array('mpserver'));
-		return fgServer::index('mpserver');
+	public static function index($type = null){
+		global $db;
+		$sql = 'select * from servers ';
+		$sql .= $type ? 'where type=?' : '';
+		$sql .= ' order by host asc';
+		return $db->getAll($sql, $type ? array($type) : array());
 	}
 
 	public function feed(){

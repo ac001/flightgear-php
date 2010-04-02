@@ -38,6 +38,9 @@ $Site->addPageNav('feeds', 'Feeds', 'Creating and Using Feeds',
 ));
 $Site->addPageNav('production', 'Production Server', 'Production Server');
 
+$Site->addPageNav('admin', 'Site Admin', 'Site Administration');
+
+
 //** Setup the default $section and $page
 $Site->section = isset($_REQUEST['section']) ? $_REQUEST['section'] : 'index';
 $Site->page = isset($_REQUEST['page']) ? $_REQUEST['page'] : null;

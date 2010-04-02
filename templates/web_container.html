@@ -6,17 +6,26 @@
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1;">
 <title>{$Site->pageTitle()} | {$Site->title}</title>
 
+<link rel="SHORTCUT ICON" href="images/favicon.png">
 
-<script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
-<script type="text/javascript" src="js/jquery-lightbox-0.5/js/jquery.lightbox-0.5.js"></script>
-<link rel="stylesheet" type="text/css" href="js/jquery-lightbox-0.5/css/jquery.lightbox-0.5.css" media="screen">
+<script>
+var AJAX_ACTION = 'rpc/action/';
+</script>
+
+<link rel="stylesheet" type="text/css" href="{$JS}js/ext-3.1.1/resources/css/ext-all.css">
+<script type="text/javascript" src="{$JS}js/ext-3.1.1/adapter/ext/ext-base.js"></script>
+<script type="text/javascript" src="{$JS}js/ext-3.1.1/ext-all.js"></script>
+<!--<script type="text/javascript" src="js/ext-3.1.0/ext-all.js"></script>-->
+
+
+<script type="text/javascript" src="{$JS}js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="{$JS}js/jquery-lightbox-0.5/js/jquery.lightbox-0.5.js"></script>
+<link rel="stylesheet" type="text/css" href="{$JS}js/jquery-lightbox-0.5/css/jquery.lightbox-0.5.css" media="screen">
 
 
 <link rel="stylesheet" type="text/css" href="style_sheets/reset.css">
 <link rel="stylesheet" type="text/css" href="style_sheets/www.1.css">
 
-
-<script type="text/javascript" src="/js/front.js"></script>
 
 </head> 
 
@@ -53,7 +62,7 @@
 	</div>
 
 	<!--## Atom Link  ##-->
-	<p style="text-align: right; margin-top: 5px;"><a href="#"><img src="images/missc/feed_atom.gif" alt="atom"></a></p>
+	{*<p style="text-align: right; margin-top: 40px;"><a href="#"><img src="images/missc/feed_atom.gif" alt="atom"></a></p>*}
 
 </div><!-- left_container -->
 
