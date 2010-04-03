@@ -1,0 +1,83 @@
+{* Creast a custome style block, capture in variable and spit out as source and in page *}
+
+{capture assign='custom_style'}
+{literal}
+
+body{
+	background-color: pink;
+}
+
+#main_container{
+	background-color: yellow;
+}
+
+#left_container{
+	background-color: brown;
+}
+
+#left_container #flightgear_logo_box{
+	background-color: red;
+}
+
+#header_container {
+	background-color: purple;
+}
+
+#content_container{
+	background-color: brown;
+}
+
+#right_box{
+	color: white;
+	background-color: black;
+}
+
+#right_box .panel_box{
+	background-color: blue;
+}
+
+#right_box .panel_box h3{
+	background-color: cyan;
+}
+
+#content_box{
+	background-color: white;
+}
+
+{/literal}
+
+{/capture}
+
+{* output to browser *}
+<style>
+{* $custom_style *}
+</style>
+
+<div id="right_box">
+	
+	<div class="panel_box">
+		<h3>#right_box h3</h3>
+		<p>text is here</p>
+	</div>
+	<div class="panel_box">
+		<h3>Nice</h3>
+		<p>style brandano</p>
+	</div>
+</div>
+
+
+<div id="content_box">
+	<h1>{$Site->pageTitle()}</h1>
+
+
+	<p>A simple style designed is attempted, The page layout is split as such</p>
+
+	<ul>
+		<li>reset.css - this is a style sheet that resets all margins, padding eg to 0px.</li>
+		<li>flightgear.1.css - this is the basic layout and will probably change</li>
+		<li>skin.ac001.1.css - a reference implementation</li>
+		<li>Note the use of .1. version. This is required as apache sends a cache header so changes will not happen</li>
+	</ul>
+
+
+</div>

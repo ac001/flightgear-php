@@ -1,0 +1,94 @@
+{* Creast a custome style block, capture in variable and spit out as source and in page *}
+
+{capture assign='custom_style'}
+{literal}
+
+body{
+	background-color: pink;
+}
+
+#main_container{
+	background-color: yellow;
+}
+
+#left_container{
+	background-color: brown;
+}
+
+#left_container #flightgear_logo_box{
+	background-color: red;
+}
+
+#header_container {
+	background-color: purple;
+}
+
+#content_container{
+	background-color: brown;
+}
+
+#right_box{
+	color: white;
+	background-color: black;
+}
+
+#right_box .panel_box{
+	background-color: blue;
+}
+
+#right_box .panel_box h3{
+	background-color: cyan;
+}
+
+#content_box{
+	background-color: white;
+}
+
+{/literal}
+
+{/capture}
+
+{* output to browser *}
+<style>
+{$custom_style}
+</style>
+
+<div id="right_box">
+	
+	<div class="panel_box">
+		<h3>#right_box h3</h3>
+		<p>text is here</p>
+	</div>
+	<div class="panel_box">
+		<h3>Nice</h3>
+		<p>style brandano</p>
+	</div>
+</div>
+
+
+<div id="content_box">
+	<h1>#content_box h1</h1>
+
+
+	<p>This page overrides style default page style hence the <b>cascading</b> in <b>css</b></p>
+	<ul>
+		<li>Cascading</li>
+		<li>Style</li>
+		<li>Sheet</li>
+	</ul>
+	<h2>#content_box h2</h2>
+
+	<p>Here is code used to style this page's structure color coded</p>
+
+	{source lang='css'}{$custom_style}{/source}
+	
+
+	<h3>#content_box_h3</h3>
+	<p>This constant is the full system path to the "top" level of the site, ie the root</p>
+	{source lang='php'}echo SITE_ROOT;
+// outputs /home/user_name/public_html/flightgear-php/{/source}
+
+
+	<p>And some more stuff</p>
+
+</div>

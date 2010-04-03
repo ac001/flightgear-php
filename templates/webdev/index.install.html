@@ -1,21 +1,42 @@
-<div id="right_box">
+{literal}
+<script>
+
+function set_localhost(){	
+	var host = $('#local_host').val();
+	var user = $('#local_user').val();
+	var url = "http://" + host + "/~" + user
+	Ext.fg.msg("Changed to",url);
+	var links = $('a.localhost');
+	links.css('background-color','#cccccc');
+	links.attr("href",url);
+	links.text(url);
+	console.log(links);
 	
+}
 
+</script>
+{/literal}
 
+<div id="right_box">
 </div>
+
 
 
 <div id="content_box">
 	<h1>{$Site->pageTitle()}</h1>
 
-	<p>Here's some rough instructions to set up on a local machine</p>
-
 	<h2>How to run on http://localhost</h2>
 
+	<p>First enter the login on your current machine now<br>
+        <input type="text" value="local" id="local_host">
+        <input type="text" value="flight-sim" id="local_user">
+		<input type="button" value="Set" onclick="set_localhost()">
+	</p>
+<a href="http://localhost">http://localhost</a>
 	<p>Required: Apache and php5 are installed.</p>
 
 <p>In the example below the  the <b>user_name</b> is  your  <b>public_html/</b> directory.</p>
-<pre>http://localhost/~user_name/flightgear-simpits/</pre>
+<p><a class="localhost" href="http://localhost/~user/flightgear-php">http://localhost/~user/flightgear-php</a></p>
 
 
 <h3>Clone this repository</h3>
@@ -59,8 +80,7 @@ This will create a <b>gallery/</b> directory and then checkout a version from go
 
 <h3>View it</h3>
 <p>Now point your browser at</p>
-<pre>http://localhost/~user_name/flightgear-php/</pre>
+<p><a class="localhost" href="http://localhost/~user/flightgear-php">http://localhost/~user/flightgear-php</a></p>
 
-<p>Check php at</p>
-<pre>http://localhost/~user_name/flightgear-php/etc/php.php</pre>
+
 </div>

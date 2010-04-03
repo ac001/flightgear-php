@@ -81,10 +81,6 @@ a.refresh_button:hover {
 */
 
 body{
-	background-color: white;
-	background-image: url('../images/cloud.jpg');
-	background-position: top right;
-	background-repeat: no-repeat;
 }
 
 #main_container{
@@ -120,23 +116,18 @@ body{
 
 #header_container h1{
 	margin-bottom: 5px;
-	font-size: 13pt;
-	color: #888888;
+	padding-top: 10px;
+	font-size: 12pt;
+	color: #6C7693;
 	width: 33%;
-}
-#header_container h2{
-	margin-bottom: 10px;
-	font-size: 8pt;
-	font-weight: normal;
-	color: #888888;
-	margin-bottom: 20px;
+	height: 50px;
 }
 
 /******************************************/
-/**  MUltiPlayer Table **/
+/**  MultiPlayer Table **/
 /******************************************/
 #mp_header{
-	border: 1px solid #789ABC;	
+	border: 1px solid #6C7693;	
 	padding: 10px 20px 10px 20px;
 	background-color: #efefef;
 	border-radius: 10px;
@@ -225,7 +216,7 @@ body{
 
 #sites_nav li a
 {
-	padding: 2px 10px 2px 10px;
+	padding: 1px 10px 2px 10px;
 	color: black;
 	background: #dddddd;
 	text-decoration: none;
@@ -378,7 +369,7 @@ body{
 	margin-bottom: 10px;
 	font-family: sans-serif;
 	font-size: 16pt;
-	border: 1px solid #A0C9E9;
+	border: 1px solid #6C7693;
 	border-radius: 3px;
 	-moz-border-radius: 3px; 
 	-webkit-border-radius: 3px;
@@ -677,7 +668,6 @@ llfloat: left;
 #page_nav a{
 	display: block;
 	color: #333;
-	background-color: #efefef;
 	padding: 2px 10px;
 	text-decoration: none;
 	color: #3B4E77;
@@ -701,23 +691,6 @@ llfloat: left;
 	padding: 0px;
 	list-style-type: none;
 }
-
-#page_nav li li a{
-	display: block;
-	color: #3B4E77;
-	background-color: #efefef;
-	sswidth: 160px;
-	padding: 2px 10px;
-	margin: 0px;
-	border-top: none;
-	border-bottom: none;
-	border-left: 10px solid #eeeeee;
-	border-right: 10px solid #eeeeee;
-	text-decoration: none;
-	font-size: 10pt;
-	border-bottom: 1px solid #aaa;
-}
-
 #page_nav a.selected{
 	border-left-color: #445577;
 	border-right-color: #445577;

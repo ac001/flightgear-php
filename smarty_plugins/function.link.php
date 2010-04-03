@@ -1,6 +1,14 @@
 <?php
 function smarty_function_link($params, &$smarty)
 {
+
+	//** Class link
+	if(isset($params['class'])){
+		return "<b>".$params['class']."</b>";
+	}
+	if(isset($params['user'])){
+		return "<b>".$params['user']."</b>";
+	}
 	global $Site;
 	
 	$site_id = isset($params['site']) ? $params['site'] : $Site->id;

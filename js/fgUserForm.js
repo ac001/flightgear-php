@@ -15,10 +15,7 @@ this.Ob = confOb;
 //** User Form
 //*************************************************************************************
 this.frm = new Ext.FormPanel({
-	title: 'Sign Up',
-    frame: true,
-	renderTo: 'widget_div',
-	width: 500,
+	    frame: true,
 	autoHeight: true,
     url: AJAX_ACTION,
 	baseParams: {fetch: 'account', },
@@ -32,7 +29,7 @@ this.frm = new Ext.FormPanel({
     bodyStyle: 'padding: 20px',
     waitMsgTarget: true,
     items: [
-				{xtype: 'fieldset', title: 'Your Details', autoHeight: true,
+				{xtype: 'fieldset', title: 'Details', autoHeight: true,
 					items:[ {xtype: 'hidden',  name: 'action', value:'signup'},
 							{fieldLabel: 'Full Name', xtype: 'textfield',  emptyText: 'eg Linus Torvalds',
 								allowBlank: false, minLength: 3, name: 'name', width: '70%', msgTarget: 'side'},

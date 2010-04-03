@@ -7,12 +7,13 @@ var self = this;
 
 this.store = new Ext.data.JsonStore({
 	url: AJAX_FETCH,
+	method: 'GET',
 	baseParams: {'fetch': 'users'},
 	root: 'users',
 	idProperty: 'user_id',
 	fields: [ 	'user_id', 'name', 'email', 'callsign', 'irc' ,'cvs', 'location','comment','active'],
 	remoteSort: false,
-	sortInfo: {field: "host", direction: 'ASC'}
+	sortInfo: {field: "name", direction: 'ASC'}
 });
 
 this.store.load();
@@ -65,22 +66,16 @@ this.grid = new Ext.grid.GridPanel({
 	viewConfig: {emptyText: 'No users in view', forceFit: true}, 
 	store: this.store,
 	loadMask: true,
-	columns: [  {header: '#',  dataIndex:'server_id', sortable: true, hidden: true},
+	columns: [  {header: '#',  dataIndex:'user_id', sortable: true, hidden: false},
 				{header: 'Name',  dataIndex:'name', sortable: true},
 				{header: 'Email',  dataIndex:'email', sortable: true},
-				{header: 'Host', dataIndex:'host', sortable: true},
-				{header: 'Ip', dataIndex:'ip', sortable: true, align: 'center'},
+				{header: 'Cvs', dataIndex:'cvs', sortable: true},
+				{header: 'Irc', dataIndex:'irc', sortable: true, align: 'center'},
 				{header: 'Location', dataIndex:'location', sortable: true, align: 'left'},
-				{header: 'Contact', dataIndex:'contact', sortable: true, align: 'left',
+				{header: 'Callsign', dataIndex:'callsign', sortable: true, align: 'left',
 					renderer: function(v, meta, rec){
-						var s = ''
-						if(rec.get('irc')){
-							s += "#" + rec.get('irc') + " - ";
-						}
-						if(rec.get('contact')){
-							s += rec.get('contact') 
-						}
-						return s;
+				
+						return v;
 					}
 				},
 				{header: 'Trk', dataIndex:'tracked', sortable: true, align: 'center', width: 40},
@@ -109,7 +104,7 @@ this.grid = new Ext.grid.GridPanel({
 });
 this.grid.on("rowdblclick", function(grid, idx, e){
 	var record = self.store.getAt(idx);
-	var d = new fgServerDialog(record.data);
+	var d = new fgUserDialog(record.data);
 });    
     
 

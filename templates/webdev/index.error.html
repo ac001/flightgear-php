@@ -17,34 +17,45 @@
 <li><b>global</b> - tba</li>
 </ul>
 
-<h2>Example Error Handling</h2>
+<h2>Example Error</h2>
 
-<h3>Class method that throws an exception</h3>
+<p>This class throws an exception ({link class='fgException'}) in the validate function.</p>
 {source lang='php'}{literal}class fgFooBar
 {
    public function validate(){
       if($this->x > $this->y){
          throw new fgException('invalid values', 'x is greater than y');
       }
-   }  
+   }
 
+   public function calc(){ 
+       return $this->x * $this->x - 1 * 6;
+   }
 }{/literal}{/source}
 
-<h3>Script with validation</h3>
-{source lang='php'}{literal}// Example script with error handling and an rpc
-require_once('../../config/config.inc.php');
+<p>An example script that catches errors</p>
+{source lang='php'}{literal}//  rpc script with error handling
 
-// set up the error catch for this script
+require_once('../../config/config.inc.php');
+$payload = array();
+
 try{
 
-	$foo = new fgFooBar($x, $y);
-	$foo->validate();
+    $x = isset($_GET['x']) ?  $_GET['x'] : null;
+    if($x && $x < 0){
+       throw new fgException('invalid x value', 'x is less than zero');
+    }
 
-	$foo->sendReply();
+    $foo = new fgFooBar($x, $y);
+    $foo->validate();
+    $payload['calc'] = $foo->calc();
+
 
 } catch (fgException $e) {    
-	echo json_encode($e->error());
-	die();
+    $payload['error'] = $e->error();
+    die();
+
 }
+echo json_encode($payload);
 {/literal}{/source}
 </div>

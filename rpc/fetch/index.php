@@ -21,9 +21,11 @@ try{
 	switch($fetch){
 		case 'servers':
 			$Response->add('servers', fgServer::index());
-			
 			break;
 
+		case 'users':
+			$Response->add('users', fgUser::index());
+			break;
 
 		default:
 			throw new fgException('unhandled fetch',"The fetch '".$fetch."'is not handled");

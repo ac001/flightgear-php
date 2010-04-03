@@ -42,9 +42,11 @@ class fgSite
 		$this->addSiteNav('portal', 'index.php',  'Portal' );
 		$this->addSiteNav('www', 'www.php',  'Website');
 		$this->addSiteNav('aircraft', 'aircraft.php',  'Aircraft');
+		$this->addSiteNav('scenery', 'scenery.php',  'Scenery');
 		$this->addSiteNav('online', 'online.php',  'Online' );
 		$this->addSiteNav('wiki', 'http://wiki.flightgear.org',  'Wiki');
 		$this->addSiteNav('forums', 'http://www.flightgear.org/forums/',  'Forums');
+		$this->addSiteNav('dev', 'dev.php',  'Dev');
 		$this->addSiteNav('webdev', 'webdev.php',  'WebDev');
 	}
 

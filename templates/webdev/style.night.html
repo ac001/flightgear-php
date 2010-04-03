@@ -1,0 +1,109 @@
+{* Creast a custome style block, capture in variable and spit out as source and in page *}
+
+{capture assign='custom_style'}
+{literal}
+
+body{
+	ddbackground-image: url("http://www.flightgear.org/tmp/rwy_lights3.jpg");
+	background-color: black;
+}
+
+#left_container{
+	sssbackground-color: #dddddd;
+}
+
+#left_container #flightgear_logo_box{
+	ddcolor: silver;
+	ddbackground-color: #dddddd;
+	ddborder: 3px outset #999999;
+	border-radius: 10px;
+	-moz-border-radius: 10px; 
+	-webkit-border-radius: 10px;
+}
+
+#header_container {
+	ddbackground-color: purple;
+}
+
+#content_container{
+	ddbackground-color: brown;
+}
+
+#right_box{
+	sscolor: white;
+	ddbackground-color: black;
+}
+
+#right_box .panel_box{
+	ddbackground-color: blue;
+}
+
+#right_box .panel_box h3{
+	ddbackground-color: cyan;
+}
+
+#content_box{
+    sscolor: white;
+	ffbackground-color: white;
+}
+#content_box h1{
+    sscolor: yellow;
+	ddbackground: transparent;
+	border-color: gray;
+}
+
+#page_nav a{
+ 	color: #E678DC;
+	border-color: #256B87;
+}
+#page_nav a li a{
+ 	background-color: transparent;
+}
+{/literal}
+
+{/capture}
+
+{* output to browser *}
+<style>
+{$custom_style}
+</style>
+
+<div id="right_box">
+	
+	<div class="panel_box">
+		<h3>#right_box h3</h3>
+		<p>text is here</p>
+	</div>
+	<div class="panel_box">
+		<h3>Nice</h3>
+		<p>style brandano</p>
+	</div>
+</div>
+
+
+<div id="content_box">
+	<h1>{$Site->pageTitle()}</h1>
+
+
+	<p>This page overrides style default page style hence the <b>cascading</b> in <b>css</b></p>
+	<ul>
+		<li>Cascading</li>
+		<li>Style</li>
+		<li>Sheet</li>
+	</ul>
+	<h2>#content_box h2</h2>
+
+	<p>Here is code used to style this page's structure color coded</p>
+
+	{source lang='css'}{$custom_style}{/source}
+	
+
+	<h3>#content_box_h3</h3>
+	<p>This constant is the full system path to the "top" level of the site, ie the root</p>
+	{source lang='php'}echo SITE_ROOT;
+// outputs /home/user_name/public_html/flightgear-php/{/source}
+
+
+	<p>And some more stuff</p>
+
+</div>

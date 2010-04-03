@@ -1,7 +1,5 @@
 <?php
 
-$LOAD_SMARTY = true;
-$LOAD_DB = true;
 require_once('config/config.inc.php');
 
 //* Create site object and setup
@@ -15,15 +13,22 @@ $Site->id = 'webdev';
 //$Site->addSiteNav('dev.php', 'Dev', $Site->id);
 
 //** Create Page navigation
-$Site->addPageNav('index', 'Web Dev Index', 'Welcome To the FlightGear Web Dev',
+$Site->addPageNav('index', 'Web Dev', 'Welcome web developers',
 				array(
-					array('install', 'Dev Install', 'Developers Installation'),
+					array('install', 'Install', 'Server Installation'),
 					array('overview', 'Overview', 'Site and Code Overview'),
 					array('config', 'Config', 'Configuration'),
 					array('site_obj', '$Site Object'),
 					array('autoload', 'Autoload', 'function __autoload()'),
 					array('classes', 'Classes', 'Classes'),
 					array('error', 'Exceptions', 'Exceptions and Error Handling'),
+					array('style', 'Style Sheet', 'Style Sheet')
+			)
+);
+$Site->addPageNav('style', 'Style', 'Style Sheet and Design',
+			array(
+					array('blocks', 'Layout', 'Layout Blocks color coded'),
+					array('night', 'Night Flying', 'EGLL at night')
 			)
 );
 $Site->addPageNav('example', 'Example Site', 'Site creation example',

@@ -10,7 +10,7 @@ $Site->title = 'FlightGear Portal';
 $Site->section = isset($_REQUEST['section']) ? $_REQUEST['section'] : 'index';
 $Site->page = isset($_REQUEST['page']) ? $_REQUEST['page'] : null;
 
-$Site->addPageNav('index', 'Main');
+$Site->addPageNav('index', 'Welcome');
 $Site->addPageNav('servers', 'Servers');
 $Site->addPageNav('signup', 'Sign Up');
 

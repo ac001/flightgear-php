@@ -1,11 +1,10 @@
 <?php
 
-$LOAD_SMARTY = true;
 require_once('config/config.inc.php');
 
 $Site = new fgSite();
 $Site->id = 'www';
-$Site->title = 'FlightGear Simulator Project';
+$Site->title = 'Simulator Project';
 
 $Site->section = isset($_REQUEST['section']) ? $_REQUEST['section'] : 'index';
 $Site->page = isset($_REQUEST['page']) ? $_REQUEST['page'] : null;

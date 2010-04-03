@@ -16,6 +16,7 @@ class fgUser extends fgObject
 		parent::__construct($id);
 	}
 
+
 	public function save(){
 		$vars = array(	$this->email, $this->name, 
 						$this->callsign, $this->irc, 
@@ -61,11 +62,18 @@ class fgUser extends fgObject
 				break;
 		}
 
-		
-
 		$Mail->sendMail($this, $type);
 	}
 
+
+	public static function index(){
+		global $db;
+		$sql = 'select user_id, name, email, callsign, cvs, irc, location, active 
+				from users
+				order by name asc
+		';
+		return $db->getAll($sql);
+	}
 
 }
 ?>
