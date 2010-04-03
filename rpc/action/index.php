@@ -28,16 +28,32 @@ try{
 
 		case 'server':
 			$S = new fgServer($Req->server_id);
-			$S->type = $Req->type;
-			$S->nick = $Req->nick;
-			$S->host = $Req->host;
-			$S->ip = $Req->ip;
-			$S->comment = $Req->comment;
-			$S->location = $Req->location;
-			$S->contact = $Req->contact;
-			$S->irc = $Req->irc;
-			$S->active = $Req->active;
-			$S->save();
+			$obj->type = $Req->type;
+			$obj->nick = $Req->nick;
+			$obj->host = $Req->host;
+			$obj->ip = $Req->ip;
+			$obj->comment = $Req->comment;
+			$obj->location = $Req->location;
+			$obj->contact = $Req->contact;
+			$obj->irc = $Req->irc;
+			$obj->active = $Req->active;
+			$obj->save();
+			break;
+
+
+		case 'aero_cvs':
+			print_r($_POST);
+			$db->debug=1;
+			$obj = new fgAero($Req->server_id);
+			$obj->aero = $Req->aero;
+			$obj->directory = $Req->directory;
+			$obj->name = $Req->name;
+			$obj->description = $Req->description;
+			$obj->splash = $Req->splash;
+			$obj->fdm = $Req->fdm;
+			$obj->status = $Req->status;
+			$obj->active = $Req->active;
+			$obj->save();
 			break;
 
 		default:

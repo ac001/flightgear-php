@@ -53,11 +53,11 @@ class fgSite
 		$this->addSiteNav('dev', 'dev.php',  'Dev');
 		$this->addSiteNav('webdev', 'webdev.php',  'WebDev');
 
-		//** Set up the $Session $section and $page
-		//$this->Session = new fgSession();
-		$this->section = isset($_REQUEST['section']) && $_REQUEST['section'] != '' ? $_REQUEST['section'] : null;
+		//** Set up  $section and $page
+		$this->section = isset($_REQUEST['section']) && $_REQUEST['section'] != '' ? $_REQUEST['section'] : 'index';
 		$this->page = isset($_REQUEST['page']) && $_REQUEST['page'] != '' ? $_REQUEST['page'] : null;
 		
+		//** Set skin
 		if(!isset($_SESSION[SITE_KEY]['skin'])){
 			$_SESSION[SITE_KEY]['skin'] = 'skin.null.css';
 		}

@@ -1,7 +1,26 @@
 <?php
 
+//**************************************************************
+//* Aircraft
+//**************************************************************
+$tables['aero'] = "
+aero_id I AUTO PRIMARY NOTNULL,
+aero C(20) INDEX,
+directory C(20) INDEX,
+name C(100) INDEX,
+nick C(100) INDEX,
+description C(100) INDEX,
+splash C(100) INDEX,
+fdm C(20) INDEX,
+status C(150) INDEX,
+date_created T INDEX,
+date_updates T INDEX
+";
 
-
+$tables['authors'] = "
+aero_id I NOTNULL INDEX,
+user_id I NOTNULL INDEX
+";
 //**************************************************************
 //* Servers
 //**************************************************************

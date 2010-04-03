@@ -4,7 +4,7 @@
 $LOAD_DB = true;
 require_once('../config/config.inc.php');
 
-require_once('./DB_DEF.php');
+require_once('./DatabaseDefinition.php');
 
 //********************************************************************
 //** Update Database
