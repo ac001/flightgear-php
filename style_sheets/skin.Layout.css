@@ -1,0 +1,44 @@
+
+body{
+	background-color: pink;
+}
+
+#main_container{
+	background-color: yellow;
+}
+
+#left_container{
+	background-color: brown;
+}
+
+#left_container #flightgear_logo_box{
+	background-color: red;
+}
+
+#header_container {
+	background-color: purple;
+}
+
+#content_container{
+	background-color: green;
+}
+
+#footer_container{
+	background-color: black;
+}
+#right_box{
+	color: white;
+	background-color: black;
+}
+
+#right_box .panel_box{
+	background-color: blue;
+}
+
+#right_box .panel_box h3{
+	background-color: cyan;
+}
+
+#content_box{
+	background-color: white;
+}

@@ -29,12 +29,13 @@ var AJAX_ACTION = 'rpc/action/';
 <link rel="stylesheet" type="text/css" href="style_sheets/icons.php">
 <link rel="stylesheet" type="text/css" href="style_sheets/reset.css">
 <link rel="stylesheet" type="text/css" href="style_sheets/flightgear.1.css">
-{* <link rel="stylesheet" type="text/css" href="style_sheets/www.1.css"> *}
+{if $Site->skin}
+<link rel="stylesheet" type="text/css" href="style_sheets/{$Site->skin}">
+{/if}
 
 </head> 
 
 <body>
-
 <!--## Main Container to center and padd -->
 <div id="main_container">
 
@@ -128,9 +129,9 @@ var AJAX_ACTION = 'rpc/action/';
 <!--###################################################################################-->
 <div id="footer_container">
 	<p>&copy; 1996 - {$smarty.now|date_format:'Y'}+ FlightGear posse - all right reserved etc</p>
-	<p>{$Site->contentTemplate()} - <a href="debug.php">debug.php</a> - <a href="etc/php.php">phpinfo()</a></p>
+	<p>{$Site->contentTemplate()} skin={$Site->skin}- <a href="debug.php">debug.php</a> - <a href="etc/php.php">phpinfo()</a></p>
 	<p>{frm do=set_skin}
-		{html_options values=$Site->fgStyle->skins() output=$Site->fgStyle->skins() name=skin}
+		{html_options selected=$Site->skin options=$Site->fgStyle->skins() name=skin}
 		<input type="submit" value="Set Skin">
 		{/frm}
 	</p>
@@ -140,9 +141,6 @@ var AJAX_ACTION = 'rpc/action/';
 </div><!-- end footer-->
 
 </div><!-- end main_container -->
-
-
-
 
 
 <!-- Brandano: chow, did you spot any bugs ?? visit #flightgear and complain to ac001 with a patch ;-) -->

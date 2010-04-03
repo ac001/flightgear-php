@@ -14,8 +14,7 @@ class fgSite
 	//* Defines
 	const CACHE_DIR = '__rw_cache__/cache/';
 	const SMARTY_COMPILE_DIR = '__rw_cache__/smarty_compile_dir/';
-
-	##const sites_ini = 'sites.ini';
+	CONST GIT = 'http://github.com/ac001/flightgear-php/';
 
 	//* Local "property" object - see __get()
     private  $_PROPS = array();
@@ -31,12 +30,14 @@ class fgSite
 	public $section;
 	public $page;
 
-	public $git_url = 'http://github.com/ac001/flightgear-php/';
+	
 
 	//* Construct and load Sites array - Hard coded here atmo
 	public function __construct($id, $title){
 		$this->id = $id;
 		$this->title = $title;
+
+		
 
 		$this->site_items = array();
 		$this->nav_items = array();
@@ -52,9 +53,26 @@ class fgSite
 		$this->addSiteNav('dev', 'dev.php',  'Dev');
 		$this->addSiteNav('webdev', 'webdev.php',  'WebDev');
 
-		//$this->processRequest($_REQUEST);
+		//** Set up the $Session $section and $page
+		//$this->Session = new fgSession();
 		$this->section = isset($_REQUEST['section']) && $_REQUEST['section'] != '' ? $_REQUEST['section'] : null;
 		$this->page = isset($_REQUEST['page']) && $_REQUEST['page'] != '' ? $_REQUEST['page'] : null;
+		
+		if(!isset($_SESSION[SITE_KEY]['skin'])){
+			$_SESSION[SITE_KEY]['skin'] = 'skin.null.css';
+		}
+		$this->skin = $_SESSION[SITE_KEY]['skin'];
+		
+		//** Process incoming actions
+		if(array_key_exists('do', $_REQUEST)){
+			switch($_REQUEST['do']){
+				case 'set_skin':
+					$_SESSION[SITE_KEY]['skin'] =  $_REQUEST['skin'];
+					$this->skin = $_SESSION[SITE_KEY]['skin'];
+					
+			}
+		}
+
 	}
 
 	//***  Sites Navigation

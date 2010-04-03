@@ -32,7 +32,7 @@ date_default_timezone_set('UTC');
 
 define('CLI', php_sapi_name() == 'cli');
 
-if(CLI){
+if(!CLI){
 	session_start();
 }
 
@@ -71,16 +71,22 @@ function __autoload($class_name){
     }
 }
 
+//*************************************************************************
+//** Load Configuration
+//*************************************************************************
+$Config = new fgConfig();
+$_SESSION[SITE_KEY]['FOO'] = "me";
+
 //*********************************************************
 //** Load Database
 //*********************************************************
 require_once(SITE_ROOT.'libs/adodb5/adodb.inc.php');
-require_once(SITE_ROOT.'config/DB.php');
+
 $ADODB_FETCH_MODE = ADODB_FETCH_ASSOC;
-$db = ADONewConnection($DB['driver']); # eg 'mysql' or 'postgres'
+$db = ADONewConnection($Config->database->driver); # eg 'mysql' or 'postgres'
 $db->debug = false;
-$db->Connect($DB['server'], $DB['user'], $DB['pass'], $DB['db']);
-unset($DB);
+$db->Connect($Config->database->server, $Config->database->username, $Config->database->password, $Config->database->database);
+unset($Config->database);
 
 
 //*********************************************************

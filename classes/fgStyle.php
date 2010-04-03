@@ -17,9 +17,11 @@ class fgStyle
 		$results = array();
 		foreach($style_files as $file){
 			if(substr($file, 0, 5) == 'skin.'){	
-				$results[] = $file;
+				$results[$file] = str_replace('skin.', '',str_replace('.css', '', $file));
 			}
 		}
+		
+		asort($results);
 		return $results;
 	}
 

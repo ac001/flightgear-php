@@ -10,9 +10,10 @@
 */
 class fgHelper
 {
-	public static function loadIniFile($ini_file, $process_sections=true){
-		return parse_ini_file(fgSite::configPath().$ini_file, $process_sections);
-		//return $as_class ? new fgObject($ini_vars) : $ini_vars;
+	public static function loadIniFile($ini_file, $return_object=true){
+		# TODO error file_exists and parse error handlers
+		$array =  parse_ini_file(fgSite::configPath().$ini_file, true);
+		return $return_object == true ?  new fgObject($array) : $array;
 	}
 
 	public static function listFiles($directory = null, $extensions = null){
@@ -36,7 +37,7 @@ class fgHelper
 		}
 
 		closedir($handler);
-    return $results;
+		return $results;
 	
 	}
 

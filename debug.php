@@ -2,12 +2,7 @@
 
 require_once('config/config.inc.php');
 
-$Site = new fgSite();
-$Site->id = 'webdev';
-$Site->title = 'FlightGear Portal';
-
-$Site->section = 'debug';
-$Site->page = 'debug';
+$Site = new fgSite('webdev', 'DEV');
 
 
 //print_r($Site);
