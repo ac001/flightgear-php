@@ -12,7 +12,11 @@ class fgHelper
 {
 	public static function loadIniFile($ini_file, $return_object=true){
 		# TODO error file_exists and parse error handlers
-		$array =  parse_ini_file(fgSite::configPath().$ini_file, true);
+		$ini_file = SITE_ROOT.'config/'.$ini_file;
+		if(!file_exists($ini_file)){
+			die("no file in path ".$ini_file);
+		}
+		$array =  parse_ini_file($ini_file, true);
 		return $return_object == true ?  new fgObject($array) : $array;
 	}
 
