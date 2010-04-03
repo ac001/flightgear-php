@@ -75,7 +75,7 @@ function __autoload($class_name){
 //** Load Configuration
 //*************************************************************************
 $Config = new fgConfig();
-$_SESSION[SITE_KEY]['FOO'] = "me";
+print_r(fgConfig->database);
 
 //*********************************************************
 //** Load Database
