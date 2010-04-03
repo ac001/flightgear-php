@@ -1,4 +1,7 @@
 config/MAIN.ini
+*.pyc
+etc/dba
+
 
 
 
