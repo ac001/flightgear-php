@@ -2,6 +2,8 @@
 /***************************************/
 /* Unique Items */
 /***************************************/
+
+/* This is the EXT.fg.msg() div tag */
 #msg-div {
     position:absolute;
     left:5%;
@@ -86,6 +88,7 @@ body{
 #main_container{
 	max-width: 1100px;
 	margin: 20px auto;
+	font-family: sans-serif;
 }
 
 /***************************************/
@@ -100,7 +103,6 @@ body{
 	text-align: center;
 } 
 #left_container #flightgear_leading {
-	font-family: sans-serif;
 	font-size: 8pt;
 	color: #6C7693;
 	line-height: 130%;
@@ -130,9 +132,6 @@ body{
 	border: 1px solid #6C7693;	
 	padding: 10px 20px 10px 20px;
 	background-color: #efefef;
-	border-radius: 10px;
-	-moz-border-radius: 10px; 
-	-webkit-border-radius: 10px;
 }
 #mp_header table{
 	width: 100%;
@@ -148,7 +147,6 @@ body{
 
 /* label */
 #mp_header table td.mp_label{
-	ssbackground-color: #dddddd;
 	font-size: 9pt;
 	text-align: right;
 	width: 100px;
@@ -158,7 +156,6 @@ body{
 #mp_header table td.mp_label a{
 	text-decoration: none;
 	color: #444444;
-	ssbackground-color: red;
 	display: block;
 	padding: 5px;
 	border-top: 1px solid white;
@@ -214,28 +211,21 @@ body{
 	display: inline;
 }
 
-#sites_nav li a
+#sites_nav a
 {
 	padding: 1px 10px 2px 10px;
 	color: black;
 	background: #dddddd;
 	text-decoration: none;
-	border: 2px solid #8CB0DB;
-	border-radius: 7px;
-	-moz-border-radius: 7px; 
-	-webkit-border-radius: 7px;
+	border: 1px solid #8CB0DB;
 }
-
-
-#sites_nav li a:hover
+#sites_nav a:hover
 {
 	border-color: #ccccbb;
-	color: black;
 	background: #D6E7EB;
 }
-
-#sites_nav li a.selected{
-	border: 2px solid #134F8B;
+#sites_nav  a.selected{
+	border-color: #134F8B;
 	background: #A0C9E9;
 }
 
@@ -264,37 +254,27 @@ body{
 /******************************************/
 /** Panel Box **/
 /*****************************************/
-#right_box .panel_box{
+.panel_box{
 	margin-bottom: 30px;
 	border-right: 1px solid #dddddd;
+	
 }
 
-#right_box .panel_box h3{
-	color: #444444;
+.panel_box h3{
 	background-color: #ABB5C9;
-	border: 1px solid #dddddd;
 	padding: 4px 4px 4px 10px;
 	font-size: 10pt;
-	font-family: sans-serif;
-	border-top-left-radius: 10px;
-	-moz-border-top-left-radius: 10px; 
-	-webkit-border-top-left-radius: 10px;
-	border-bottom-left-radius: 10px;
-	-moz-border-bottom-left-radius: 10px; 
-	-webkit-border-bottom-left-radius: 10px;
 }
 
-#right_box .panel_box p{
+.panel_box p{
 	margin: 10px;
 	font-size: 10pt;
-	font-family: sans-serif;
 	line-height: 130%;
 }
 
-#right_box .panel_box li {
+.panel_box li {
 	margin: 5px 10px 5px 30px;
 	font-size: 10pt;
-	font-family: sans-serif;
 	line-height: 130%;
 	list-style-type: circle;
 }
@@ -369,10 +349,6 @@ body{
 	margin-bottom: 10px;
 	font-family: sans-serif;
 	font-size: 16pt;
-	border: 1px solid #6C7693;
-	border-radius: 3px;
-	-moz-border-radius: 3px; 
-	-webkit-border-radius: 3px;
 }
 
 #content_box h2{
@@ -667,13 +643,11 @@ llfloat: left;
 
 #page_nav a{
 	display: block;
-	color: #333;
+	sscolor: #333;
 	padding: 2px 10px;
 	text-decoration: none;
 	color: #3B4E77;
-	border-bottom: 1px solid #aaa;
-	border-left: 10px solid #eeeeee;
-	border-right: 10px solid #eeeeee;
+	border: 1px solid #aaa;
 	font-size: 9pt;
 	font-weight: bold;
 }
@@ -753,14 +727,13 @@ llfloat: left;
 /********************************************************************/
 /** Footer ***/
 /********************************************************************/
-#footer_box{
+#footer_container{
 	clear: both;
 	border-top: 1px solid #98A9CB;
 	margin-top: 40px;
-	font-family: sans-serif;
 }
 
-#footer_box p{
+#footer_container p{
 	font-size: 9pt;
 	margin: 10px;
 }
