@@ -4,7 +4,11 @@ require_once('config/config.inc.php');
 
 $Site = new fgSite('webdev', 'DEV');
 
-print_r( fgAero::index());
+$foo = new fgMpServer(); //::index();
+//fgMpServer::index();
+//print_r($foo->index());
+$foo->url;
+
 
 $aero = new fgAero();
 

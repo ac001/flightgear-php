@@ -1,7 +1,7 @@
 <?php
 /** User Object
  * @package FlightGear
- * @subpackage User
+ * @subpackage Core
  * @copyright (C) 2010 FlightGear Team
  * @author Peter Morgan <ac001@daffodil.uk.com>
  * @version 0.2

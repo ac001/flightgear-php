@@ -10,8 +10,11 @@
 */
 class fgMpServer extends fgObject
 {
-	const type = 'mpserver';
+	//const type = 'mpserver';
 	const ini = 'mpservers.ini';
+	public $server_type = 'mpserver';
+	public $caption = 'MP Servers';
+	const foo = 'bar';
 	private $_servers = array();
 	
 	public function __construct($id = null){
@@ -23,7 +26,7 @@ class fgMpServer extends fgObject
 			$parts = explode(".", $host);
 			$s = new fgServer(0);
 			$s->nick = $parts[0];
-			$s->type = self::type;
+			$s->server_type = $this->server_type;
 			$s->host	= $host;
 			$s->ip 		= isset($v['ip']) ? $v['ip'] : null;
 			$s->contact	= isset($v['contact']) ? $v['contact'] : null;
@@ -35,34 +38,9 @@ class fgMpServer extends fgObject
 
 	}
 
-	/* public function save(){
-		$vars = array(	$this->type, $this->nick, 
-						$this->host, $this->ip, 
-						$this->contact, $this->irc, $this->location, $this->tracked
-					);
-		if($this->id() == 0){
-			$sql = 'insert into servers(
-					type, nick, host, ip, contact, irc, location, tracked, date_created
-				)values(
-					?,    ?,    ?,    ?,  ?,       ?,   ?,       ?,        now()
-				)';
-				$this->db->execute($sql, $vars);
-				$this->insert_id();
-		}else{
-			$sql = 'update servers set
-					type=?, type=?, type=?, type=?, type=?, date_updated=now()
-				';
-				$this->db->execute($sql, $vars);
-		}
-		
-		return $this->id();
-	}
-	*/
 
 	public function index(){
-		//$sql = 'select * from servers where type=? order by host asc';
-		//return $this->db->getAll($sql, array('mpserver'));
-		return fgServer::index(self::type);
+		return fgServer::index($server_type);
 	}
 
 	public function feed(){

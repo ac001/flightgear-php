@@ -10,10 +10,10 @@
 */
 class fgMirror extends fgObject
 {
-	const type = 'mirror';
 	const ini = 'mirrors.ini';
+	public $server_type = 'mirror';
+	public $caption = 'FTP Mirrors';
 	
-	private $_mirrors = array();
 
 	public function __construct($id = null){
 		parent::__construct($id);
@@ -27,22 +27,18 @@ class fgMirror extends fgObject
 
 			$s = new fgServer(0);
 			$s->nick = null;
-			$s->type = self::type;
+			$s->server_type = $this->server_type;
 			$s->host	= $v['server'];
 			$s->location	= $location;
 			$s->ip 		= isset($v['ip']) ? $v['ip'] : null;
-			//$s->contact	= isset($v['contact']) ? $v['contact'] : null;
-			//$s->irc		= isset($v['irc']) ? $v['irc'] : null;
-			//$s->tracked	= $v['tracked'] == 1 ? true : null;
 			$s->save();
-
 		}
 
 	}
 
 
 	public function index(){
-		return fgServer::index(self::type);
+		$fgServer::index($this->server_type);
 	}
 
 	public function feed(){

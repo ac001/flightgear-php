@@ -67,6 +67,52 @@ a.refresh_button:hover {
 	color: #000099;
 }
 
+/****************************************************************************/
+/* Navigations */
+/***************************************************************************/
+
+/*************************/
+/* Inter Site  */
+/*************************/
+#sites_nav {
+	float: right;
+	height: 30px;
+	ssbackground-color:red;
+}
+#sites_nav ul
+{
+	padding: 0px 1px 1px;
+	margin-left: 0px;
+	margin-top: 10px;
+	font: bold 10pt  sans-serif;
+	background-color: #035EAC;
+}
+
+#sites_nav li
+{
+	list-style: none;
+	margin: 0px;
+	display: inline;
+}
+
+#sites_nav a
+{
+	padding: 1px 10px 2px 10px;
+	color: black;
+	background: #dddddd;
+	text-decoration: none;
+	border: 1px solid #8CB0DB;
+}
+#sites_nav a:hover
+{
+	border-color: #ccccbb;
+	background: #D6E7EB;
+}
+#sites_nav  a.selected{
+	border-color: #134F8B;
+	background: #A0C9E9;
+}
+
 
 
 /****************************************************************************/
@@ -117,12 +163,13 @@ body{
 }
 
 #header_container h1{
-	margin-bottom: 5px;
-	padding-top: 10px;
-	font-size: 12pt;
+	clear: right;
+	font-size: 14pt;
 	color: #6C7693;
-	width: 33%;
-	height: 50px;
+	padding: 10px;
+	ssbackground-color: green;
+	border-left: 1px solid #eeeeee;
+	border-bottom: 1px solid #eeeeee;
 }
 
 /******************************************/
@@ -179,55 +226,65 @@ body{
 	width: 50px;
 }
 
+/******************************************/
+/**  Toolbar **/
+/******************************************/
+.toolbar{
+	background-color: #eeeeee;
+	border: 1px solid #bbbbbb;
+	margin-top: 10px;
+	height: 70px;
+	padding: 5px;
+}
 
+.toolbar .box{
+	float: left;
+	border: 1px solid #bbbbbb;
+	background-color: #efefef;
+	ddpadding: 5px;
+	margin-right: 20px;
+}
 
+.toolbar .box h5{
+	font-size: 8pt;
+	padding: 5px;
+	background-color: #dddddd;
+}
+.toolbar .box table{
+	ssmargin: 0px;
+	ssbackground-color: red;
+	ddpadding: 5px;
+	kkmargin-right: 20px;
+	font-size: 10pt;
+}
+.toolbar .box table th{
+	background-color: #dddddd;
+	margin-right: 20px;
+}
+.toolbar .box table td{
+	background-color: #efefef;
+	border: 1px dotted #dddddd;
+	padding: 3px;
+	min-width: 20px;
+}
+.toolbar .box table a{
+	ssbackground-color: green;
+	text-decoration: none;
+	color: #555555;
+	display: block;
+	padding: 3px;
+}
+.toolbar .box table a:hover{
+	background-color: white;
+	text-decoration: none;
+	color: blue;
+}
 /***************************************/
 /** Content Container **/
 #content_container{
 	margin-left: 200px;
 }
 
-
-/***************************************************/
-/* Inter Site Navigation */
-/**************************************************/
-#sites_nav {
-	float: right;
-	height: 50px;
-}
-#sites_nav ul
-{
-	padding: 0px 1px 1px;
-	margin-left: 0px;
-	margin-top: 10px;
-	font: bold 10pt  sans-serif;
-	background-color: #035EAC;
-}
-
-#sites_nav li
-{
-	list-style: none;
-	margin: 0px;
-	display: inline;
-}
-
-#sites_nav a
-{
-	padding: 1px 10px 2px 10px;
-	color: black;
-	background: #dddddd;
-	text-decoration: none;
-	border: 1px solid #8CB0DB;
-}
-#sites_nav a:hover
-{
-	border-color: #ccccbb;
-	background: #D6E7EB;
-}
-#sites_nav  a.selected{
-	border-color: #134F8B;
-	background: #A0C9E9;
-}
 
 
 

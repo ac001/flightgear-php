@@ -32,10 +32,6 @@ class fgObject
 			$this->db = $db;
 			$this->_ID = $mixed;
 		}
-
-
-
-
     }
 
     public function __set($key, $value){
@@ -47,6 +43,7 @@ class fgObject
 		}
     }
     public function __get($key) {
+		#TODO: check if a constant maybe;
         if (isset($this->_PROPS[$key])) {
             return $this->_PROPS[$key];
         }else{

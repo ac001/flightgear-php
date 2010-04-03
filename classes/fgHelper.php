@@ -10,6 +10,13 @@
 */
 class fgHelper
 {
+	public static function loadFile($file_path){
+		# TODO error file_exists and parse error handlers
+		if(!file_exists($file_path)){
+			die("No path to file ".$file_path);
+		}
+		return file_get_contents($file_path);
+	}
 	public static function loadIniFile($ini_file, $return_object=true){
 		# TODO error file_exists and parse error handlers
 		$ini_file = SITE_ROOT.'config/'.$ini_file;
@@ -19,7 +26,6 @@ class fgHelper
 		$array =  parse_ini_file($ini_file, true);
 		return $return_object == true ?  new fgObject($array) : $array;
 	}
-
 	public static function listFiles($directory = null, $extensions = null){
 
 		if(!is_null($extensions) && !is_array($extensions)){

@@ -12,7 +12,6 @@
 	</div>
 
 
-
 	<div class="panel_box">
 		<h3>Smarty</h3>
 		<img src="http://www.smarty.net/gifs/smarty_icon.gif" style="float:right; margin: 5px;" alt="smarty">
@@ -36,10 +35,23 @@
 	<h1>{$Site->pageTitle()}</h1>
 
 	<h2>Mission</h2>
-	<p><i>Create a cool web enviroment for flightgear that in interative, informative and fun for anyone.</i></p>
+	<p><i>Create a cool web enviroment for flightgear that in interative, informative and fun for anyone</i></p>
 	
 	<h2>Intro</h2>
-	<p>This is an idea by {link user='ac001'} towards creating an integrated web enviroment for {$Site->tm}
+	<p>This is an idea by {link user='ac001'} towards creating an integrated web enviroment for {$Site->tm}. Having 
+	spend some time in webdevelopment, and over the years attempting various stratergies towards solving problems,
+	flight gear is fun, and one we harness the web, then we can have much more fun.</p>
+
+	<p>So the idea of this site at the moment is to demonstrate a framework thats easy to use and extensible. There
+		are a few design gloals, and one of them is to make it easy for a new hacker to understand.</p>
+
+	<ul>
+		<li><b>Site</b> - all the various <i>subdomains, sites, zones</i> are clearly defined</li>
+		<li><b>Section</b> - the top level <i>areas</i> </li>
+		<li><b>Page</b> - a second level area within a section</li>
+		<li><b>{$Site->id}/{$Site->section}/</b> - site/section/ - page is missing </li>
+	</ul>
+
 	<p>The project's source is a <b>complete</b> package and includes all libs and elements required to run on a LAMP stack. Some minor configuration 
      is required to get it running anywhere. This is a <code>git clone</clone> and is updated via <code>git pull</clone> on a cron.</p>
       at currently hosted and availabeGitHub<a href="{$Site->git_url}">{$Site->git_url}</a>

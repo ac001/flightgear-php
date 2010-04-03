@@ -46,7 +46,7 @@ var AJAX_ACTION = 'rpc/action/';
 
 	<!--## Logo ##-->
 	<div id="flightgear_logo_box">
-		<div id="flightgear_logo"><img src="images/flightgear.png" alt="flightgear"></div>
+		<div id="flightgear_logo"><a href="index.php"><img src="images/flightgear.png" alt="flightgear"></a></div>
 		<div id="flightgear_leading">The World's Leading Open Source Flight Simulator</div>
 	</div>
 
@@ -88,12 +88,13 @@ var AJAX_ACTION = 'rpc/action/';
 
 	
 	<h1>{$Site->title}</h1>
-	{* <h2>The World's Leading Open Source Flight Simulator</h2> *}
 
+	
+{*
 	<div id="mp_header">
 	<table>
 		<tr>
-		<th>{* Google Search **}
+		<th>
 			<form action="http://www.google.com/cse" ssid="cse-search-box" class="toolbar_form">
 			<div>
 				<input type="hidden" name="cx" value="" />
@@ -113,6 +114,53 @@ var AJAX_ACTION = 'rpc/action/';
 		</tr>
 	</table>
 	</div>
+*}
+<div class="toolbar">
+	<div class="box">
+		<h5>Search</h5>
+		<form action="http://www.google.com/cse" ssid="cse-search-box" class="toolbar_form">
+		<div>
+			<input type="hidden" name="cx" value="" />
+			<input type="hidden" name="ie" value="UTF-8" />
+			<input type="text" name="q" size="21" />
+			{*<input type="submit" name="sa" value="Search" />*}
+		</div>
+		</form>
+	</div>
+
+	<div class="box">
+		<h5>Style</h5>
+		{frm do=set_skin}
+			{html_options selected=$Site->skin options=$Site->fgStyle->skins() name=skin}
+			{*<input type="submit" value="Set Skin">*}
+		{/frm}
+	</div>
+
+	<div class="box">
+		<h5>Login</h5>
+		<input type="hidden" name="ie" value="UTF-8" size="10">
+		<input type="hidden" name="ie" value="UTF-8" size="10">
+	</div>
+	<div class="box">
+		<h5>Online</h5>
+			<table>
+				<tr>
+				<th><a href="#">Pilots &gt;</a></th>
+				<td>--</td>
+				<th><a href="#">ATC &gt;</a></th>
+				<td>--</td>
+				<th><a href="#">Servers &gt;</a></th>
+				<td class="mp_value"><span class="status_up">0 Up</span></td>
+				<td class="mp_value"><span class="status_down">0 down</span></td>
+
+			
+		
+				</tr>
+			</table>
+	</div>
+</div>
+
+
 </div>
 
 

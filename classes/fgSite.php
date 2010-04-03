@@ -43,11 +43,11 @@ class fgSite
 		$this->nav_items = array();
 
 		//** Intersite Navigation
-		$this->addSiteNav('portal', 'index.php',  'Portal' );
+		$this->addSiteNav('portal', 'index.php',  'Home' );
+		$this->addSiteNav('online', 'online.php',  'Online' );
 		$this->addSiteNav('www', 'www.php',  'Website');
 		$this->addSiteNav('aircraft', 'aircraft.php',  'Aircraft');
 		$this->addSiteNav('scenery', 'http://scenemodels.flightgear.org/',  'Scenery');
-		$this->addSiteNav('online', 'online.php',  'Online' );
 		$this->addSiteNav('wiki', 'http://wiki.flightgear.org',  'Wiki');
 		$this->addSiteNav('forums', 'http://www.flightgear.org/forums/',  'Forums');
 		$this->addSiteNav('dev', 'dev.php',  'Dev');
@@ -61,7 +61,7 @@ class fgSite
 
 		//** Set skin
 		if(!isset($_SESSION[SITE_KEY]['skin'])){
-			$_SESSION[SITE_KEY]['skin'] = 'skin.null.css';
+			$_SESSION[SITE_KEY]['skin'] = 'skin.ac001.css';
 		}
 		$this->skin = $_SESSION[SITE_KEY]['skin'];
 		

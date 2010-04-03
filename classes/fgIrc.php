@@ -11,15 +11,14 @@
 class fgIrc extends fgObject
 {
 	const ini = 'irc.ini';
-	const server = 'irc.flightgear.org';
-	const url = 'irc://irc.flightgear.org/';
+	public $server_type = 'irc';
+	public $caption = 'FTP Mirrors';
 
-	const type = 'irc';
-
-	private $_channels = array();
+	public $server = 'irc.flightgear.org';
+	public $url = 'irc://irc.flightgear.org/';
 	
-	public function __construct($id = null){
-		parent::__construct($id);
+	public function __construct(){
+		parent::__construct();
 	}
 
 	public function import(){
@@ -29,15 +28,11 @@ class fgIrc extends fgObject
 			$this->_channels[] = array('channel' => $channel, 'url' => self::url.$channel, 'title' => $v['title'] );
 			$s = new fgServer(0);
 			$s->nick = $v['title'];
-			$s->type = self::type;
+			$s->server_type = $this->server_type;
 			$s->host	= 'irc.flightgear.org';
 			$s->location	= $channel;
 			$s->irc 		=  null;
-			//$s->contact	= isset($v['contact']) ? $v['contact'] : null;
-			//$s->irc		= isset($v['irc']) ? $v['irc'] : null;
-			//$s->tracked	= $v['tracked'] == 1 ? true : null;
 			$s->save();
-
 		}
 
 	}
