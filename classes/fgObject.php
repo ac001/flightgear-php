@@ -49,6 +49,13 @@ class fgObject
             return null;
         }
     }
+    public function get($key) {
+        if (isset($this->_PROPS[$key])) {
+            return $this->_PROPS[$key];
+        }else{
+            return null;
+        }
+    }
 
 	public function id(){
 		return $this->_ID;

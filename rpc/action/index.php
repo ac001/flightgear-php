@@ -27,6 +27,8 @@ try{
 			break;
 
 		case 'server':
+			$sql = 'delete from aero';
+			$db->execute($sql);
 			$S = new fgServer($Req->server_id);
 			$obj->type = $Req->type;
 			$obj->nick = $Req->nick;
@@ -42,15 +44,15 @@ try{
 
 
 		case 'aero_cvs':
-			print_r($_POST);
-			$db->debug=1;
+			//print_r($_POST);
+			//$db->debug=1;
 			$obj = new fgAero($Req->server_id);
 			$obj->aero = $Req->aero;
 			$obj->directory = $Req->directory;
 			$obj->name = $Req->name;
 			$obj->description = $Req->description;
 			$obj->splash = $Req->splash;
-			$obj->fdm = $Req->fdm;
+			$obj->fdm = $Req->get('flight-model');
 			$obj->status = $Req->status;
 			$obj->active = $Req->active;
 			$obj->save();
