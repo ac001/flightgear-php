@@ -30,7 +30,7 @@ class fgSite
 	public $section;
 	public $page;
 
-	
+	public $Request;
 
 	//* Construct and load Sites array - Hard coded here atmo
 	public function __construct($id, $title){
@@ -46,7 +46,7 @@ class fgSite
 		$this->addSiteNav('portal', 'index.php',  'Portal' );
 		$this->addSiteNav('www', 'www.php',  'Website');
 		$this->addSiteNav('aircraft', 'aircraft.php',  'Aircraft');
-		$this->addSiteNav('scenery', 'scenery.php',  'Scenery');
+		$this->addSiteNav('scenery', 'http://scenemodels.flightgear.org/',  'Scenery');
 		$this->addSiteNav('online', 'online.php',  'Online' );
 		$this->addSiteNav('wiki', 'http://wiki.flightgear.org',  'Wiki');
 		$this->addSiteNav('forums', 'http://www.flightgear.org/forums/',  'Forums');
@@ -57,6 +57,8 @@ class fgSite
 		$this->section = isset($_REQUEST['section']) && $_REQUEST['section'] != '' ? $_REQUEST['section'] : 'index';
 		$this->page = isset($_REQUEST['page']) && $_REQUEST['page'] != '' ? $_REQUEST['page'] : null;
 		
+		$this->Request = new fgObject($_REQUEST);
+
 		//** Set skin
 		if(!isset($_SESSION[SITE_KEY]['skin'])){
 			$_SESSION[SITE_KEY]['skin'] = 'skin.null.css';

@@ -9,7 +9,6 @@
 
 
 
-
 </div>
 
 
@@ -17,12 +16,32 @@
 <div id="content_box">
 
 	<h1>{$Site->pageTitle()}</h1>
-	{$Site->fgAero->index()}
-	<table>
 
+{frm}
+{/frm}
+
+
+<form action="/aircraft/" method="get" style="margin: 0px 0px 10px 0px;">
+<input type="text" name="search" size="15" value="{$Site->Request->search}">
+<input type="submit" value="Search">
+	{foreach from=$Site->fgAero->a2z() item=alpha}
+		<small>{if $Site->Request->alpha == $alpha}&gt;<b>{/if}{link alpha=$alpha text=$alpha}{if $Site->Request->alpha == $alpha}</b>&lt;{/if}</small>
+	{/foreach}
+	<small>{link text=clear}</small>
+</form>
+
+
+	<table class="listing" width="100%">
+	<tr>
+		<th>Aero</th>
+		<th>Name</th>
+		<th>Description</th>
+		<th>FDM</th>
+	</tr>
 	{foreach from=$Site->fgAero->index() item=Aero}
 		<tr>
-			<td>{$Aero.aero}</td>
+			<td>{aero aero=$Aero thumb=50}</td>
+			<td>{link page=aero aero_id=$Aero.aero_id text=$Aero.aero}</td>
 			<td>{$Aero.name}</td>
 			<td>{$Aero.description}</td>
 			<td>{$Aero.fdm}</td>

@@ -1,6 +1,7 @@
 #!/bin/bash
 
-echo "Checking out gallery from google"
+echo "-------- SVN Checkout --------"
+echo "Fetching out flightgear-gallery from google"
 
 mkdir ../gallery
 

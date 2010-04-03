@@ -64,11 +64,11 @@ class ProcessCVSAircraft:
 		self.doc = None
 		self.curr_dir = None
 		self.errors  = []
-
+		self.counter = 0
 
 	def run(self):
 		directories = sorted(os.listdir(conf.FG_DATA_AIRCRAFT_PATH))
-		c = 0
+		self.counter = 0
 		print "\n\nSTART --------------------------------------------"
 		for air_dir in directories:
 			
@@ -94,9 +94,7 @@ class ProcessCVSAircraft:
 				self.send_to_server( self.dic )
 
 				#print "======================================================"
-				c  +=  1
-				if 1 == 1 and c == 5: 
-					sys.exit(1)
+		
 		print self.errors
 
 
@@ -169,9 +167,9 @@ class ProcessCVSAircraft:
 
 
 	def send_to_server(self, dic):
-		print dic
+		#print dic
 		dic['action'] = 'aero_cvs'
-		url = "http://localhost/~flight-sim/flightgear-php/rpc/action/"
+		url = conf.WWW + "rpc/action/"
 		#sprint "URL=", url
 		data = urllib.urlencode(dic)
 		#print url + "?" + data
@@ -180,6 +178,10 @@ class ProcessCVSAircraft:
 		response = urllib2.urlopen(req)
 		the_page = response.read()
 		print the_page
+
+		self.counter  +=  1
+		if 1 == 1 and self.counter == 200: 
+			sys.exit(1)
 
 			
 

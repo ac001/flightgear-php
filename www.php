@@ -2,12 +2,7 @@
 
 require_once('config/config.inc.php');
 
-$Site = new fgSite();
-$Site->id = 'www';
-$Site->title = 'Simulator Project';
-
-$Site->section = isset($_REQUEST['section']) ? $_REQUEST['section'] : 'index';
-$Site->page = isset($_REQUEST['page']) ? $_REQUEST['page'] : null;
+$Site = new fgSite('www','Simulator Project' );
 
 //** Page Navigation 
 // addPageNav ($section, $label_title, $optional_title, $sub_nav( array($sub_page, $label_title, $opt)_title) )
@@ -56,9 +51,7 @@ $Site->addPageNav(	'links', 'Links', null,
 					)
 );
 
-$Site->fgMirror->index();
 
-$smarty->assign('Site', $Site);
-$smarty->display('web_container.html')
+$Site->display();
 
 ?>

@@ -1,3 +1,4 @@
+{* DEAD idea
 {literal}
 <script>
 
@@ -13,9 +14,19 @@ function set_localhost(){
 	console.log(links);
 	
 }
-
-</script>
 {/literal}
+</script>
+
+	<p>First enter the login on your current machine now<br>
+        <input type="text" value="local" id="local_host">
+        <input type="text" value="flight-sim" id="local_user">
+		<input type="button" value="Set" onclick="set_localhost()">
+	</p>
+	
+<a href="http://localhost">http://localhost</a>
+
+*}
+
 
 <div id="right_box">
 
@@ -30,12 +41,6 @@ function set_localhost(){
 
 	<h2>How to run on http://localhost</h2>
 
-	<p>First enter the login on your current machine now<br>
-        <input type="text" value="local" id="local_host">
-        <input type="text" value="flight-sim" id="local_user">
-		<input type="button" value="Set" onclick="set_localhost()">
-	</p>
-<a href="http://localhost">http://localhost</a>
 	<p>Required: Apache and php5 are installed.</p>
 
 <p>In the example below the  the <b>user_name</b> is  your  <b>public_html/</b> directory.</p>

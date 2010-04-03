@@ -5,7 +5,7 @@
 //**************************************************************
 $tables['aero'] = "
 aero_id I AUTO PRIMARY NOTNULL,
-aero C(20) INDEX,
+aero C(30) NOTNULL INDEX,
 directory C(20) INDEX,
 name C(100) INDEX,
 nick C(100) INDEX,
@@ -14,13 +14,10 @@ splash C(100) INDEX,
 fdm C(20) INDEX,
 status C(150) INDEX,
 date_created T INDEX,
-date_updates T INDEX
+date_updated T INDEX
 ";
 
-$tables['authors'] = "
-aero_id I NOTNULL INDEX,
-user_id I NOTNULL INDEX
-";
+
 //**************************************************************
 //* Servers
 //**************************************************************
@@ -47,7 +44,7 @@ rank I
 //**************************************************************
 $tables['users'] = "
 user_id I AUTO PRIMARY NOTNULL,
-name C(20) INDEX,
+name C(100) INDEX,
 email C(100) INDEX,
 passwd C(60),
 irc C(50) INDEX,
@@ -64,4 +61,11 @@ security C(50) INDEX,
 token C(100)
 ";
 
+
+
+$tables['user_links'] = "
+user_id I NOTNULL INDEX,
+aero_id I NOTNULL INDEX,
+server_id I NOTNULL INDEX
+";
 ?>

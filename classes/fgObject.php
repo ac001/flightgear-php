@@ -41,7 +41,11 @@ class fgObject
     public function __set($key, $value){
         $this->_PROPS[$key] = $value;
     }
-
+    public function setData($array) {
+		foreach($array as $k => $v){
+			$this->$k = $v;
+		}
+    }
     public function __get($key) {
         if (isset($this->_PROPS[$key])) {
             return $this->_PROPS[$key];

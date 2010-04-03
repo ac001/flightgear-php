@@ -75,5 +75,15 @@ class fgUser extends fgObject
 		return $db->getAll($sql);
 	}
 
+	public static function find($column, $value){
+		global $db;
+		$sql = 'select user_id from users where ?=?';
+		$row = $db->getRow($sql, array($column, $value));
+		if(count($row) > 0){
+			return $row['user_id'];
+		}
+		return null;
+	}
+
 }
 ?>

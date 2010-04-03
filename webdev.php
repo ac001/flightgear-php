@@ -9,7 +9,7 @@ $Site = new fgSite('webdev',  'Web Development');
 //$Site->addSiteNav('dev.php', 'Dev', $Site->id);
 
 //** Create Page navigation
-$Site->addPageNav('index', 'Web Dev', 'Welcome web developers',
+$Site->addPageNav('index', 'Web Dev', 'Welcome Web Dewelopers',
 				array(
 					array('install', 'Install', 'Server Installation'),
 					array('overview', 'Overview', 'Site and Code Overview'),
