@@ -13,15 +13,16 @@ $db = null;
 error_reporting(-1); 
 //ini_set('display_errors', 1);
 
-function my_error_handler($errno, $errstr, $errfile, $errline){
+function main_error_handler($errno, $errstr, $errfile, $errline){
    // echo "@Error:".$errstr."<br>";   
-    throw new ErrorException($errstr, 0, $errno, $errfile, $errline);
+    //throw new ErrorException($errstr, 0, $errno, $errfile, $errline);
 }
-function my_exception_handler($exception)
+function my_ssexception_handler($exception)
 {
     echo "@Exception:".$exception->getMessage();
     fgResponse::send_exception($exception);
 }
+//set_error_handler('main_error_handler');
 
 //*************************************************************************
 //** General Definition and settings

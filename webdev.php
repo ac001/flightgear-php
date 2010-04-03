@@ -3,11 +3,7 @@
 require_once('config/config.inc.php');
 
 //* Create site object and setup
-$Site = new fgSite();
-$Site->title = 'Web Development';
-
-//** id also dictates the smarty_compile and the tempaltes/_sub_dir_
-$Site->id = 'webdev';
+$Site = new fgSite('webdev',  'Web Development');
 
 //** Add to intersite navigation >> locaion.php, $site_title, $site_id
 //$Site->addSiteNav('dev.php', 'Dev', $Site->id);
@@ -49,12 +45,9 @@ $Site->addPageNav('admin', 'Site Administration', 'Site Administration',
 					array('servers', 'Servers')
 			));
 
-
-//** Setup the default $section and $page
-$Site->section = isset($_REQUEST['section']) ? $_REQUEST['section'] : 'index';
-$Site->page = isset($_REQUEST['page']) ? $_REQUEST['page'] : null;
+$Site->display();
 
 //** Run it
-$smarty->assign('Site', $Site);
-$smarty->display('web_container.html')
+//$smarty->assign('Site', $Site);
+//$smarty->display('web_container.html')
 ?>

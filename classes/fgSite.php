@@ -34,7 +34,10 @@ class fgSite
 	public $git_url = 'http://github.com/ac001/flightgear-php/';
 
 	//* Construct and load Sites array - Hard coded here atmo
-	public function __construct(){
+	public function __construct($id, $title){
+		$this->id = $id;
+		$this->title = $title;
+
 		$this->site_items = array();
 		$this->nav_items = array();
 
@@ -48,6 +51,10 @@ class fgSite
 		$this->addSiteNav('forums', 'http://www.flightgear.org/forums/',  'Forums');
 		$this->addSiteNav('dev', 'dev.php',  'Dev');
 		$this->addSiteNav('webdev', 'webdev.php',  'WebDev');
+
+		//$this->processRequest($_REQUEST);
+		$this->section = isset($_REQUEST['section']) && $_REQUEST['section'] != '' ? $_REQUEST['section'] : null;
+		$this->page = isset($_REQUEST['page']) && $_REQUEST['page'] != '' ? $_REQUEST['page'] : null;
 	}
 
 	//***  Sites Navigation
@@ -59,6 +66,17 @@ class fgSite
 	}
 	public function siteUrl($id){
 		return $this->site_items[$id]['url'];
+	}
+
+	public function processAction($vars){
+		if(array_key_exists('do', $vars)){
+			print_r($vars);
+			switch($vars['do']){
+				case 'set_skin':
+					return $this->setSessionVar('skin', $vars['skin']);
+					
+			}
+		}
 	}
 
 	//*** Autoload Proeprty Classes
@@ -119,6 +137,11 @@ class fgSite
 		}
 	}
 
+	public function display(){
+		global $smarty;
+		$smarty->assign('Site', $this);
+		$smarty->display('web_container.html');
+	}
 
 	public static function configPath(){
 		return SITE_ROOT.'config/';

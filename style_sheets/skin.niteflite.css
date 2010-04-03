@@ -1,0 +1,79 @@
+
+/* set some funky background */
+body{
+	background-image: url("http://www.flightgear.org/tmp/rwy_lights3.jpg");
+	background-color: black;
+}
+
+#flightgear_logo_box {
+    color: #bbbbbb;
+	background-color: black;
+	border: 1px solid #666666;
+	border-radius: 7px;
+	-moz-border-radius: 7px; 
+	-webkit-border-radius: 7px;
+}
+
+/* Right Panel */
+.panel_box{
+	border-right: 1px solid #555555;
+	color: white;
+}
+.panel_box h3{
+	background-color: black;
+	color: #999999;
+	border: 1px outset #555555;
+}
+
+
+/* Content */
+#content_box {
+    color: #eeeeee;
+}
+#content_box h1{
+    color: yellow;
+	background: transparent;
+	border: 1px dotted #555555; 
+}
+
+
+
+/* Page Navigation */
+#page_nav a{
+ 	color: #aaaaaa;
+	border-color: #555555;
+	border-left: none;
+	border-top: none;
+}
+#page_nav a:hover{
+	background-color: #222222;
+	border-color: #9F71E3;
+	color: #9F71E3;
+}
+#page_nav a.selected{
+ 	color: pink;
+	border-color: #555555;
+	background-color: black;
+}
+
+
+/* Sites Navigation */
+#sites_nav ul{
+	background-color: #999999;
+}
+#sites_nav a{
+    color: #bbbbbb;
+	background-color: black;
+	border: 1px solid #666666;
+	border-radius: 7px;
+	-moz-border-radius: 7px; 
+	-webkit-border-radius: 7px;
+}
+#sites_nav a:hover{
+	background-color: #555555;
+}
+#sites_nav a.selected{
+	border-color: pink;
+	background-color: black;
+	color: pink;
+}

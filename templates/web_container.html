@@ -128,7 +128,15 @@ var AJAX_ACTION = 'rpc/action/';
 <!--###################################################################################-->
 <div id="footer_container">
 	<p>&copy; 1996 - {$smarty.now|date_format:'Y'}+ FlightGear posse - all right reserved etc</p>
-	<p>{$Site->contentTemplate()}</p>
+	<p>{$Site->contentTemplate()} - <a href="debug.php">debug.php</a> - <a href="etc/php.php">phpinfo()</a></p>
+	<p>{frm do=set_skin}
+		{html_options values=$Site->fgStyle->skins() output=$Site->fgStyle->skins() name=skin}
+		<input type="submit" value="Set Skin">
+		{/frm}
+	</p>
+
+
+	</p>
 </div><!-- end footer-->
 
 </div><!-- end main_container -->
