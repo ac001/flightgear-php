@@ -4,6 +4,10 @@ require_once('config/config.inc.php');
 
 $Site = new fgSite('webdev', 'DEV');
 
+print_r( fgAero::index());
+
+$aero = new fgAero();
+
 
 //print_r($Site);
 function SSsmarty_function_link($params, &$smarty)

@@ -75,7 +75,6 @@ function __autoload($class_name){
 //** Load Configuration
 //*************************************************************************
 $Config = new fgConfig();
-print_r($Config->database);
 
 //*********************************************************
 //** Load Database

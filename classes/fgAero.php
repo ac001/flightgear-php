@@ -47,7 +47,7 @@ class fgAero extends fgObject
 		$sql = 'select * from aero ';
 		//$sql .= $type ? 'where type=?' : '';
 		$sql .= ' order by aero asc';
-		return $db->getAll($sql, $type ? array($type) : array());
+		return $db->getAll($sql);
 	}
 
 	public function feed(){

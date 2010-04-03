@@ -17,10 +17,16 @@
 <div id="content_box">
 
 	<h1>{$Site->pageTitle()}</h1>
+	{$Site->fgAero->index()}
+	<table>
 
-	<p>Coming soon</p>
-
-	<p> a php version of <a href="http://fg-aircraft.appspot.com/">http://fg-aircraft.appspot.com/</a></p>
-
-
+	{foreach from=$Site->fgAero->index() item=Aero}
+		<tr>
+			<td>{$Aero.aero}</td>
+			<td>{$Aero.name}</td>
+			<td>{$Aero.description}</td>
+			<td>{$Aero.fdm}</td>
+		</tr>
+	{/foreach}
+	</table>
 </div>
