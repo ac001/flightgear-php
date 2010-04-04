@@ -169,7 +169,7 @@ class ProcessCVSAircraft:
 	def send_to_server(self, dic):
 		#print dic
 		dic['action'] = 'aero_cvs'
-		url = conf.WWW + "rpc/action/"
+		url = conf.WWW + "app/ajax_action.php"
 		#sprint "URL=", url
 		data = urllib.urlencode(dic)
 		#print url + "?" + data

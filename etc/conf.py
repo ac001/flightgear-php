@@ -25,9 +25,8 @@ CVS_DIC = '/home/flight-sim/fg-aircraft/temp/dic/'
 
 
 if sys.argv.count('--live') > 0:
-	WWW = 'http://flightgear.daffodil.uk.csom/'
+	WWW = 'http://flightgear.daffodil.uk.com/'
 	#FG_ROOT = '/home/flight-sim/flight-gear-9/data'
-
 else:
 	WWW = 'http://localhost/~flight-sim/flightgear-php/'
 	#FG_ROOT = '/home/flight-sim/flight-gear-9/data'
