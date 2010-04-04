@@ -4,7 +4,7 @@
 function smarty_function_aero($params, &$smarty)
 {
 	$Aero = is_array($params['aero']) ? new fgObject($params['aero']) : $params['aero'];
-	print_r($Aero);
+	//print_r($Aero);
 	if(isset($params['thumb'])){
 		$size = $params['thumb'];
 		//$dir = is_array($params['aero']) ? $params['aero']['directory'] : $params['aero']->directory;

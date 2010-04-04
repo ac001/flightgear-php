@@ -5,7 +5,7 @@
 //***************************************************
 
 $LOAD_DB = true;
-require_once('../../config/config.inc.php');
+require_once('../config/config.inc.php');
 
 $Req = new fgObject($_POST);
 

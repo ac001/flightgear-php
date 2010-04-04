@@ -12,8 +12,6 @@
 class fgSite
 {
 	//* Defines
-	const CACHE_DIR = '__rw_cache__/cache/';
-	const SMARTY_COMPILE_DIR = '__rw_cache__/smarty_compile_dir/';
 	CONST GIT = 'http://github.com/ac001/flightgear-php/';
 
 	//* Local "property" object - see __get()
@@ -108,7 +106,7 @@ class fgSite
     public function __get($key) {
 
 		if(!isset($this->_PROPS[$key])){
-			$class_file = SITE_ROOT.'classes/'.$key.'.php';
+			$class_file = SITE_ROOT.'app/classes/'.$key.'.php';
 			if(file_exists($class_file)){
 				require_once($class_file);
 				$this->_PROPS[$key] = new $key;

@@ -65,7 +65,7 @@ function __autoload($class_name){
 
         default:
 			//** Load from the classes/ subdirectory #TODO try{} catch
-            require_once(SITE_ROOT.'classes/'.$class_name.'.php');
+            require_once(SITE_ROOT.'app/classes/'.$class_name.'.php');
 			return;
 
     }
@@ -105,13 +105,13 @@ $smarty->compile_dir 	= SITE_ROOT.'__rw_cache__/smarty_compile/';
 $smarty->template_dir  = SITE_ROOT.'templates/';
 
 //* Plugins path
-$smarty->plugins_dir[]  = SITE_ROOT.'smarty_plugins/';
+$smarty->plugins_dir[]  = SITE_ROOT.'app/smarty_plugins/';
 
 //** Assign general variables
-$smarty->assign('nice_date_format', '%d-%m-%Y');
-$smarty->assign('nice_date_time_format', '%d-%m-%Y : %I %p');
+//$smarty->assign('nice_date_format', '%d-%m-%Y');
+//$/smarty->assign('nice_date_time_format', '%d-%m-%Y : %I %p');
 
-$smarty->assign('JS', 'http://fg-cache.appspot.com/');
+$smarty->assign('JS_LIBS', 'http://fg-cache.appspot.com/');
 
 
 ?>

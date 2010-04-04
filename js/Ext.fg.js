@@ -1,3 +1,5 @@
+var AJAX_FETCH = 'app/ajax_fetch.php';
+var AJAX_ACTION = 'app/ajax_action.php';
 
 Ext.fg = function(){
 
