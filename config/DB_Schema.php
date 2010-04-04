@@ -17,6 +17,16 @@ date_created T INDEX,
 date_updated T INDEX
 ";
 
+//**************************************************************
+//* Servers
+//**************************************************************
+
+$tables['server_types'] = "
+server_type_id I AUTO PRIMARY NOTNULL,
+server_type_key C(20) INDEX,
+server_type C(50) INDEX
+";
+
 
 //**************************************************************
 //* Servers
@@ -24,7 +34,7 @@ date_updated T INDEX
 
 $tables['servers'] = "
 server_id I AUTO PRIMARY NOTNULL,
-server_type C(20) INDEX,
+server_type_id I INDEX,
 nick C(50) INDEX,
 host C(100) INDEX,
 ip C(100) INDEX,

@@ -21,12 +21,13 @@ class fgMpServer extends fgObject
 		parent::__construct($id);
 	}
 	public function import(){
-		$arr  = parse_ini_file(fgSite::configPath().self::ini, true);
+		$arr  = fgHelper::loadIniFile(self::ini, false);
+		$server_type_id = fgServerType::idFromKey($this->server_type);
 		foreach($arr as $host => $v){
 			$parts = explode(".", $host);
 			$s = new fgServer(0);
 			$s->nick = $parts[0];
-			$s->server_type = $this->server_type;
+			$s->server_type_id = $server_type_id;
 			$s->host	= $host;
 			$s->ip 		= isset($v['ip']) ? $v['ip'] : null;
 			$s->contact	= isset($v['contact']) ? $v['contact'] : null;

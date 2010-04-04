@@ -31,13 +31,18 @@ class fgSite
 	public $page;
 
 	public $Request;
+	//public $CONFIG_PATH;
+	//public $CLASS_PATH;
 
 	//* Construct and load Sites array - Hard coded here atmo
 	public function __construct($id, $title){
 		$this->id = $id;
 		$this->title = $title;
 
-		
+		#public static function configPath(){
+		//$this->CONFIG_PATH =  SITE_ROOT.'config/';
+		//$this->CLASS_PATH =  SITE_ROOT.'classes/';
+		//#}	
 
 		$this->site_items = array();
 		$this->nav_items = array();
@@ -163,9 +168,7 @@ class fgSite
 		$smarty->display('web_container.html');
 	}
 
-	public static function configPath(){
-		return SITE_ROOT.'config/';
-	}
+
 
 }
 ?>

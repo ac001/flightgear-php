@@ -16,6 +16,10 @@ class fgObject
 
     public function __construct($mixed = null){
 
+		if(is_null($mixed)){
+			return;
+		}
+
 		//** its its an array, then its a setter getter
 		if(is_array($mixed)){
 			foreach($mixed as $key => $value){
@@ -25,13 +29,13 @@ class fgObject
 					$this->_PROPS[$key] = $value;
 				}
 			}
-
-		//* Otherwise its a db object--
-		}else{
-			global $db;
-			$this->db = $db;
-			$this->_ID = $mixed;
+			return;
 		}
+
+		//** Assumed a key so getter/getter
+		global $db;
+		$this->db = $db;
+		$this->_ID = $mixed;
     }
 
     public function __set($key, $value){

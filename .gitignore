@@ -2,6 +2,7 @@ config/MAIN.ini
 CVS/data/
 CVS/source/
 *.pyc
+.directory
 etc/dba/
 
 

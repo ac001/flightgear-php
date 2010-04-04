@@ -20,14 +20,12 @@ class fgMirror extends fgObject
 	}
 
 	public function import(){
-		$arr  = parse_ini_file(fgSite::configPath().self::ini, true);
-		ksort($arr);
+		$arr  = fgHelper::loadIniFile(self::ini, false);
+		$server_type_id = fgServerType::idFromKey($this->server_type);
 		foreach($arr as $location => $v){
-			$this->_mirrors[$location] = array('location' => $location, 'url' => $v['server']);
-
 			$s = new fgServer(0);
 			$s->nick = null;
-			$s->server_type = $this->server_type;
+			$s->server_type_id = $server_type_id;
 			$s->host	= $v['server'];
 			$s->location	= $location;
 			$s->ip 		= isset($v['ip']) ? $v['ip'] : null;
@@ -38,7 +36,7 @@ class fgMirror extends fgObject
 
 
 	public function index(){
-		$fgServer::index($this->server_type);
+		fgServer::index($this->server_type);
 	}
 
 	public function feed(){

@@ -18,21 +18,21 @@ class fgServer extends fgObject
 	}
 
 	public function save(){
-		$vars = array(	$this->type, $this->nick, 
+		$vars = array(	$this->server_type_id, $this->nick, 
 						$this->host, $this->ip, 
 						$this->contact, $this->irc, $this->location, $this->tracked, $this->active
 					);
 		if($this->id() == 0){
 			$sql = 'insert into servers(
-					type, nick, host, ip, contact, irc, location, tracked, active,  date_created
+					server_type_id, nick, host, ip, contact, irc, location, tracked, active,  date_created
 				)values(
-					?,    ?,    ?,    ?,  ?,       ?,   ?,       ?,        ?,        now()
+					?,              ?,    ?,    ?,  ?,       ?,   ?,       ?,        ?,        now()
 				)';
 				$this->db->execute($sql, $vars);
 				$this->insert_id();
 		}else{
 			$sql = 'update servers set
-					type=?, nick=?, host=?, ip=?, contact=?, irc=?, location=?, tracked=?, active=?, date_updated=now()
+					server_type_id=?, nick=?, host=?, ip=?, contact=?, irc=?, location=?, tracked=?, active=?, date_updated=now()
 					where server_id = ?
 				';
 				$vars[] = $this->id();
@@ -42,17 +42,17 @@ class fgServer extends fgObject
 		return $this->id();
 	}
 
-	public static function index($type = null){
+	public static function index($server_type_id = null){
 		global $db;
 		$sql = 'select * from servers ';
-		$sql .= $type ? 'where type=?' : '';
+		$sql .= $server_type_id ? 'where server_type_id=?' : '';
 		$sql .= ' order by host asc';
-		return $db->getAll($sql, $type ? array($type) : array());
+		return $db->getAll($sql, $server_type ? array($server_type_id) : array());
 	}
 
 	public function feed(){
 		$arr = array();
-		$arr['mpservers'] = array_values($this->_servers);
+		$DEEEEarr['mpservers'] = array_values($this->_servers);
 		return $arr;
 	}
 

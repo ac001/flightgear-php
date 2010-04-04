@@ -22,16 +22,16 @@ class fgIrc extends fgObject
 	}
 
 	public function import(){
-
-		$arr  = parse_ini_file(fgSite::configPath().self::ini, true);
-		foreach($arr as $channel => $v){
-			$this->_channels[] = array('channel' => $channel, 'url' => self::url.$channel, 'title' => $v['title'] );
+		global $Site;
+		$ini  = fgHelper::loadIniFile(self::ini, false);
+		$server_type_id = fgServerType::idFromKey($this->server_type);
+		foreach($ini as $channel => $v){
 			$s = new fgServer(0);
 			$s->nick = $v['title'];
-			$s->server_type = $this->server_type;
-			$s->host	= 'irc.flightgear.org';
+			$s->server_type_id = $server_type_id;
+			$s->host	= $this->server;
 			$s->location	= $channel;
-			$s->irc 		=  null;
+			$s->irc =  null;
 			$s->save();
 		}
 
