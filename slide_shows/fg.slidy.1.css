@@ -23,11 +23,10 @@
 }
 
 img.circuit_image{
-	float: left;
+	float: right;
 	width: 600px;
-	height: 400px;
 	ssmargin-left: 100px;
-	margin: 50px;
+	margin: 0px 20px 10px 20px;
 }
 .slide p{
 	font-size: 15pt;
@@ -103,7 +102,7 @@ div.background {
 }
 
 div.background img {
-  height: 4em;
+  sheight: 4em;
 }
 
 /* this rule is hidden from IE which doesn't support + selector */
