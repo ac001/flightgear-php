@@ -180,8 +180,8 @@ class ProcessCVSAircraft:
 		print the_page
 
 		self.counter  +=  1
-		if 1 == 1 and self.counter == 200: 
-			sys.exit(1)
+		#if 1 == 1 and self.counter == 200: 
+		#	sys.exit(1)
 
 			
 
