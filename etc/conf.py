@@ -8,7 +8,7 @@ import sys
 ROOT_PATH = "/home/flight-sim/FlightGear-AppEngine-Cloud/"
 
 ## DLight Gear Root
-FG_ROOT = '../CVS_LOCAL/data'
+FG_ROOT = '../CVS/data'
 FG_DATA_AIRCRAFT_PATH = '%s/Aircraft/' % FG_ROOT
 
 ## path to the fgmap repos

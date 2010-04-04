@@ -7,8 +7,10 @@
 $LOAD_DB = true;
 require_once('../../config/config.inc.php');
 
-//** Reply
 $Response = new fgResponse();
+//print_R($smarty);
+
+//$Site = new fgSite('rpc','RPC');
 
 try{
 	//* check action is set
@@ -25,6 +27,17 @@ try{
 
 		case 'users':
 			$Response->add('users', fgUser::index());
+			break;
+
+		case 'aircraft':
+			$Response->add('aircraft', fgAero::index());
+			break;
+
+		case 'aero_html':
+			$Aero = new fgAero($_REQUEST['aero_id']);
+			$smarty->assign('Aero', $Aero);
+			$html =  $smarty->fetch("aircraft/aero.html");
+			$Response->add('html', $html);
 			break;
 
 		default:

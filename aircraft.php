@@ -4,7 +4,7 @@ require_once('config/config.inc.php');
 
 $Site = new fgSite('aircraft', 'Aircraft Database');
 $Site->addPageNav('index', 'Aircraft Index', 'Search the Aircraft Database');
-
+$Site->addPageNav('bk', 'Html', 'HTML Search');
 $pages = null;
 
 if($Site->Request->aero_id > 0){

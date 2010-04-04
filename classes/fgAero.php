@@ -26,7 +26,7 @@ class fgAero extends fgObject
 		$sql = 'select * from aero where aero_id=? limit 1';
 		$this->setData( $this->db->getRow($sql, $this->id()) );
 	}
-	public function thumbnail(){
+	public function DEADthumbnail(){
 		return 'Aircraft/'.$this->directory.'/thumbnail.jpg';
 	}
 
@@ -63,14 +63,13 @@ class fgAero extends fgObject
 	}
 
 	public static function index(){
-		global $db, $Site;
+		global $db;
 		$sql_where = '';
-		//$ob = new fgObject($_REQUEST);
-		if($Site->Request->alpha != ''){
-			$sql_where = ' where aero like "'.$Site->Request->alpha.'%" ';
-		}
-		if($Site->Request->search != ''){
-			$sql_where = ' where name like "%'.$Site->Request->search.'%" ';
+		$ob = new fgObject($_REQUEST);
+		if($ob->search != ''){
+			$sql_where = ' where name like "%'.$ob->search.'%" ';
+		}else{
+			$sql_where = ' where aircraft_id = 0';
 		}
 		$sql = 'select * from aero ';
 		$sql .= $sql_where;

@@ -99,7 +99,7 @@ $smarty->force_compile  = isset($_GET['FORCE_COMPILE']) ? true : false;
 $smarty->compile_check  = true;
 $smarty->compile_id     = SITE_KEY;
 $smarty->use_sub_dirs   = true;
-$smarty->compile_dir 	= fgSite::SMARTY_COMPILE_DIR;
+$smarty->compile_dir 	= SITE_ROOT.'__rw_cache__/smarty_compile/';
 
 //* Templates path
 $smarty->template_dir  = SITE_ROOT.'templates/';
