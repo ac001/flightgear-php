@@ -117,11 +117,11 @@ div.slide h1 {
   margin-left: 0px;
   margin-right: 0px;
   ssmin-height: 2.3em;
-  color: white;
+  color: #D4E5FF;
   ssheight: 2.2em;
   font-size: 160%;
   line-height: 1.1em;
-	background: #728ec2;
+	background: #556F95;
 }
 
 div.slide h1 a {
@@ -449,7 +449,7 @@ div.header {
   margin: 0 0 0 0;
   border-width: 0;
   border-style: solid;
-  background-color: #005A9C;
+  ssbackground-color: #456391;
   border-bottom-width: thick;
   border-bottom-color: #95ABD0;
 }
