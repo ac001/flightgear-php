@@ -1,0 +1,19 @@
+
+	<h1>{$Aero->name}</h1>
+
+	<div style="float: right;">
+		{aero aero=$Aero thumb=100}
+	</div>
+
+	<table width="50%" class="aero">
+		<tr><th>Aero</th><td>{$Aero->aero}</td></tr>
+		<tr><th>Authors</th><td>{$Aero->author}</td></tr>
+		<tr><th>Flight Model</th><td>{$Aero->fdm}</td></tr>
+		<tr><th>Version</th><td>{$Aero->version}</td></tr>
+		<tr><th>Directory</th><td>{$Aero->directory}/</td></tr>
+		<tr><th>Manufacturer</th><td>--ToDO--</td></tr>
+		<tr><th>Classification</th><td>--ToDO--</td></tr>
+	</table>
+
+	{aero splash=500 aero=$Aero}
+

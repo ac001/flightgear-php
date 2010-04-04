@@ -6,7 +6,7 @@
 import os
 import sys
 import glob
-import yaml
+#import yaml
 
 import urllib
 import urllib2
