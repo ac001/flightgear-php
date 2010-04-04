@@ -41,7 +41,7 @@ class fgMpServer extends fgObject
 
 
 	public function index(){
-		return fgServer::index($server_type);
+		return fgServer::index($this->server_type);
 	}
 
 	public function feed(){

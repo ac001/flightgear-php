@@ -84,4 +84,23 @@ body{
 }
 
 
+/********************************************************************/
+/** Portal Box ***/
+/********************************************************************/
+.portal_box{
+	border: 1px solid #224275;
+	border-radius: 10px;
+	-moz-border-radius: 10px; 
+	-webkit-border-radius: 10px;
+}
+.portal_box h2{
+	border-bottom: 1px solid #cccccc;
+	color: #333333;
+}
+
+.portal_box li a{
+	border-left: 3px solid #cccccc;
+	border-right: 3px solid #cccccc;
+	color: black;
+}
 

@@ -6,16 +6,18 @@ MyDesktop
 //## Account Form
 //#############################################################################################################
 
-function fgUserForm(confOb){
+function fgUserForm(widget_div){
 
 var self = this;
-this.Ob = confOb;
+//this.Ob = confOb;
 
 //*************************************************************************************				
 //** User Form
 //*************************************************************************************
 this.frm = new Ext.FormPanel({
 	    frame: true,
+	title: 'Sign Up',
+	renderTo: widget_div,
 	autoHeight: true,
     url: AJAX_ACTION,
 	baseParams: {fetch: 'account', },
@@ -42,7 +44,7 @@ this.frm = new Ext.FormPanel({
 					]
 				}
     ],
-    buttons: [  {text: 'Submit', iconCls: 'icoClean',
+    buttons: [  {text: 'Submit', iconCls: 'icoClean', disabled: true,
                     handler: function(){
                         if(self.frm.getForm().isValid()){
                             self.frm.getForm().submit({

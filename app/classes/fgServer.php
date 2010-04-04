@@ -42,12 +42,17 @@ class fgServer extends fgObject
 		return $this->id();
 	}
 
-	public static function index($server_type_id = null){
+	public static function index($server_type_key = null){
 		global $db;
+		$vars = array();
 		$sql = 'select * from servers ';
-		$sql .= $server_type_id ? 'where server_type_id=?' : '';
+		$sql .= ' inner join server_types on server_types.server_type_id = servers.server_type_id ';
+		if($server_type_key){
+			$sql .= 'where server_types.server_type_key=?';
+			$vars[] = $server_type_key;
+		}
 		$sql .= ' order by host asc';
-		return $db->getAll($sql, $server_type ? array($server_type_id) : array());
+		return $db->getAll($sql, $vars );
 	}
 
 	public function feed(){

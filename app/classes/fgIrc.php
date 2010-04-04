@@ -12,7 +12,7 @@ class fgIrc extends fgObject
 {
 	const ini = 'irc.ini';
 	public $server_type = 'irc';
-	public $caption = 'FTP Mirrors';
+	public $caption = 'Chat';
 
 	public $server = 'irc.flightgear.org';
 	public $url = 'irc://irc.flightgear.org/';
@@ -39,7 +39,7 @@ class fgIrc extends fgObject
 
 
 	public function index(){
-		return fgServer::index(self::type);
+		return fgServer::index($this->server_type);
 	}
 
 	public function feed(){

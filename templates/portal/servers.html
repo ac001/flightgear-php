@@ -1,16 +1,44 @@
 
-	{include file='portal/box.servers_list.html' server=$Site->fgMpServer}
-	{include file='portal/box.servers_list.html' server=$Site->fgMirror}
-	{include file='portal/box.servers_list.html' server=$Site->fgIrc}
 
 	<div class="portal_box">
-		<h2>Merchandise &amp; Contact</h2>
+		{assign var=Srv value=$Site->fgMpServer}
+		<h2>{$Srv->caption}</h2>
 		<ul>
-			<li><a href="#">Buy DVD pack</a></li>
-			<li><a href="#">Mugs, shades, tshirts, etc</a></li>
-			<li><a href="#">About</a></li>
-			<li><a href="#">Contact</a></li>
+			{foreach from=$Srv->index() item=s}
+			<li><a href="online/server/?mpserver={$s.nick}">{$s.nick} - {$s.location}</a></li>
+			{/foreach}
 		</ul>
 	</div>
+
+	<div class="portal_box">
+		{assign var=Srv value=$Site->fgMirror}
+		<h2>{$Srv->caption}</h2>
+		<ul>
+			{foreach from=$Srv->index() item=s}
+			<li><a href="{$s.host}">{$s.location}</a></li>
+			{/foreach}
+		</ul>
+	</div>
+
+	<div class="portal_box">
+		{assign var=Srv value=$Site->fgIrc}
+		<h2>{$Srv->caption} - {$Srv->server}</h2>
+		<ul>
+			{foreach from=$Srv->index() item=s}
+			<li><a href="{$Srv->url}{$s.location}">#{$s.location} - {$s.nick}</a></li>
+			{/foreach}
+		</ul>
+	</div>
+
+	<div class="portal_box">
+		{assign var=Srv value=$Site->fgMpMap}
+		<h2>{$Srv->caption} - {$Srv->server}</h2>
+		<ul>
+			{foreach from=$Srv->index() item=s}
+			<li><a href="{$s.host}">#{$s.location} - {$s.nick}</a></li>
+			{/foreach}
+		</ul>
+	</div>
+
 
 

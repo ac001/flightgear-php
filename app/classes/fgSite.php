@@ -47,14 +47,14 @@ class fgSite
 
 		//** Intersite Navigation
 		$this->addSiteNav('portal', 'index.php',  'Home' );
-		$this->addSiteNav('online', 'online.php',  'Online' );
+		//$this->addSiteNav('online', 'online.php',  'Online' );
 		$this->addSiteNav('www', 'www.php',  'Website');
 		$this->addSiteNav('aircraft', 'aircraft.php',  'Aircraft');
 		$this->addSiteNav('scenery', 'http://scenemodels.flightgear.org/',  'Scenery');
 		$this->addSiteNav('wiki', 'http://wiki.flightgear.org',  'Wiki');
 		$this->addSiteNav('forums', 'http://www.flightgear.org/forums/',  'Forums');
-		$this->addSiteNav('dev', 'dev.php',  'Dev');
-		$this->addSiteNav('webdev', 'webdev.php',  'WebDev');
+		//$this->addSiteNav('dev', 'dev.php',  'Dev');
+		//$this->addSiteNav('webdev', 'webdev.php',  'WebDev');
 
 		//** Set up  $section and $page
 		$this->section = isset($_REQUEST['section']) && $_REQUEST['section'] != '' ? $_REQUEST['section'] : 'index';

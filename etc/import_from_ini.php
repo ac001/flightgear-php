@@ -12,6 +12,7 @@ $types = array();
 $types['mpmap'] = 'MP Map';
 //$types['scenery'] = 'Map Server';
 $types['mapserver'] = 'Map Server';
+$types['mpserver'] = 'Map Server';
 //$types['scenery'] = 'Scenery';
 $types['mirror'] = 'FTP Mirrors';
 $types['irc'] = 'Irc';

@@ -1,5 +1,5 @@
 <?php
-/** Ftp Mirrors
+/** Map Mirrors
  * @package FlightGear
  * @subpackage Content
  * @copyright (C) 2010 FlightGear Team
@@ -8,11 +8,11 @@
  *
  *
 */
-class fgMirror extends fgObject
+class fgMpMap extends fgObject
 {
-	const ini = 'mirrors.ini';
-	public $server_type = 'mirror';
-	public $caption = 'FTP Mirrors';
+	//const ini = 'mirrors.ini';
+	public $server_type = 'mpmap';
+	public $caption = 'MultiPlayer Maps';
 	
 
 	public function __construct($id = null){
@@ -41,7 +41,6 @@ class fgMirror extends fgObject
 
 	public function feed(){
 		$arr = array();
-		$arr['mirrors'] = array_values($this->_mirrors);
 		return $arr;
 	}
 	

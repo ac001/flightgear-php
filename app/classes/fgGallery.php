@@ -18,7 +18,7 @@ class fgGallery
 		if($this->_cache){
 			return $this->_cache;
 		}
-		$cache_file = SITE_ROOT.fgSite::CACHE_DIR.'gallery.txt';
+		//$cache_file = SITE_ROOT.fgSite::CACHE_DIR.'gallery.txt';
 		if(1 == 0){
 			if(file_exists($cache_file)){
 				$data = json_decode( file_get_contents($cache_file), true);
@@ -31,7 +31,7 @@ class fgGallery
 		unset($files['..']);
 		unset($files['.svn']);
 		$this->_cache = array_keys($files);
-		file_put_contents($cache_file, json_encode(array('gallery' => $this->_cache)) );
+		//file_put_contents($cache_file, json_encode(array('gallery' => $this->_cache)) );
 		return $this->_cache;
 	}
 
