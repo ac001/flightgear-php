@@ -4,7 +4,7 @@
 function smarty_function_aero($params, &$smarty)
 {
 	$Aero = is_array($params['aero']) ? new fgObject($params['aero']) : $params['aero'];
-	//print_r($Aero);
+	//print_r($params);
 	if(isset($params['thumb'])){
 		$size = $params['thumb'];
 		//$dir = is_array($params['aero']) ? $params['aero']['directory'] : $params['aero']->directory;
@@ -18,15 +18,20 @@ function smarty_function_aero($params, &$smarty)
 	}
 	
 	if(isset($params['splash'])){
-		//$size = $params['splash'];
-		$img = is_array($params['img']) ? $params['aero']['splash'] : $params['aero']->splash;
-		$src = 'CVS/data/'.$img;
-		
-		if(!file_exists(SITE_ROOT.$src)){
-			$src = 'images/no_image.gif';
+		$size = 500;
+		$no_image = "<img width=$size src='images/no_image.gif'>";
+
+		$file_name = 'CVS/data/'.$Aero->splash;
+		if(is_dir($file_name)){
+			return $no_image;
 		}
-		#secho SITE_ROOT.$src."#".file_exists(SITE_ROOT.$src)."#";
-		return "<img width=$size src='$src'>";
+		if(!file_exists(SITE_ROOT.$file_name)){
+			return $no_image;
+		}
+		if(substr($file_name, -4) == '.rgb'){
+			return $no_image;
+		}
+		return "<img width=$size src='$file_name'>";
 	}
 }
 
