@@ -50,7 +50,7 @@ this.selModel.on("selectionchange", function(selModel){
 //************************************************
 this.grid = new Ext.grid.GridPanel({
 	title: 'Aircraft Search',
-	region: 'east',
+	//region: 'east',
 	plain: true,
 	iconCls: 'icoSearch',
 	renderTo: 'aircraft_search_div',
@@ -78,13 +78,14 @@ this.grid.on("rowclick", function(grid, idx, e){
 	var aero_id = rec.get('aero_id')
 	//Ext.fg.msg(aero_id);
 	//Ext.fg.msg('Loading', rec.get('name'));
+	//self.grid.el().mask("loading");
 	Ext.Ajax.request({
 		url: AJAX_FETCH,
 		params: { fetch: 'aero_html', aero_id: rec.get('aero_id') },
 		success: function(response, opts) {
 			var obj = Ext.decode(response.responseText);
 			//console.dir(obj);
-			Ext.get('aero_content_div').update(obj.html);
+			Ext.get('content_container').update(obj.html);
 		},
 		failure: function(response, opts) {
 			console.log('server-side failure with status code ' + response.status);

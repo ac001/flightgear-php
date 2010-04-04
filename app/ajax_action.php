@@ -60,15 +60,17 @@ try{
 			$obj->active = $Req->active;
 			$obj->save();
 			//$db->debug=0;
-			$user_id = fgUser::find('name', $Req->author);
-			if(!$user_id){
-				$User = new fgUser(0);
-				$User->name = $Req->author;
-				$user_id = $User->save();
-			}
+			if($Req->author != ''){
+				$user_id = fgUser::find('name', $Req->author);
+				if(!$user_id){
+					$User = new fgUser(0);
+					$User->name = $Req->author;
+					$user_id = $User->save();
+				}
 
-			$obj->addAuthor($user_id);
-			$Response->add('aero_id', $aero_id);
+				$obj->addAuthor($user_id);
+				$Response->add('aero_id', $aero_id);
+			}
 			break;
 
 		default:

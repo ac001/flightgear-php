@@ -37,6 +37,7 @@ try{
 			$Aero = new fgAero($_REQUEST['aero_id']);
 			$smarty->assign('Aero', $Aero);
 			$html =  $smarty->fetch("aircraft/aero.html");
+			//echo $html;
 			$Response->add('html', $html);
 			break;
 

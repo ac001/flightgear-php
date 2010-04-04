@@ -22,6 +22,11 @@ function smarty_function_aero($params, &$smarty)
 		$no_image = "<img width=$size src='images/no_image.gif'>";
 
 		$file_name = 'CVS/data/'.$Aero->splash;
+		//echo $file_name."#".$Aero->splash."#";
+		if($Aero->splash == ""){
+			return $no_image;
+		}
+
 		if(is_dir($file_name)){
 			return $no_image;
 		}

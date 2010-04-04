@@ -92,6 +92,15 @@ class fgAero extends fgObject
 		return $str;
 	}
 
+
+
+	public static function a2z(){
+		global $db;
+		$sql = 'select distinct(upper(left(aero, 1))) as a2z from aero order by a2z asc';
+		return $db->getCol($sql);
+	}
+
+
 	public function addAuthor($user_id){
 		$vars =array($user_id, $this->id());
 		$sql = 'select count(*) from user_links where user_id=? and aero_id=?';
@@ -102,10 +111,11 @@ class fgAero extends fgObject
 		}
 	}
 
-	public static function a2z(){
-		global $db;
-		$sql = 'select distinct(upper(left(aero, 1))) as a2z from aero order by a2z asc';
-		return $db->getCol($sql);
+	public function authors(){
+		$sql = 'select users.user_id, name from users
+				inner join user_links on users.user_id = user_links.user_id
+				where user_links.aero_id=?';
+		return  $this->db->getAll($sql, $this->id());
 	}
 }
 ?>

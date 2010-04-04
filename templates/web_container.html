@@ -45,6 +45,10 @@
 		<div id="flightgear_leading">The World's Leading Open Source Flight Simulator</div>
 	</div>
 
+
+	{if $nav_content}
+		{include file=$nav_content}
+	{else}
 	<!--## Page Navigation  ##-->
 	<div id="page_nav">
 		<ul>
@@ -61,6 +65,8 @@
 		{/foreach}
 		</ul>
 	</div>
+	{/if}
+
 
 	<!--## Atom Link  ##-->
 	{*<p style="text-align: right; margin-top: 40px;"><a href="#"><img src="images/missc/feed_atom.gif" alt="atom"></a></p>*}
