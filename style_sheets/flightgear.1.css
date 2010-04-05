@@ -754,6 +754,11 @@ llfloat: left;
 	margin: 0px 0px 10px 0px;
 }
 
+#aero_box p.intro{
+	margin: 50px;
+	font-size: 10px;
+}
+
 #aero_box pre{
 	font-size: 9pt;
 	font-family: monospace;

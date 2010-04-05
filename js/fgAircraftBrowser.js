@@ -107,7 +107,7 @@ this.aeroDetailsPanel = new Ext.Panel({
 		border: false,
         activeTab: 0,
         plain: true,
-		items: [ {html: '', id: 'aero_details_tab', region: 'center', border: false, plain: true}
+		items: [ {html: '<p class="intro">&lt; &lt; Search for an aircraft<p>', id: 'aero_details_tab', region: 'center', border: false, plain: true}
 				, this.aeroRightCol
 		]
 });

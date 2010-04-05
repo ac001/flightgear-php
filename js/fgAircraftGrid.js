@@ -18,10 +18,10 @@ this.store = new Ext.data.JsonStore({
 
 //**** Search Text 
 this.searchText = new Ext.form.TextField({
-	emptyText: '- search aircraft -',
+	emptyText: 'eg boei',
 	allowBlank: false,
 	minLength: 2,
-	value: 'air',
+	//value: 'air',
 	listeners: {
                 specialkey: function(field, e){
                     // e.HOME, e.END, e.PAGE_UP, e.PAGE_DOWN,
@@ -94,6 +94,8 @@ this.tabPanel = new Ext.Panel({
         ]
 	
 });   
+
+self.store.load({});
 
 }
 

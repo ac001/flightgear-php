@@ -147,7 +147,11 @@ class fgAero extends fgObject
 
 
 	public function imgThumb(){
-		return 'CVS/data/'.'Aircraft/'.$this->directory.'/thumbnail.jpg';
+		$file_path = 'CVS/data/'.'Aircraft/'.$this->directory.'/thumbnail.jpg';
+		if(file_exists(SITE_ROOT.$file_path)){
+			return 'CVS/data/'.'Aircraft/'.$this->directory.'/thumbnail.jpg';
+		}
+		return 'images/no_image.gif';
 	}
 
 	public function imgSplash(){
