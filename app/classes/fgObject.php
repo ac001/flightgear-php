@@ -62,6 +62,10 @@ class fgObject
         }
     }
 
+    public function data(){
+        return $this->_PROPS;
+	}
+
 	public function id(){
 		return $this->_ID;
 	}

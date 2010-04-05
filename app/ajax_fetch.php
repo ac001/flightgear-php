@@ -34,13 +34,13 @@ try{
 			break;
 
 		case 'aero_info':
-			//print_r($smarty);
 			$Aero = new fgAero($_REQUEST['aero_id']);
 			$smarty->assign('Aero', $Aero);
-			$html =  $smarty->fetch("aircraft/aero.html");
+			$html =  $smarty->fetch("aircraft/ajax.aero.html");
 			//echo $html;
-			//$Response->add('html', $html);
-			$Response->add('aero', $Aero->info());
+			$Response->add('aero', $Aero->data());
+			$Response->add('html', $html);
+			$Response->add('info', $Aero->info());
 			break;
 
 		default:

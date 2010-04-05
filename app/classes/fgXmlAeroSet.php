@@ -17,12 +17,12 @@ class fgXmlAeroSet extends fgXml
 
 	public function help(){
 		$path = '/PropertyList/sim/help/text';
-		return $this->getNode($path);
+		return wordwrap($this->getNode($path, 80));
 	}
 
 	public function keyboard(){
 		$path = '/PropertyList/input/keyboard/key';
-		$mapping = array('name' => 'name', 'desc' => 'description');
+		$mapping = array('name' => 'key', 'desc' => 'description');
 		return $this->getNodes($path, $mapping);
 	}
 

@@ -22,6 +22,7 @@ this.searchText = new Ext.form.TextField({
 	emptyText: '- search aircraft -',
 	allowBlank: false,
 	minLength: 2,
+	value: 'air',
 	listeners: {
                 specialkey: function(field, e){
                     // e.HOME, e.END, e.PAGE_UP, e.PAGE_DOWN,
@@ -73,24 +74,27 @@ this.grid = new Ext.grid.GridPanel({
 this.grid.on("rowclick", function(grid, idx, e){
 	var rec = self.store.getAt(idx)
 	var aero_id = rec.get('aero_id')
-	self.statusBar.getEl().mask('Loading ');
-	Ext.Ajax.request({
-		url: AJAX_FETCH,
-		params: { fetch: 'aero_info', aero_id: rec.get('aero_id') },
-		success: function(response, opts) {
-			var obj = Ext.decode(response.responseText);
-			Ext.get('content_container').update(obj.html);
-			self.statusBar.getEl().unmask();
-		},
-		failure: function(response, opts) {
-			//console.log('server-side failure with status code ' + response.status);
-			self.statusBar.getEl().unmask();
-			Ext.fg.msg("oops" , "error");
-		},
-		
-	});
+	self.grid.fireEvent('aero_selected', aero_id);
+}); 
+
+
+
+// second tabs built from JS
+this.tabPanel = new Ext.Panel({
+        layout: 'accordion',
+		renderTo: 'aircraft_search_div',
+        activeTab: 0,
+        plain:false,
+		height: 600,
+        defaults:{autoScroll: true},
+        items:[
+				this.grid,
+				//this.frmAero,
+				{ title: '<b>Authors</b>', html: "Coming Soon"},
+				{ title: '<b>Top Rated</b>', html: "Coming Soon"},
+        ]
 	
-});    
+});   
 
 }
 

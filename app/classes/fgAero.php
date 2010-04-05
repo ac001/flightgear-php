@@ -157,7 +157,7 @@ class fgAero extends fgObject
 			$this->loadXmlSet();
 		}
 		$array = array();
-		//$array['thumbnail'] = $this->thumbnail();
+		$array['thumbnail'] = $this->thumbnail();
 		$array['help'] = $this->xmlSet->help();
 		$array['tanks'] = $this->xmlSet->tanks();
 		$array['keyboard'] = $this->xmlSet->keyboard();
