@@ -11,7 +11,7 @@ var self = this;
 /****************************************************/
 this.aircraftGrid = new fgAircraftGrid();
 this.aircraftGrid.grid.on('aero_selected', function(aero_id){
-	//self.statusBar.getEl().mask('Loading ');
+	self.aeroMainWidget.getEl().mask('Loading ');
 	Ext.Ajax.request({
 		url: AJAX_FETCH,
 		params: { fetch: 'aero_info', aero_id: aero_id },
@@ -38,7 +38,7 @@ this.aircraftGrid.grid.on('aero_selected', function(aero_id){
 			}
 
 			self.keysStore.loadData(json.info);
-
+			self.aeroMainWidget.getEl().unmask();
 			//self.statusBar.getEl().unmask();
 		},
 		failure: function(response, opts) {

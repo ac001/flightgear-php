@@ -759,6 +759,10 @@ llfloat: left;
 	font-family: monospace;
 }
 
+#aero_details_tab{
+	background-color: white;
+}
+
 table.aero_table{
 	margin: 10px 0px 10px 20px;
 }
