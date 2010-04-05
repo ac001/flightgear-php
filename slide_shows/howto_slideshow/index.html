@@ -6,7 +6,16 @@
         <h1>{$show.title}</h1>
         <p>{$show.author}</p>
     </div>
-    <p>  test <a href="foo"></a></p>
+    <div class="intro">
+    <p>This presentation engine is <a href="http://www.w3.org/Talks/Tools/Slidy/">Slidy</a>.</p>
+    <h2>Steps</h2>
+    <ul>
+        <li>Preparation</li>
+        <li>Creating Slides</li>
+        <li>Customisation</li>
+        <li>Submission</li>
+    </ul>
+    </div>
 </div>
 
 <div class="slide">
@@ -67,8 +76,7 @@ save to {$d}. The template contains links to remote css and javascript so you'll
 <p>Create you slide content between the <b>&lt;div class="slide"&gt;&lt;/div&gt;</b> tags.</p>
 <p>There is a placeholder header and a couple of slides are for replacment.</p>
 
-{source lang=html4strict}
-<!--# Slide: 1 -->
+{source lang=html4strict}{literal}<!--# Slide: 1 -->
 <div class="slide">
     <h1>First Slide Title</h1>
     <p>Slide One contents</p>
@@ -83,16 +91,18 @@ save to {$d}. The template contains links to remote css and javascript so you'll
         <li>A point</li>
         <li>Another Point</p>
     </ul>
-</div>
+</div>{/literal}{/source}
 
-{/source}
 </div>
 
 
 {*************************************************}
 <div class="slide">
 <h1>Customisation</h1>
-<p>If you need to add custom style, then embed the whole presentation in a <b>&lt;div&gt;&lt;/div&gt;</b> tags with an unique <b>id</b>. Use this <i>namsepace</i> in the the <b>&lt;style&gt;&lt;/style&gt;</b> block.</p>
+<p>If you need to add custom style, then embed the whole presentation in 
+    a <b>&lt;div&gt;&lt;/div&gt;</b> tags with an unique <b>id</b>. Use this <i>namsepace</i>
+    in the the <b>&lt;style&gt;&lt;/style&gt;</b> block.
+</p>
 
 {************************}
 <h5>Markup Changes</h5>
@@ -125,12 +135,22 @@ save to {$d}. The template contains links to remote css and javascript so you'll
 {*************************************************}
 <div class="slide">
     <h1>Submission</h1>
+
+
     <h2>Copyright</h2>
     <p>Make sure you've entered the correct copyright attributions and reference sources is necessary, ie its legal.</p>
     
+   <h2>Valid Markup</h2>
+    <p>Ensure the html is valid and no mistakes. Use the <a href="http://validator.w3.org/">wc3 validator</a></p>
+    
 
-    <h2>How to submit</h2>
-    <p>Once your presentation is completed, please send to pedro.morgan at gmail dot com for inclusion.</p>
+
+    <h2>Zip tarball</h2>
+    <p>Zip up the directory including any images.</p>
+    
+
+    <h2>Send Emails</h2>
+    <p>Email as an attachment to pedro.morgan at gmail dot com for inclusion.</p>
     <p>Were also working on the idea of saving then in a database.. soon.</p>
      <p>Have fun ;-)</p>
     <p><a href="?">Back to index</a></p>

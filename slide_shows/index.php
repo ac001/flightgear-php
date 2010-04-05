@@ -1,9 +1,26 @@
 <?php
 
 require_once('../config/config.inc.php');
-
 //** Keeping self contained
 $template_path = SITE_ROOT.'slide_shows/';
+
+$url = 'http://'.$_SERVER['HTTP_HOST'].dirname($_SERVER['SCRIPT_NAME']);
+//header('Content-type: text/plain');
+//echo $url."#";
+
+ // 
+
+$smarty->assign('SITE_URL', $url);
+
+if(isset($_GET['download_template'])){
+    $smarty->assign('template_file', $template_path.'_template_.html');
+    echo $smarty->fetch($template_path.'slide_show_container.html');
+    die;
+}
+
+
+
+
 
 $slide_shows = array();
 $slide_shows['index'] = array('title' => 'FlightGear Slide Shows', 'author' => '');

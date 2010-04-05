@@ -1,22 +1,19 @@
 <div class="slide cover">
     <div class="header">
-
-    <h1>{$show.title}</h1>
-
-    
-
+        <h1>{$show.title}</h1>
     </div>
 
-    <div  style="margin: 100px;">
-    <div  id="fg_screen_logo"><img src="../images/flightgear.png" alt="FlightGear"/></div>
-    <p>&nbsp;</p>
-    <ul>
-        {foreach from=$slide_shows key=k item=v}
-            {if $k != 'index'}
-            <li><a href="?slide_show={$k}">{$v.title}</a>  <span style="font-size: 10pt; color: gray;"> - {$v.author}</span></li>
-            {/if}
-        {/foreach}
-    </ul>
+   <div class="intro">
+        <div  id="fg_screen_logo"><img src="../images/flightgear.png" alt="FlightGear"/></div>
+        <div style="float: left;">
+        <ul>
+            {foreach from=$slide_shows key=k item=v}
+                {if $k != 'index'}
+                <li><a href="?slide_show={$k}">{$v.title}</a>  <span style="font-size: 10pt; color: gray;"> - {$v.author}</span></li>
+                {/if}
+            {/foreach}
+        </ul>
+        </div>
     </div>
 
 </div>
