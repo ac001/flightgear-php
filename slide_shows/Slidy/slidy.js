@@ -420,8 +420,10 @@ function hideImageToolbar()
   {
     var images = document.getElementsByTagName("IMG");
 
-    for (var i = 0; i < images.length; ++i)
-      images[i].setAttribute("galleryimg", "no");
+    for (var i = 0; i < images.length; ++i){
+		//console.log(images[i].id);
+		images[i].setAttribute("galleryimg", "no");
+	}
   }
 }
 

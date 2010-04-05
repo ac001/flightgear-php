@@ -3,29 +3,37 @@
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-<title>Slidy template for W3C Blue2 Style</title>
+<title>{$SlideShow.title} | {$site_title}</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="copyright" content="Copyright &#169; 2005 W3C (MIT, ERCIM, Keio)" />
 <meta name="font-size-adjustment" content="-1" />
-<link rel="stylesheet" href="fg.slidy.1.css"
- type="text/css" media="screen, projection, print" />
+<link rel="stylesheet" href="fg.slidy.3.css" type="text/css" media="screen, projection, print" />
+<link rel="stylesheet" href="../style_sheets/reset.css" type="text/css">
 <script src="Slidy/slidy.js" type="text/javascript">
 </script>
 </head>
 <body>
+
+<div id="flight_gear_logo"><a href="?" 
+	title="Return to Slide Show index"><img src="../images/flightgear.smaller.png"></a>
+</div>
+
 <!-- this defines the slide background -->
-<div id="flight_gear_logo"><a href="?" title="Return to Slide Show index"><img  alt="" src="../images/fg.small.png"/></a></div>
-
 <div class="background">
-
-{include file=$slide_show_file}
-
+  <div class="header">
+  <!-- sized and colored via CSS -->
+  </div>
 
 </div>
 
+{include file=$slide_show_file}
 
-
-
+<div class="footer">
+	<ul id="fg_bottom_navigation">
+	<li><a href="?">Index</a></li>
+	<li><a href="?howto_slideshow">HowTo SlideShow</a></li>
+	</ul>
+	{$SlideShow.title} - {$SlideShow.author}
+</div>
 
 </body>
 </html>
