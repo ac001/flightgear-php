@@ -8,9 +8,25 @@
    http://www.w3.org/Consortium/Legal/copyright-software
 */
 
+#flight_gear_logo{
+	position: absolute;
+	right: 5px;
+	top: 5px;
+	border: 1px solid blue;
+	z-index: 40000;
+	border: 1px solid black;
+	background-color: #eeeeee;
+	border-radius: 5px;
+	-moz-border-radius: 5px; 
+	-webkit-border-radius: 5px;
+	padding: 2px;
+}
+
 
 body
 {
+  margin: 0px;
+  padding: 0px;
   width: 100%;
   height: 100%;
   color: black;
@@ -150,7 +166,6 @@ p,pre,ul,ol,blockquote,h2,h3,h4,h5,h6 {
   margin-right: 1em;
 }
 
-
 p.subhead { font-weight: bold; margin-top: 2em; }
 
 .smaller { font-size: 80%; }
@@ -176,7 +191,7 @@ ul li {
   list-style: none;
   margin: 0.1em 0em 0.6em 0;
   padding: 0 0 0 40px;
-  background: transparent url("Slidy/bullet.png") no-repeat 5px 8px;
+  background: transparent url(bullet.png) no-repeat 5px 8px;
   line-height: 140%;
 }
 
@@ -214,7 +229,77 @@ img.withBorder {
   padding: 4px;
 }
 
+div.header {
+  position: absolute;
+  z-index: 2;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: auto;
+  height: 2.95em;
+  width: 100%;
+  padding: 0 0 0 0;
+  margin: 0 0 0 0;
+  border-width: 0;
+  border-style: solid;
+  background-color: #005A9C;
+  border-bottom-width: thick;
+  border-bottom-color: #95ABD0;
+}
 
+div.footer {
+  position: absolute;
+  z-index: 80;
+  left: 0;
+  right: 0;
+  top: auto;
+  bottom: 0;
+  height: 3.5em;
+  margin: 0;
+  font-size: 80%;
+  font-weight: bold;
+  padding-left: 1em;
+  padding-right: 0;
+  padding-top: 0.3em;
+  padding-bottom: 0;
+  color: #003366;
+  background-color: #95ABD0;
+}
+
+/* this is a hack to hide property from IE6 and below */
+div[class="footer"] {
+  position: fixed;
+}
+
+#w3c-logo {
+     margin: 0;
+     margin-top: 0.3em;
+     margin-right: 0.75em;
+     padding-top: 0;
+     padding-bottom: 0;
+     padding-left: 0;
+     padding-right: 0;
+     height: 2em;
+     width: 4.1em;
+     float: right;
+     z-index: 3;
+     background: #90A7D0;
+}
+
+#w3c-logo-fallback {
+     margin: 0;
+     margin-top: -0.5em;
+     margin-right: 0.75em;
+     padding-top: 0;
+     padding-bottom: 0;
+     padding-left: 0;
+     padding-right: 0;
+     height: 3em;
+     width: 4.1em;
+     float: right;
+     z-index: 3;
+     background: #90A7D0;
+}
 
 div.cover {
   margin: 0;
@@ -347,86 +432,3 @@ ul.outline li.folded:hover {
 
 ul.outline li:hover { cursor: pointer }
 ul.outline li.nofold:hover { cursor: default }
-
-
-/***********************************/
-/******* Flight Gear *****************/
-/***********************************/
-p{
-	margin-bottom: 20px;
-	line-height: 140%;
-}
-
-
-.footer{
-    font-size: 10pt;
-    color: pink;
-}
-
-div.header {
-  position: absolute;
-  z-index: 2;
-  left: 0px;
-  right: 0px;
-  top: 0px;
-  bottom: auto;
-  height: 2.95em;
-  width: 100%; 
-  sborder-width: 0;
-  sborder-style: solid;
-  sbackground-color: #2957A0;
-  sborder-bottom-width: thick;
-  sborder-bottom-color: #95ABD0;
-}
-
-div.footer {
-  position: absolute;
-  z-index: 80;
-  left: 0;
-  right: 0;
-  top: auto;
-  bottom: 0;
-  height: 60px;
-  margin: 0;
-  font-size: 80%;
-  font-weight: bold;
-  padding-left: 1em;
-  padding-right: 0;
-  padding-top: 0.3em;
-  padding-bottom: 0;
-  color: #003366;
-  background-color: #9FAEC4;
-}
-div.footer img{
-    float: right;
-    background-color: #efefef;
-    border-radius: 5px;
-    -moz-border-radius: 5px; 
-    -webkit-border-radius: 5px;
-    margin: 0px 10px 0px 0px;
-}
-
-div.footer p{
-    font-size: 9pt;
-    margin: 0px;
-}
-div.footer b{
-    font-size: 12pt;
-}
-/* this is a hack to hide property from IE6 and below */
-div[class="footer"] {
-  position: fixed;
-}
-
-#fg_screen_logo{
-    width: 200px; 
-    float: right; 
-    margin: 50px;
-    border: 1px outset #cccccc;
-    z-index: 40000;
-    background-color: #efefef;
-    border-radius: 20px;
-    -moz-border-radius: 20px; 
-    -webkit-border-radius: 20px;
-    padding: 20px;
-}

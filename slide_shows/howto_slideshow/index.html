@@ -3,17 +3,17 @@
 <div class="slide">
 
 
-<h1>How to create a FlightGear slide show</h1>
+<h1>Overview</h1>
 
 <p>This presentation uses <a href="http://www.w3.org/Talks/Tools/Slidy/">Slidy</a>, which is a 
-css and javascript.</p>
+css and javascript slide show engine.</p>
 
 <p>All that is required to create a show is to generate the content in <b>html</b> which are converted into slides when the document loads.</p>
 
-{source lang=html4strict}<!--## My Slide -->
+{source lang=html4strict}<!--# My Slide -->
 <div class="slide">
-	<h1>My Slide Title</h1>
-	<p>Contents</p>
+    <h1>My Slide Title</h1>
+    <p>Contents</p>
 </div>{/source}
 
 
@@ -34,44 +34,95 @@ css and javascript.</p>
 <h2>Working Directory</h2>
 <p>Create a directory on your pc eg {$d}</p>
 <h2>Aquire Template</h2>
-<p>Download the <b><a href="template.html">template.html</a> file</b> and
-save to {$d}</p>
+<p>Download the <b><a href="template.html">template.html</a></b> file and
+save to {$d}. The template contains links to remote css and javascript so you'll need to be online at the moment.</p>
 
-<h2>Note</h2>
-<p>The template contains links to remote css and javascript so you'll need to be online at the moment.</p>
+<h2>Cover Slide</h2>
+<p>Open up the file and find the <b>&lt;--# Slide Show: Start--&gt;</b> comment block. Change the cover slide to your details.</p>
+{source lang=html4strict}<!--## Slide Show: Start -->
+<!--# Cover Side:  -->
+<div class="slide cover">
+    <div class="header">
+        <h1>Presentation Title</h1>
+        <p>Your Name</p>
+    </div>
+</div>
+{/source}
 </div>
 
+
+
+
 <div class="slide">
-
-
-<h1>Generate Markup</h1>
-<p>Create you slide content between the html comments.</p>
+<h1>Create Slides</h1>
+<p>Create you slide content between the <b>&lt;div class="slide"&gt;&lt;/div&gt;</b> tags.</p>
 <p>There is a placeholder header and a couple of slides are for replacment.</p>
 
-{source lang=html4strict}<!--## Slide Show: Start ##-->
-
+{source lang=html4strict}
 <!--# Slide: 1 -->
 <div class="slide">
-	<h1>First Slide Title</h1>
-	<p>Slide One contents</p>
+    <h1>First Slide Title</h1>
+    <p>Slide One contents</p>
 </div>
 
 <!--# Slide: 2 -->
 <div class="slide">
-	<h1>Second Slide Title</h1>
-	<h2>heading 2</h2>
-	<p>more content</p>
-	<ul>
-		<li>A point</li>
-		<li>Another Point</p>
-	</ul>
+    <h1>Second Slide Title</h1>
+        <h2>heading 2</h2>
+        <p>more content</p>
+        <ul>
+        <li>A point</li>
+        <li>Another Point</p>
+    </ul>
 </div>
 
-<!--## Slide Show: END ##-->
 {/source}
+</div>
 
 
-<p></p>
+{*************************************************}
+<div class="slide">
+<h1>Customisation</h1>
+<p>If you need to add custom style, then embed the whole presentation in a <b>&lt;div&gt;&lt;/div&gt;</b> tags with an unique <b>id</b>. Use this <i>namsepace</i> in the the <b>&lt;style&gt;&lt;/style&gt;</b> block.</p>
 
+{************************}
+<h5>Markup Changes</h5>
+{source lang=css}{literal}<!--# Slide Show: Start -->
+<div id="my_xyz">
 
+<div class="slide cover"></div>
+<div class="slide">
+  <h3 class="special">Special Title</h3>
+  <p>Watch out for the <span class="warn">altitude warning</span>.</p>
+</div>
+
+</div>
+<!--# Slide Show: END -->{/literal}{/source}
+
+{************************}
+<h5>&lt;style&gt;&lt;/style&gt;</h5>
+{source lang=css}{literal}.my_xyz h2.special{
+   background-color: amber;
+   border-right: 200px solid pink;
+}
+.my_xyz .warn{
+    color: red;
+    background-color: pink;
+}
+
+{/literal}{/source}
+</div>
+
+{*************************************************}
+<div class="slide">
+    <h1>Submission</h1>
+    <h2>Copyright</h2>
+    <p>Make sure you've entered the correct copyright attributions and reference sources is necessary, ie its legal.</p>
+    
+
+    <h2>How to submit</h2>
+    <p>Once your presentation is completed, please send to pedro.morgan at gmail dot com for inclusion.</p>
+    <p>Were also working on the idea of saving then in a database.. soon.</p>
+     <p>Have fun ;-)</p>
+    <p><a href="?">Back to index</a></p>
 </div>
