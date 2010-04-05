@@ -20,17 +20,18 @@ body
 }
 
 div.toolbar {
-  position: fixed; z-index: 200;
-  top: auto; bottom: 0; left: 0; right: 0;
+  position: fixed; z-index: 30000;
+  top: auto; bottom: 0px; left: 0px; right: 0px;
   height: 1.2em; text-align: right;
   padding-left: 1em;
   padding-right: 1em; 
   font-size: 60%;
-  color: red; background: rgb(240,240,240);
+  color: red; 
+   background: black;
 }
 
 div.background {
-  display: none;
+  ssdisplay: none;
 }
 
 div.handout {
@@ -38,6 +39,60 @@ div.handout {
   margin-right: 20px;
 }
 
+
+div.header {
+  position: absolute;
+  ssz-index: 15000;
+  left: 0px;
+  right: 0px;
+  top: 0px;
+  bottom: auto;
+  height: 60px;
+  width: 100%; 
+  ssbackground-color: red;
+  sborder-bottom: 3px solid #444444;
+}
+
+
+
+
+
+div.slide {
+  z-index: 20;
+  padding-top: 0;
+  padding-bottom: 0;
+
+  margin-bottom: 50px;
+
+  border-width: 0;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  line-height: 120%;
+  ssbackground-color: green;
+}
+
+
+
+div.slide h1 {
+  
+  padding: 10px;
+  mmpadding-right: 1em;
+  mmpadding-top: 0.3em;
+  mmpadding-bottom: 0.3em;
+  mmmargin-top: 0;
+  mmmargin-left: 0;
+  mmmargin-right: 0;
+  margin-bottom: 0.8em;
+  display: block; 
+  font-size: 140%;
+  line-height: 1.2em;
+  color: white;
+  background-color: #4C6892;
+  border-bottom: 3px solid #444444;
+
+}
 div.slide.titlepage {
   text-align: center;
 }
@@ -46,41 +101,16 @@ div.slide.titlepage.h1 {
   padding-top: 40%;
 }
 
-div.slide {
-  z-index: 20;
-  margin: 0 0 0 0;
-  padding-top: 0;
-  padding-bottom: 0;
-  padding-left: 20px;
-  padding-right: 20px;
-  border-width: 0;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  line-height: 120%;
-  background-color: transparent;
-}
-
 /* this rule is hidden from IE6 which doesn't support + selector */
 div.slide + div[class].slide { page-break-before: always;}
 
 
 
 pre {
- color: rgb(0,128,0); font-size: 80%;
- font-weight: bold; line-height: 120%;
- padding-top: 0.2em;
- padding-bottom: 0.2em;
- padding-left: 2em;
- padding-right: 1em;
- border-style: solid;
- border-left-width: 1em;
- border-top-width: thin;
- border-right-width: thin;
- border-bottom-width: thin;
- border-color: #95ABD0;
- color: #00428C;
+    background-color: #eeeeee;
+    padding: 5x;
+    border: 1px dashed #dddddd;
+    margin-bottom: 10px;
 }
 
 li pre { margin-left: 0; }
@@ -226,17 +256,24 @@ div.cover div.header
   color: #FFFFFF;
   border-width: 0;
   border-style: solid;
-  background-color: #005A9C;
-  border-bottom-width: thick;
-  border-bottom-color: #95ABD0;
+  background-color: #566282;
+  border-bottom: 5px solid #666666;
 }
+
+
 div.slide.cover h1
 {
   float: left;
   margin-bottom: 0;
-  background-color: #005A9C;
+  background-color: transparent;
+   border: none;
 /*  background-color: #00428C; */
 }
+
+
+
+
+
 
 div.slide h1 a:link {color: white}
 div.slide h1 a:visited {color: white}
@@ -344,49 +381,15 @@ p{
 }
 
 
-.footer{
-    font-size: 10pt;
-    color: pink;
-}
-
-div.header {
-  position: absolute;
-  z-index: 2;
-  left: 0px;
-  right: 0px;
-  top: 0px;
-  bottom: auto;
-  height: 50px;
-  width: 100%; 
-  background-color: #4C6892;
-  border-bottom: 3px solid #444444;
-}
-
-div.slide h1 {
-  padding: 10px;
-  mmpadding-right: 1em;
-  mmpadding-top: 0.3em;
-  mmpadding-bottom: 0.3em;
-  mmmargin-top: 0;
-  mmmargin-left: 0;
-  mmmargin-right: 0;
-  mmmargin-bottom: 0.8em;
-  display: block; 
-  font-size: 140%;
-  line-height: 1.2em;
-  color: white;
-  ssbackground-color: pink;
-}
-
 div.footer {
   position: absolute;
-  z-index: 80;
-  left: 0;
-  right: 0;
+  z-index: 400001;
+  left: 0px;
+  right: 0px;
   top: auto;
-  bottom: 0;
-  height: 60px;
-  margin: 0;
+  bottom: 18px;
+  height: 50px;
+  margin: 0px;
   font-size: 80%;
   font-weight: bold;
   padding-left: 1em;
