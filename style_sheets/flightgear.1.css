@@ -219,7 +219,10 @@ body{
 /******************************************/
 /**  Toolbar **/
 /******************************************/
-.toolbar{}
+.toolbar{
+
+ height: 60px;
+}
 
 .toolbar .box{
 	float: left;
@@ -227,7 +230,7 @@ body{
 	background-color: #dddddd;
 	margin-right: 10px;
 	padding: 10px;
-    height: 50px;
+   
 }
 
 .toolbar .box h5{
