@@ -20,7 +20,7 @@ class fgObject
 			return;
 		}
 
-		//** its its an array, then its a setter getter
+		//** Its an array, then its a setter getter
 		if(is_array($mixed)){
 			foreach($mixed as $key => $value){
 				if(is_array($value)){
@@ -32,7 +32,7 @@ class fgObject
 			return;
 		}
 
-		//** Assumed a key so getter/getter
+		//** Assumed a key so getter/getter 0 or > 0
 		global $db;
 		$this->db = $db;
 		$this->_ID = $mixed;

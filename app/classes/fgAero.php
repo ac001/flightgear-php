@@ -12,11 +12,12 @@ class fgAero extends fgObject
 {
 
 	private $_servers = array();
+	public $xmlSet = null;
+	public $xmlModel = null;
 	
 	
 	public function __construct($id = null){
 		parent::__construct($id);
-
 		if($this->id() > 0){
 			$this->load();
 		}
@@ -118,9 +119,49 @@ class fgAero extends fgObject
 		return  $this->db->getAll($sql, $this->id());
 	}
 
-    public function getXmlSet(){
-        $file_name = $this->directory.'/'.$this->aero.'-set.xml';
 
+    public function DEADgetXmlSet(){
+        $file_name = FG_ROOT.'Aircraft/'.$this->directory.'/'.$this->aero.'-set.xml';
+		
+		$contents = fgHelper::loadFile($file_name);
+		$xml = simplexml_load_string($contents);
+		##
+		fgHelper::plain();
+		echo $file_name."'\n\n";
+		echo "#".$xml->sim->description;
+		echo "\n-------------------\n\n";
+		print_r($xml);
+		foreach($xml as $k){
+			//echo "$k#\n";
+			
+		}
+		
+		//echo $contents;
     }
+
+	public function xmlPath(){
+		return FG_ROOT.'Aircraft/'.$this->directory.'/'.$this->xml_set;
+	}
+
+	public function loadXmlSet(){
+		$this->xmlSet = new fgXmlAeroSet($this->xmlPath());
+	}
+
+	public function loadXmlModel(){
+		$this->xmlModel = new fgXmlAeroSet($this->xmlPath());
+	}
+
+	public function info(){
+		if(!isset($this->xmlSet)){
+			$this->loadXmlSet();
+		}
+		$array = array();
+		$array['help'] = $this->xmlSet->help();
+		$array['keyboard'] = $this->xmlSet->keyboard();
+		$array['tanks'] = $this->xmlSet->tanks();
+
+		return $array;
+	}
+
 }
 ?>

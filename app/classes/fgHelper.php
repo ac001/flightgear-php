@@ -10,6 +10,10 @@
 */
 class fgHelper
 {
+	public static function plain(){
+		header('Content-type: text/plain');
+	}
+
 	public static function loadFile($file_path){
 		# TODO error file_exists and parse error handlers
 		if(!file_exists($file_path)){
