@@ -19,8 +19,8 @@ this.aircraftGrid.grid.on('aero_selected', function(aero_id){
 
 			var json = Ext.decode(response.responseText);
 
-			self.aeroMainWidget.setTitle(json.aero.name)
-	
+			//self.aeroMainWidget.setTitle(json.aero.name)
+			Ext.get('aero_title').update(json.aero.name);
 			//img.setAttribute('src', json.info.thumbnail);
 
 			//console.log(json.images);
@@ -34,9 +34,9 @@ this.aircraftGrid.grid.on('aero_selected', function(aero_id){
 				img.setAttribute('src', json.images.thumb);
 			}
 
-			Ext.get('aero_details_tab').update(json.html);
-			var hlp =  json.info.help ?  json.info.help : 'No help available';
-			self.helpPanel.update('<pre>' + hlp + '</pre>');
+			//Ext.get('aero_details_tab').update(json.html);
+			//var hlp =  json.info.help ?  json.info.help : 'No help available';
+			//self.helpPanel.update('<pre>' + hlp + '</pre>');
 
 			self.keysStore.loadData(json.info);
 
@@ -67,6 +67,7 @@ this.keysGrid = new Ext.grid.GridPanel({
 	height: 400,
 	//layout: 'fit',
 	plain: true,
+	border: false,
 	autoScroll: true,
 	enableHdMenu: false,
 	viewConfig: {emptyText: 'No keys', forceFit: true}, 
@@ -100,38 +101,36 @@ this.aeroRightCol = new Ext.Panel({
 	items: [ this.splashPanel, this.keysGrid ]
 });
 
-this.details = new Ext.Panel({
- 
-})
+
 this.aeroDetailsPanel = new Ext.Panel({
         layout: 'border',
 		title: 'Details',
 		border: false,
         activeTab: 0,
         plain: true,
-		items: [{html: '', id: 'aero_details_tab', region: 'center'}
+		items: [ {html: '', id: 'aero_details_tab', region: 'center', border: false}
 				, this.aeroRightCol
 		]
 });
-
+/*
 this.helpPanel = new Ext.Panel({
 	title: '<b>Help</b>',  
 	html: '<div id="aero_help_tab"></div>'
 });
-
+*/
 this.tabPanel = new Ext.TabPanel({
         //layout: 'accordion',
 		border: false,
         activeTab: 0,
-        plain:false,
+        plain:true,
 		height: 600,
         defaults:{autoScroll: true},
         items:[
 				//this.grid,
 				this.aeroDetailsPanel,
 				
-				{ title: '<b>Splash</b>', html: '<img src="images/no_image.gif" id="aero_splash">'},
-				this.helpPanel
+				{ title: '<b>Splash</b>', html: '<img src="images/no_image.gif" id="aero_splash">'}
+				//this.helpPanel
         ]
 	
 });   
@@ -141,9 +140,11 @@ this.tabPanel = new Ext.TabPanel({
 this.aeroMainWidget = new Ext.Panel({
 	//layout: 'border',
 	border: false,
-	title: '--',
+	//title: '--',
+	//hideTitle: true,
+	deferredRender: false,
 	renderTo: 'aero_main_widget',
-	plain: false,
+	plain: true,
 	items: [ this.tabPanel ]
 });
 

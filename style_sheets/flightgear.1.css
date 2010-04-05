@@ -744,6 +744,17 @@ llfloat: left;
 /*********************************************/
 /** Aero Stuff **/
 /*********************************************/
+
+#aero_box h1{
+	border-bottom: 1px solid #efefef;
+	width: 100%;
+	text-align: right;
+	font-size: 14pt;
+	color: #444444;
+	margin: 0px 0px 10px 0px;
+}
+
+
 table.aero_table{
 	margin: 10px 0px 10px 20px;
 }
@@ -767,6 +778,10 @@ table.aero_table td{
 
 #aero_splash{
 	margin: 50px;
+}
+#aero_thumb{
+	margin: 5px 0px 0px 10px;
+	text-align: center;
 }
 /* the help stuff */
 #aero_help_tab{
