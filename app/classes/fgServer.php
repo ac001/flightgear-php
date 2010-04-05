@@ -44,6 +44,11 @@ class fgServer extends fgObject
 
 	public static function index($server_type_key = null){
 		global $db;
+        static $cached = array();
+        $server_type_key = is_null($server_type_key) ? '__ALL__' : $server_type_key;
+        if(array_key_exists($server_type_key, $cached)){
+              return $cached[$server_type_key];
+        }
 		$vars = array();
 		$sql = 'select * from servers ';
 		$sql .= ' inner join server_types on server_types.server_type_id = servers.server_type_id ';
@@ -52,7 +57,8 @@ class fgServer extends fgObject
 			$vars[] = $server_type_key;
 		}
 		$sql .= ' order by host asc';
-		return $db->getAll($sql, $vars );
+		$cached[$server_type_key] = $db->getAll($sql, $vars );
+        return $cached[$server_type_key];
 	}
 
 	public function feed(){

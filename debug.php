@@ -10,8 +10,20 @@ $foo = new fgMpServer(); //::index();
 $foo->url;
 
 $db->debug=1;
+
+// Cahce test
+/*
+(fgServer::index('mpserver'));
+(fgServer::index('mirror'));
+(fgServer::index('mpmap'));
+(fgServer::index('mpserver'));
+(fgServer::index('mirror'));
+*/
+
+die();
 $aero = new fgAero(20);
 print_r($aero->authors());
+
 
 
 die();

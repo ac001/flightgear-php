@@ -44,6 +44,18 @@ class fgMpServer extends fgObject
 		return fgServer::index($this->server_type);
 	}
 
+    public function status(){
+        static $cached = null;
+        if($cached){
+            return $cached;
+        }
+        $servers = fgServer::index($this->server_type);
+        foreach($servers as $s){
+            $cached[substr($s['nick'],-2)] = array('status' => 'up', 'count' => '10');
+        }
+        return $cached;
+    }
+
 	public function feed(){
 		$arr = array();
 		$arr['mpservers'] = array_values($this->_servers);

@@ -86,19 +86,28 @@ body{
 /** Portal Box ***/
 /********************************************************************/
 .portal_box{
-	border: 1px solid #224275;
+	border: 1px solid #778CBC;
 	border-radius: 10px;
 	-moz-border-radius: 10px; 
 	-webkit-border-radius: 10px;
+    background-color: #E2E7F3;
 }
 .portal_box h2{
-	border-bottom: 1px solid #cccccc;
-	color: #333333;
+	border-bottom: 1px solid #61749D;
+	color: #4B649A;
 }
 
 .portal_box li a{
-	border-left: 3px solid #cccccc;
-	border-right: 3px solid #cccccc;
+    border-top: 1px solid transparent;
+    border-bottom: 1px solid transparent;
+    border-left: 3px solid transparent;
+    border-right: 3px solid transparent;
 	color: black;
+}
+.portal_box li a:hover{
+    border-top: 1px solid #7195CC;
+    border-bottom: 1px solid #7195CC;
+    border-left: 3px solid #7195CC;
+    border-right: 3px solid #7195CC;
 }
 

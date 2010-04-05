@@ -50,24 +50,26 @@
 	{if $nav_content}
 		{include file=$nav_content}
 	{else}
-	<!--## Page Navigation  ##-->
-	<div id="page_nav">
-		<ul>
-		{foreach item=Nitem from=$Site->pageNav()}
-			<li><a {if $Nitem.section == $Site->section and !$Site->page}class="selected"{/if} href="?section={$Nitem.section}" >{$Nitem.label}</a>
-			{if $Nitem.subnav}
-			<ul>
-			{foreach item=Nsub key=sub_sec from=$Nitem.subnav}
-				<li><a {if $Nsub.page == $Site->page}class="selected"{/if} 
-						href="?section={$Nitem.section}&page={$Nsub.page}">{$Nsub.label}</a></li>
-			{/foreach}
-			</ul>
-			{/if}
-		{/foreach}
-		</ul>
-	</div>
+        <!--## Page Navigation  ##-->
+        <div id="page_nav">
+            <ul>
+            {foreach item=Nitem from=$Site->pageNav()}
+                <li><a {if $Nitem.section == $Site->section and !$Site->page}class="selected"{/if} href="?section={$Nitem.section}" >{$Nitem.label}</a>
+                {if $Nitem.subnav}
+                <ul>
+                {foreach item=Nsub key=sub_sec from=$Nitem.subnav}
+                    <li><a {if $Nsub.page == $Site->page}class="selected"{/if} 
+                            href="?section={$Nitem.section}&page={$Nsub.page}">{$Nsub.label}</a></li>
+                {/foreach}
+                </ul>
+                {/if}
+            {/foreach}
+            </ul>
+        </div>
 	{/if}
-
+    {if isset($nav_include)}
+        {include file=$nav_include}
+    {/if}
 
 	<!--## Atom Link  ##-->
 	{*<p style="text-align: right; margin-top: 40px;"><a href="#"><img src="images/missc/feed_atom.gif" alt="atom"></a></p>*}
@@ -90,8 +92,39 @@
 
 	
 	<h1>{$Site->title}</h1>
-
-	
+    {*
+    <div id="mp_toolbar">
+         <table>
+            <tr>
+                {foreach from=$Site->fgMpServer->status() item=i key=srv}
+                    <th>{$srv}</th>
+                {/foreach}
+                <td>
+            </tr>
+            <tr>
+                {foreach from=$Site->fgMpServer->status() item=i key=srv}
+                    <th>{$i.status}#</th>
+                {/foreach}
+                <td>
+            </tr>
+            <tr>
+                {foreach from=$Site->fgMpServer->status() item=i key=srv}
+                    <th>{$i.count}#</th>
+                {/foreach}
+                <td>
+            </tr>
+            <tr>
+            <th><a href="#">Pilots &gt;</a></th>
+            <td>--</td>
+            <th><a href="#">ATC &gt;</a></th>
+            <td>--</td>
+            <th><a href="#">Servers &gt;</a></th>
+            <td><span class="status_up">0 Up</span></td>
+            <td><span class="status_down">0 down</span></td>
+            </tr> 
+        </table>
+    </div>
+      *}
 	<div class="toolbar">
 
         {**** Google Search ***********************************************}

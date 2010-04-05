@@ -1,4 +1,3 @@
-
 /***************************************/
 /* Unique Items */
 /***************************************/
@@ -15,7 +14,7 @@
 /* Trademark */
 .tm{
 	color: #000066;
-	font-family: serif;
+	font-family: courier;
 }
 
 /* Multiplayer server status */
@@ -65,6 +64,21 @@ a.refresh_button {
 a.refresh_button:hover {
 	background-color: #D0D8E4;
 	color: #000099;
+}
+
+/*******************************************************/
+/** The About that appears in the nav bar on portal */
+/********************************************************/
+#portal_about{
+    font-size: 11pt;
+    margin-top: 40px;
+    line-height: 140%;
+    border-top: 1px solid #bbbbbb;
+    border-bottom: 1px solid #bbbbbb;
+    padding: 20px 0px 10px 0px;
+}
+#portal_about p{
+   padding: 0px 5px 10px 0px;
 }
 
 /****************************************************************************/
@@ -126,6 +140,15 @@ a.refresh_button:hover {
    logo           | sites_nav
    page_nav       | top_banner
                   | content  | right_box
+
+    IMPORTANT:
+        the 
+            #header_container 
+        and
+            #left_container #flightgear_logo_box
+
+        Need to be the same height = 200px at present
+
 */
 
 body{
@@ -138,7 +161,8 @@ body{
 }
 
 /***************************************/
-/** Left Container **/
+/** Left Container with Logo and pageNav **/
+/***************************************/
 #left_container{
 	float: left;
 	width: 180px;
@@ -154,7 +178,8 @@ body{
 	line-height: 130%;
 }
 /***************************************/
-/** Header Container **/
+/** Header Container - the whole top block **/
+/***************************************/
 #header_container{
 	margin-left: 200px;
 	margin-bottom: 5px;
@@ -171,6 +196,30 @@ body{
 	margin-bottom: 10px;
 }
 
+/***************************************/
+/** Multiplayer Toolbar TODO **/
+/***************************************/
+#mp_toolbar{
+    background-color: #cccccc;
+    color: green;
+}
+#mp_toolbar table{
+    border: 1px solid red;
+    width: 100%;
+    font-size: 8pt;
+}
+#ssmp_toolbar table{
+    ssborder: 1px solid red;
+    width: 100%;
+}
+#mp_toolbar table th{
+    text-align: center;
+    border: 1px inset #999999;
+}
+
+#mp_toolbar table td{
+    text-align: center;    
+}
 
 /******************************************/
 /**  Toolbar **/
@@ -183,6 +232,7 @@ body{
 	background-color: #dddddd;
 	margin-right: 10px;
 	padding: 10px;
+    height: 50px;
 }
 
 .toolbar .box h5{
@@ -218,6 +268,7 @@ body{
 /** Content Container **/
 #content_container{
 	margin-left: 200px;
+    min-height: 500px;
 }
 
 
@@ -738,7 +789,7 @@ llfloat: left;
 .portal_box{
 	background-color: #efefef;
 	float: left;
-	margin: 10px;
+	margin: 0px 10px 10px 0px;
 	padding: 5px;
 	border: 1px solid #cccccc;
 	width: 250px;
@@ -761,15 +812,11 @@ llfloat: left;
 	font-size: 10pt;
 	padding: 4px;
 	text-decoration: none;
-	border-left: 3px solid #efefef;
-	border-right: 3px solid #efefef;
 }
 .portal_box li a:hover{
 	background-color: white;
 	color: blue;
 	text-decoration: none;
-	border-left: 3px solid #7195CC;
-	border-right: 3px solid #7195CC;
 }
 /********************************************************************/
 /** Sub Tabs ***/
