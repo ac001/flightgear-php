@@ -46,7 +46,7 @@ class fgSite
 		$this->nav_items = array();
 
 		//** Intersite Navigation
-		$this->addSiteNav('portal', 'index.php',  'Home' );
+		$this->addSiteNav('portal', 'index.php',  'Portal' );
 		//$this->addSiteNav('online', 'online.php',  'Online' );
 		$this->addSiteNav('www', 'www.php',  'Website');
 		$this->addSiteNav('aircraft', 'aircraft.php',  'Aircraft');
