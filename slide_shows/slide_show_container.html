@@ -24,6 +24,15 @@
 {* $template_file *}
 {include file=$template_file}
 
+{if !isset($smarty.get.download_template)}
+
+<!--# Slide: 1 -->
+<div class="slide">
+    <h1>The end.</h1>
+    <p style="padding: 100px">&gt; <a href="?">Return to Index</a> &lt;</p>
+</div>
+
+
 <!--# Footer -->
 <div class="footer">
     <a href="?"><img src="{$SITE_URL}/flightgear.smaller.png" alt="fg"/></a>
@@ -33,8 +42,9 @@
         <a href="{$SITE_URL}?download_template">Download Template</a> - 
         <a href="?">Index</a>
     </div>
-    <p><b>Presentation Title - </b> - Author - </p>
+    <p><b>{$show.title}</b> - {$show.author}</p>
 </div>
+{/if}
 
 </body>
 </html>
