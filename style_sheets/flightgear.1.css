@@ -756,7 +756,7 @@ llfloat: left;
 
 #aero_box p.intro{
 	margin: 50px;
-	font-size: 10px;
+	font-size: 10pt;
 }
 
 #aero_box pre{

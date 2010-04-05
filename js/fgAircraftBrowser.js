@@ -34,7 +34,7 @@ this.aircraftGrid.grid.on('aero_selected', function(aero_id){
 			var ht = Ext.get('aero_help_tab');
 			if(ht){ //** wtg.. not there first time
 				var hlp =  json.info.help ?  json.info.help : 'No help available';
-				ht.update(hlp);
+				ht.update('<pre>' + hlp + '</pre>');
 			}
 
 			self.keysStore.loadData(json.info);
