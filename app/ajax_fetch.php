@@ -39,7 +39,7 @@ try{
 			$smarty->assign('Aero', $Aero);
 			$html =  $smarty->fetch("aircraft/aero.html");
 			//echo $html;
-			$Response->add('html', $html);
+			//$Response->add('html', $html);
 			$Response->add('aero', $Aero->info());
 			break;
 
