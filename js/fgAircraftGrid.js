@@ -76,7 +76,7 @@ this.grid.on("rowclick", function(grid, idx, e){
 	self.statusBar.getEl().mask('Loading ');
 	Ext.Ajax.request({
 		url: AJAX_FETCH,
-		params: { fetch: 'aero_html', aero_id: rec.get('aero_id') },
+		params: { fetch: 'aero_info', aero_id: rec.get('aero_id') },
 		success: function(response, opts) {
 			var obj = Ext.decode(response.responseText);
 			Ext.get('content_container').update(obj.html);

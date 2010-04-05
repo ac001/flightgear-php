@@ -27,8 +27,9 @@ class fgAero extends fgObject
 		$sql = 'select * from aero where aero_id=? limit 1';
 		$this->setData( $this->db->getRow($sql, $this->id()) );
 	}
-	public function DEADthumbnail(){
-		return 'Aircraft/'.$this->directory.'/thumbnail.jpg';
+	public function thumbnail(){
+		$file_path = 'CVS/data/'.'Aircraft/'.$this->directory.'/thumbnail.jpg';
+		return $file_path;
 	}
 
 	public function save(){
@@ -140,11 +141,11 @@ class fgAero extends fgObject
     }
 
 	public function xmlPath(){
-		return FG_ROOT.'Aircraft/'.$this->directory.'/'.$this->xml_set;
+		return FG_ROOT.'Aircraft/'.$this->directory.'/';
 	}
 
 	public function loadXmlSet(){
-		$this->xmlSet = new fgXmlAeroSet($this->xmlPath());
+		$this->xmlSet = new fgXmlAeroSet( $this->xml_set, $this->xmlPath());
 	}
 
 	public function loadXmlModel(){
@@ -156,6 +157,7 @@ class fgAero extends fgObject
 			$this->loadXmlSet();
 		}
 		$array = array();
+		$array['thumbnail'] = $this->thumbnail();
 		$array['help'] = $this->xmlSet->help();
 		$array['keyboard'] = $this->xmlSet->keyboard();
 		$array['tanks'] = $this->xmlSet->tanks();

@@ -9,7 +9,7 @@ $pages = null;
 
 if($Site->Request->aero_id > 0){
 	$Aero = new fgAero($Site->Request->aero_id);
-
+	//print_r($Aero);
 	$Site->addPageNav('aero', $Aero->aero);
 	$smarty->assign('Aero', $Aero);
 	

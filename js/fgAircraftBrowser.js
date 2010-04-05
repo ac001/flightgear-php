@@ -6,12 +6,6 @@ var self = this;
 
 
 
-
-
-
-
-
-
 /*
 this.frmAero = new Ext.form.FormPanel({
 	title: '<b>Authors</b>',

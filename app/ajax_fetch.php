@@ -4,13 +4,13 @@
 //** Handles inserts updates and tasks
 //***************************************************
 
-$LOAD_DB = true;
 require_once('../config/config.inc.php');
 
 $Response = new fgResponse();
 //print_R($smarty);
 
 //$Site = new fgSite('rpc','RPC');
+fgHelper::plain();
 
 try{
 	//* check action is set
@@ -33,12 +33,14 @@ try{
 			$Response->add('aircraft', fgAero::index());
 			break;
 
-		case 'aero_html':
+		case 'aero_info':
+			//print_r($smarty);
 			$Aero = new fgAero($_REQUEST['aero_id']);
 			$smarty->assign('Aero', $Aero);
 			$html =  $smarty->fetch("aircraft/aero.html");
 			//echo $html;
 			$Response->add('html', $html);
+			$Response->add('aero', $Aero->info());
 			break;
 
 		default:
