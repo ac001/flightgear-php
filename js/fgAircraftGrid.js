@@ -15,7 +15,6 @@ this.store = new Ext.data.JsonStore({
 	sortInfo: {field: "name", direction: 'ASC'}
 });
 
-this.store.load();
 
 //**** Search Text 
 this.searchText = new Ext.form.TextField({
