@@ -17,7 +17,7 @@ echo $Aero->xmlPath()."\n";
 //$aeroXml = new fgXmlAeroSet($a->xmlFile());
 
 $info = $Aero->info();
-//print_r($info);
+print_r($info);
 die;
 //echo $aeroXml->help();
 
