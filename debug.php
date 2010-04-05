@@ -8,10 +8,10 @@ $Site = new fgSite('webdev', 'DEV');
 //fgMpServer::index();
 //print_r($foo->index());
 //$foo->url;
-
+$aero_id = $_GET['aero_id'];
 //$db->debug=1;
 fgHelper::plain();
-$Aero = new fgAero(10);
+$Aero = new fgAero($aero_id);
 //print_r($a);
 echo $Aero->xmlPath()."\n";
 //$aeroXml = new fgXmlAeroSet($a->xmlFile());
