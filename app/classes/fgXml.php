@@ -21,7 +21,7 @@ class fgXml
 	}
 
 	public function loadFile($file_path){
-		echo "\n############################file_path=$file_path\n";	
+		//echo "\n############################file_path=$file_path\n";	
 		$new_idx = count($this->Doc);
 		$string= fgHelper::loadFile($file_path);
 		$this->Doc[$new_idx] = simplexml_load_string($string);
