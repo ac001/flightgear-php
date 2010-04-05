@@ -2,19 +2,18 @@
 <div class="slide">
 
 
-<h1>Slide Shows Index </h1>
-
-<div style="float: right;">To return back here click the Logo 
-	<img src="../images/arrow-up.jpg" style="width: 30px; height: 30px; margin: 0px 20px 0px 30px;"></div>
+<h1>{$SlideShow.title}</h1>
 
 
 <ul style="margin-top: 100px;">
-<li><a href="?slide_show=circuit">Flying a Circuit</a> - take off and land</li>
-{*
-<li><a href="?slide_show=circuit">Circuit</a> - boo bar</li>
-<li><a href="?slide_show=cross_country">Cross Country</a></li> *}
+	{foreach from=$slide_shows key=k item=v}
+		<li><a href="?slide_show={$k}">{$v.title}</a>  <span style="font-size: 10pt;"> - {$v.author}</span></li>
+	{/foreach}
 </ul>
 
-<p style="margin-top: 100px;">More slide shows coming soon</p>
-<p>These slide shows use <a href="http://www.w3.org/Talks/Tools/Slidy/">Slidy</a>. Down load the template and create your own.</p>
+<p>Creating a slide show is easy, check out the 
+<a href="?slide_show=howto_slidw_show">How to create a Slide Show</a></p>
+
+<p>This presentation uses <a href="http://www.w3.org/Talks/Tools/Slidy/">Slidy</a></p>
+
 </div>

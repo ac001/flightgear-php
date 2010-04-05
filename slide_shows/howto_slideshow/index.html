@@ -1,0 +1,77 @@
+{assign var=d value='<b>my_dir/</b>'}
+
+<div class="slide">
+
+
+<h1>How to create a FlightGear slide show</h1>
+
+<p>This presentation uses <a href="http://www.w3.org/Talks/Tools/Slidy/">Slidy</a>, which is a 
+css and javascript.</p>
+
+<p>All that is required to create a show is to generate the content in <b>html</b> which are converted into slides when the document loads.</p>
+
+{source lang=html4strict}<!--## My Slide -->
+<div class="slide">
+	<h1>My Slide Title</h1>
+	<p>Contents</p>
+</div>{/source}
+
+
+<h2>Steps</h2>
+<ul>
+<li>Preparation</li>
+<li>Creating Slides</li>
+<li>Customisation</li>
+<li>Submission</li>
+</ul>
+
+</div>
+
+
+<div class="slide">
+<h1>Preparation</h1>
+
+<h2>Working Directory</h2>
+<p>Create a directory on your pc eg {$d}</p>
+<h2>Aquire Template</h2>
+<p>Download the <b><a href="template.html">template.html</a> file</b> and
+save to {$d}</p>
+
+<h2>Note</h2>
+<p>The template contains links to remote css and javascript so you'll need to be online at the moment.</p>
+</div>
+
+<div class="slide">
+
+
+<h1>Generate Markup</h1>
+<p>Create you slide content between the html comments.</p>
+<p>There is a placeholder header and a couple of slides are for replacment.</p>
+
+{source lang=html4strict}<!--## Slide Show: Start ##-->
+
+<!--# Slide: 1 -->
+<div class="slide">
+	<h1>First Slide Title</h1>
+	<p>Slide One contents</p>
+</div>
+
+<!--# Slide: 2 -->
+<div class="slide">
+	<h1>Second Slide Title</h1>
+	<h2>heading 2</h2>
+	<p>more content</p>
+	<ul>
+		<li>A point</li>
+		<li>Another Point</p>
+	</ul>
+</div>
+
+<!--## Slide Show: END ##-->
+{/source}
+
+
+<p></p>
+
+
+</div>
