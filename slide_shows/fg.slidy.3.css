@@ -102,12 +102,7 @@ div.slide + div[class].slide { page-break-before: always;}
 
 
 
-pre {
-    background-color: #eeeeee;
-    padding: 5x;
-    border: 1px dashed #dddddd;
-    margin-bottom: 10px;
-}
+
 
 li pre { margin-left: 0; }
 
@@ -272,8 +267,20 @@ div.slide.cover h1
 /*  background-color: #00428C; */
 }
 
-
-
+div.slide h2
+{
+    border-top: 1px solid #cccccc;
+    border-right: 50px solid #cccccc;
+    margin: 10px 50px 10px 50px;
+    padding-top: 5px;
+    ssbackground-color: pink;
+}
+div.slide p
+{
+    sbackground-color: red;
+    margin: 0px 50px 20px 50px;
+    font-size: 16pt;
+}
 
 
 
@@ -437,4 +444,12 @@ div[class="footer"] {
 }
 div.intro a{
   color: #B3C5F8;
+}
+
+pre {
+    background-color: #eeeeee;
+    padding: 10px;
+    border: 1px dashed #dddddd;
+    margin: 10px 50px 10px 50px;
+    font-size: 14pt;
 }
