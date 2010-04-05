@@ -40,8 +40,14 @@ this.aircraftGrid.grid.on('aero_selected', function(aero_id){
 			//console.log(img)
 			self.aeroPanel.setTitle(json.aero.name)
 			//img.setAttribute('src', json.info.thumbnail);
-			Ext.get('aero_content_details').update(json.html);
-			Ext.get('aero_help_details').update('<pre>' + json.info.help + '</pre>');
+			console.log(json.images);
+			console.log(json.images.splash);
+			var img = document.getElementById('aero_splash')
+			img.setAttribute('src', json.images.splash);
+
+			Ext.get('aero_details_tab').update(json.html);
+			var hlp =  json.info.help ?  json.info.help : 'No help available';
+			Ext.get('aero_help_tab').update('<pre>' + hlp + '</pre>');
 			//self.statusBar.getEl().unmask();
 		},
 		failure: function(response, opts) {
@@ -58,7 +64,7 @@ this.aircraftGrid.grid.on('aero_selected', function(aero_id){
 // second tabs built from JS
 this.tabPanel = new Ext.TabPanel({
         //layout: 'accordion',
-
+		border: false,
         activeTab: 0,
         plain:false,
 		height: 600,
@@ -66,14 +72,16 @@ this.tabPanel = new Ext.TabPanel({
         items:[
 				//this.grid,
 				//this.frmAero,
-				{ title: '<b>Details</b>', html: '', id: 'aero_content_details'},
-				{ title: '<b>Help</b>', html: '', id: 'aero_help_details'},
+				{ title: '<b>Details</b>', html: '', id: 'aero_details_tab'},
+				{ title: '<b>Splash</b>', html: '<img src="images/no_image.gif" id="aero_splash">'},
+				{ title: '<b>Help</b>', html: '', id: 'aero_help_tab'},
         ]
 	
 });   
 
 this.aeroPanel = new Ext.Panel({
 	//layout: 'border',
+	border: false,
 	title: '--',
 	renderTo: 'aero_main_widget',
 	plain: false,

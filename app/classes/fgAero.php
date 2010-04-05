@@ -27,10 +27,7 @@ class fgAero extends fgObject
 		$sql = 'select * from aero where aero_id=? limit 1';
 		$this->setData( $this->db->getRow($sql, $this->id()) );
 	}
-	public function thumbnail(){
-		$file_path = 'CVS/data/'.'Aircraft/'.$this->directory.'/thumbnail.jpg';
-		return $file_path;
-	}
+
 
 	public function save(){
 		$vars = array(	$this->aero, $this->directory, $this->xml_set,
@@ -121,25 +118,6 @@ class fgAero extends fgObject
 	}
 
 
-    public function DEADgetXmlSet(){
-        $file_name = FG_ROOT.'Aircraft/'.$this->directory.'/'.$this->aero.'-set.xml';
-		
-		$contents = fgHelper::loadFile($file_name);
-		$xml = simplexml_load_string($contents);
-		##
-		fgHelper::plain();
-		echo $file_name."'\n\n";
-		echo "#".$xml->sim->description;
-		echo "\n-------------------\n\n";
-		print_r($xml);
-		foreach($xml as $k){
-			//echo "$k#\n";
-			
-		}
-		
-		//echo $contents;
-    }
-
 	public function xmlPath(){
 		return FG_ROOT.'Aircraft/'.$this->directory.'/';
 	}
@@ -157,13 +135,34 @@ class fgAero extends fgObject
 			$this->loadXmlSet();
 		}
 		$array = array();
-		$array['thumbnail'] = $this->thumbnail();
+		$array['images'] = $this->images();
+		
 		$array['help'] = $this->xmlSet->help();
 		$array['tanks'] = $this->xmlSet->tanks();
 		$array['keyboard'] = $this->xmlSet->keyboard();
 		
 		//print_r($array);
 		return $array;
+	}
+
+
+	public function imgThumb(){
+		return 'CVS/data/'.'Aircraft/'.$this->directory.'/thumbnail.jpg';
+	}
+
+	public function imgSplash(){
+		if($this->splash == ''){
+			return 'images/no_image.gif';
+		}
+		if(substr($this->splash, -4) == '.rgb'){
+			return 'images/no_image.gif';
+		}
+		$file_path = 'CVS/data/'.$this->splash;
+		return $file_path;
+	}
+
+	public function images(){
+		return array('splash' => $this->imgSplash(), 'thumb' => $this->imgThumb());
 	}
 
 }

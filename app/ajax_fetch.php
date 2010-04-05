@@ -38,6 +38,7 @@ try{
 			$smarty->assign('Aero', $Aero);
 			$html =  $smarty->fetch("aircraft/ajax.aero.html");
 			//echo $html;
+			$Response->add('images', $Aero->images());
 			$Response->add('aero', $Aero->data());
 			$Response->add('html', $html);
 			$Response->add('info', $Aero->info());

@@ -765,8 +765,11 @@ table.aero_table td{
 	color: #222222;
 }
 
+#aero_splash{
+	margin: 50px;
+}
 /* the help stuff */
-#aero_help_details{
+#aero_help_tab{
 	padding: 20px;
 	
 	white-space: pre-wrap; /* css-3 */

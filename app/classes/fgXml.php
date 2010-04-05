@@ -71,7 +71,7 @@ class fgXml
 				return trim($arr[0]);
 			}
 		}
-		return '-';
+		return null;
 	}
 }
 
