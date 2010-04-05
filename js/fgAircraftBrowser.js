@@ -19,12 +19,9 @@ this.aircraftGrid.grid.on('aero_selected', function(aero_id){
 
 			var json = Ext.decode(response.responseText);
 
-			//self.aeroMainWidget.setTitle(json.aero.name)
 			Ext.get('aero_title').update(json.aero.name);
-			//img.setAttribute('src', json.info.thumbnail);
-
-			//console.log(json.images);
-			//console.log(json.images.splash);
+			Ext.get('aero_details_tab').update(json.html);
+			
 			var img = document.getElementById('aero_splash')
 			if(img){
 				img.setAttribute('src', json.images.splash);
@@ -34,9 +31,11 @@ this.aircraftGrid.grid.on('aero_selected', function(aero_id){
 				img.setAttribute('src', json.images.thumb);
 			}
 
-			//Ext.get('aero_details_tab').update(json.html);
-			//var hlp =  json.info.help ?  json.info.help : 'No help available';
-			//self.helpPanel.update('<pre>' + hlp + '</pre>');
+			var ht = Ext.get('aero_help_tab');
+			if(ht){ //** wtg.. not there first time
+				var hlp =  json.info.help ?  json.info.help : 'No help available';
+				ht.update(hlp);
+			}
 
 			self.keysStore.loadData(json.info);
 
@@ -108,16 +107,16 @@ this.aeroDetailsPanel = new Ext.Panel({
 		border: false,
         activeTab: 0,
         plain: true,
-		items: [ {html: '', id: 'aero_details_tab', region: 'center', border: false}
+		items: [ {html: '', id: 'aero_details_tab', region: 'center', border: false, plain: true}
 				, this.aeroRightCol
 		]
 });
-/*
+
 this.helpPanel = new Ext.Panel({
 	title: '<b>Help</b>',  
-	html: '<div id="aero_help_tab"></div>'
+	ssshtml: '<div id="asssero_help_tab"></div>'
 });
-*/
+
 this.tabPanel = new Ext.TabPanel({
         //layout: 'accordion',
 		border: false,
@@ -129,7 +128,8 @@ this.tabPanel = new Ext.TabPanel({
 				//this.grid,
 				this.aeroDetailsPanel,
 				
-				{ title: '<b>Splash</b>', html: '<img src="images/no_image.gif" id="aero_splash">'}
+				{ title: '<b>Splash</b>', html: '<img src="images/no_image.gif" id="aero_splash">'},
+				{html: '', id: 'aero_help_tab', title: 'Help'}
 				//this.helpPanel
         ]
 	
