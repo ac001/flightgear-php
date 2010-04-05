@@ -47,8 +47,9 @@ class fgSite
 
 		//** Intersite Navigation
 		$this->addSiteNav('portal', 'index.php',  'Portal' );
-		//$this->addSiteNav('online', 'online.php',  'Online' );
-		$this->addSiteNav('www', 'www.php',  'Website');
+		$this->addSiteNav('www', 'www.php',  'Info');
+		$this->addSiteNav('online', 'online.php',  'Online' );
+		
 		$this->addSiteNav('aircraft', 'aircraft.php',  'Aircraft');
 		$this->addSiteNav('scenery', 'http://scenemodels.flightgear.org/',  'Scenery');
 		$this->addSiteNav('wiki', 'http://wiki.flightgear.org',  'Wiki');
