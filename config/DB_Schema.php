@@ -7,6 +7,7 @@ $tables['aero'] = "
 aero_id I AUTO PRIMARY NOTNULL,
 aero C(30) NOTNULL INDEX,
 directory C(20) INDEX,
+xml_set C(30) NOTNULL INDEX,
 name C(100) INDEX,
 nick C(100) INDEX,
 description C(100) INDEX,

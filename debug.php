@@ -4,12 +4,17 @@ require_once('config/config.inc.php');
 
 $Site = new fgSite('webdev', 'DEV');
 
-$foo = new fgMpServer(); //::index();
+//$foo = new fgMpServer(); //::index();
 //fgMpServer::index();
 //print_r($foo->index());
-$foo->url;
+//$foo->url;
 
 $db->debug=1;
+
+$a = new fgAero(8);
+print_r($a);
+echo $a->getSetXml();
+
 
 // Cahce test
 /*

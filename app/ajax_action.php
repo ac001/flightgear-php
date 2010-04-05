@@ -54,6 +54,7 @@ try{
 			$obj->directory = $Req->directory;
 			$obj->name = $Req->description;
 			$obj->description = '';
+			$obj->xml_set = $Req->xml_set;
 			$obj->splash = $Req->splash;
 			$obj->fdm = $Req->get('flight-model');
 			$obj->status = $Req->status;

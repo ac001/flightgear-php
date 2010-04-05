@@ -38,6 +38,7 @@ if(!CLI){
 
  //* site root is parent to this file location
 define('SITE_ROOT', dirname(__FILE__).'/../');
+define('FG_ROOT', SITE_ROOT.'CVS/data/');
 
 
 //*************************************************************************

@@ -79,9 +79,12 @@ class ProcessCVSAircraft:
 			self.errors = []
 			for xml_file_path in aircraft_set_files:
 				#print "--------------------------------\n"
-				print "set=", self.curr_dir
+				#print "set=", self.curr_dir
 				
 				doc = self.process_set(xml_file_path)
+
+				self.dic['xml_set'] = xml_file_path.split('/')[-1]
+				##print xml_file_path, self.dic['set_xml']
 				#if 'version' in self.dic:
 				#	print "YYYYYYESSSSSSSS", self.dic
 					#sys.exit(0)

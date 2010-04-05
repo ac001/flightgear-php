@@ -31,21 +31,21 @@ class fgAero extends fgObject
 	}
 
 	public function save(){
-		$vars = array(	$this->aero, $this->directory, 
+		$vars = array(	$this->aero, $this->directory, $this->xml_set,
 						$this->name, $this->description, 
 						$this->splash, $this->fdm, $this->status
 					);
 		if($this->id() == 0){
 			$sql = 'insert into aero(
-					aero, directory, name, description, splash, fdm, status,  date_created
+					aero, directory, xml_set, name, description, splash, fdm, status,  date_created
 				)values(
-					?,    ?,         ?,    ?,           ?,      ?,   ?,      now()
+					?,    ?,         ?,        ?,    ?,           ?,      ?,   ?,      now()
 				)';
 				$this->db->execute($sql, $vars);
 				$this->insert_id();
 		}else{
 			$sql = 'update aero set
-					aero=?, directory=?, name=?, description=?, splash=?, fdm=?, status=?,  date_updated=now()
+					aero=?, directory=?, xml_set=?,  name=?, description=?, splash=?, fdm=?, status=?,  date_updated=now()
 					where aero_id = ?
 				';
 				$vars[] = $this->id();
@@ -117,5 +117,10 @@ class fgAero extends fgObject
 				where user_links.aero_id=?';
 		return  $this->db->getAll($sql, $this->id());
 	}
+
+    public function getXmlSet(){
+        $file_name = $this->directory.'/'.$this->aero.'-set.xml';
+
+    }
 }
 ?>
