@@ -65,21 +65,7 @@ div.slide {
 /* this rule is hidden from IE6 which doesn't support + selector */
 div.slide + div[class].slide { page-break-before: always;}
 
-div.slide h1 {
-  padding-left: 1em;
-  padding-right: 1em;
-  padding-top: 0.3em;
-  padding-bottom: 0.3em;
-  margin-top: 0;
-  margin-left: 0;
-  margin-right: 0;
-  margin-bottom: 0.8em;
-  display: block; 
-  font-size: 140%;
-  line-height: 1.2em;
-  color: white;
-  background-color: #005A9C;
-}
+
 
 pre {
  color: rgb(0,128,0); font-size: 80%;
@@ -370,13 +356,26 @@ div.header {
   right: 0px;
   top: 0px;
   bottom: auto;
-  height: 2.95em;
+  height: 50px;
   width: 100%; 
-  sborder-width: 0;
-  sborder-style: solid;
-  sbackground-color: #2957A0;
-  sborder-bottom-width: thick;
-  sborder-bottom-color: #95ABD0;
+  background-color: #4C6892;
+  border-bottom: 3px solid #444444;
+}
+
+div.slide h1 {
+  padding: 10px;
+  mmpadding-right: 1em;
+  mmpadding-top: 0.3em;
+  mmpadding-bottom: 0.3em;
+  mmmargin-top: 0;
+  mmmargin-left: 0;
+  mmmargin-right: 0;
+  mmmargin-bottom: 0.8em;
+  display: block; 
+  font-size: 140%;
+  line-height: 1.2em;
+  color: white;
+  ssbackground-color: pink;
 }
 
 div.footer {
@@ -396,6 +395,7 @@ div.footer {
   padding-bottom: 0;
   color: #003366;
   background-color: #9FAEC4;
+  border-top: 2px solid #444444;
 }
 div.footer img{
     float: right;
@@ -419,10 +419,10 @@ div[class="footer"] {
 }
 
 #fg_screen_logo{
-    width: 200px; 
+    width: 135px; 
     float: right; 
     margin: 50px;
-    border: 1px outset #cccccc;
+    border: 5px outset #cccccc;
     z-index: 40000;
     background-color: #efefef;
     border-radius: 20px;
