@@ -1,20 +1,21 @@
 <?php
 
 require_once('../config/config.inc.php');
-//** Keeping self contained
+
+//** Keeping self contained ie own images etc
+
 $template_path = SITE_ROOT.'slide_shows/';
 
 $url = 'http://'.$_SERVER['HTTP_HOST'].dirname($_SERVER['SCRIPT_NAME']);
-//header('Content-type: text/plain');
-//echo $url."#";
-
- // 
-
 $smarty->assign('SITE_URL', $url);
 
 if(isset($_GET['download_template'])){
+
+    header('Content-type: test/plain');
+    header('Content-Disposition: attachment; filename="slideshow_template.html"');
     $smarty->assign('template_file', $template_path.'_template_.html');
-    echo $smarty->fetch($template_path.'slide_show_container.html');
+    echo  $smarty->fetch($template_path.'slide_show_container.html');
+
     die;
 }
 

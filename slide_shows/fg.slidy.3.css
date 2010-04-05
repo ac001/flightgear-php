@@ -64,14 +64,11 @@ div.header {
 }
 
 
-
-
-
 div.slide {
   z-index: 20;
   padding-top: 0;
   padding-bottom: 0;
-
+  width: 100%;
   margin-bottom: 50px;
 
   border-width: 0;
